@@ -34,7 +34,7 @@ const QUESTIONS = [
   {
     name: 'name',
     type: 'input',
-    message: 'Project name:',
+    message: 'Project Name:',
     when: () => !yargs.argv['name'],
   },
 ];
