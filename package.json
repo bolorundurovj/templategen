@@ -1,5 +1,5 @@
 {
-  "name": "@bolorundurovb/mvcli ",
+  "name": "@bolorundurovb/mvcli",
   "version": "1.0.1",
   "description": "Noe Typescript",
   "main": "dist/index.js",
@@ -7,7 +7,7 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "start:watch": "nodemon --watch src --exec ts-node src/index.ts",
-    "build": "tsc && shx rm -rf dist/templates && shx cp -r src/templates dist"
+    "build": "tsc"
   },
   "bin": {
     "mvcli": "./dist/index.js"

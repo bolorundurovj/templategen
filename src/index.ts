@@ -2,114 +2,87 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-
-import * as inquirer from 'inquirer';
 import chalk from 'chalk';
 import * as shell from 'shelljs';
-import * as yargs from 'yargs';
-
-import * as template from './utils/template';
 
 export interface CliOptions {
-  projectName: string;
-  templateName: string;
-  templatePath: string;
-  tartgetPath: string;
+    projectName: string;
+    templateName: string;
+    templatePath: string;
+    targetPath: string;
 }
 
 const CURR_DIR = process.cwd();
 
-// list of files/folders that should not be copied
-const SKIP_FILES = ['node_modules', '.template.json'];
+const prompts = require('./utils/prompts');
+const filter = require('./utils/filter');
 
-const CHOICES = fs.readdirSync(path.join(__dirname, 'templates'));
-const QUESTIONS = [
-  {
-    name: 'template',
-    type: 'list',
-    message: 'What project template would you like to generate?',
-    choices: CHOICES,
-    when: () => !yargs.argv['template'],
-  },
-  {
-    name: 'name',
-    type: 'input',
-    message: 'Project Name:',
-    when: () => !yargs.argv['name'],
-  },
-];
+async function scaffoldProject() {
+    const projectTypeAnswer = await prompts.askProjectType();
+    const languageAnswers = await prompts.askLanguages(projectTypeAnswer.projectType);
+    console.log('Language Answers:', languageAnswers);
+    const frameworkAnswers = await prompts.askFrameworks(projectTypeAnswer.projectType, [...(languageAnswers.frontendLanguage !== undefined ? languageAnswers.frontendLanguage : []), ...(languageAnswers.backendLanguage !== undefined ? languageAnswers.backendLanguage : [])]);
+    const patternAnswer = await prompts.askPattern();
 
-inquirer.prompt(QUESTIONS).then((answers) => {
-  answers = Object.assign({}, answers, yargs.argv);
-  const projectChoice = answers['template'];
-  const projectName = answers['name'];
-  const templatePath = path.join(__dirname, 'templates', projectChoice);
-  const tartgetPath = path.join(CURR_DIR, projectName);
-  const options: CliOptions = {
-    projectName,
-    templateName: projectChoice,
-    templatePath,
-    tartgetPath,
-  };
-  if (!createProject(tartgetPath)) {
-    return;
-  }
-  createDirectoryContents(templatePath, projectName);
-  postProcess(options);
-  //console.log(options);
-});
+    // Combine all answers
+    const selections = {
+        projectType: projectTypeAnswer.projectType,
+        ...languageAnswers,
+        ...frameworkAnswers,
+        architecturePattern: patternAnswer.architecturePattern
+    };
 
-function createProject(projectPath: string) {
-  if (fs.existsSync(projectPath)) {
-    console.log(
-      chalk.red(`Folder ${projectPath} exists. Delete or use another name.`)
-    );
-    return false;
-  }
-  fs.mkdirSync(projectPath);
+    // Filter template choices based on selections
+    const templateChoices = filter.filterTemplateChoices(selections);
+    const templateAnswer = await prompts.askTemplate(templateChoices);
 
-  return true;
+    console.log('Selected options:', selections);
+    console.log('Selected template:', templateAnswer.template);
+
+    const projectNameAnswer = await prompts.askProjectName();
+
+    console.log('Project Name:', projectNameAnswer.projectName);
+
+    // Generate project based on selections
+    if (!createProject(projectNameAnswer.projectName, templateAnswer.template)) {
+        return;
+    }
+
+    // Post process
+    postProcess({
+        projectName: projectNameAnswer.projectName,
+        templateName: templateAnswer.template,
+        templatePath: path.join(__dirname, 'templates', templateAnswer.template),
+        targetPath: path.join(CURR_DIR, projectNameAnswer.projectName)
+    });
 }
 
-function createDirectoryContents(templatePath: string, projectName: string) {
-  // read all files/folders (1 level) from template folder
-  const filesToCreate = fs.readdirSync(templatePath); // loop each file/folder
-  filesToCreate.forEach((file) => {
-    const origFilePath = path.join(templatePath, file);
 
-    // get stats about the current file
-    const stats = fs.statSync(origFilePath);
-
-    // skip files that should not be copied
-    if (SKIP_FILES.indexOf(file) > -1) return;
-
-    if (stats.isFile()) {
-      // read file content and transform it using template engine
-      let contents = fs.readFileSync(origFilePath, 'utf8');
-      contents = template.render(contents, { projectName });
-      // write file to destination folder
-      const writePath = path.join(CURR_DIR, projectName, file);
-      fs.writeFileSync(writePath, contents, 'utf8');
-    } else if (stats.isDirectory()) {
-      // create folder in destination folder
-      fs.mkdirSync(path.join(CURR_DIR, projectName, file)); // copy files/folder inside current folder recursively
-      createDirectoryContents(
-        path.join(templatePath, file),
-        path.join(projectName, file)
-      );
+function createProject(projectPath: string, gitRepo: string) {
+    if (fs.existsSync(projectPath)) {
+        console.log(
+            chalk.red(`Folder ${projectPath} exists. Delete or use another name.`)
+        );
+        return false;
     }
-  });
+    if (shell.exec(`git clone ${gitRepo} ${projectPath}`).code !== 0) {
+        console.log(chalk.red(`Error cloning repository ${gitRepo} into ${projectPath}`));
+        return false;
+    }
+    return true;
 }
 
 function postProcess(options: CliOptions) {
-  const isNode = fs.existsSync(path.join(options.templatePath, 'package.json'));
-  if (isNode) {
-    shell.cd(options.tartgetPath);
-    const result = shell.exec('npm install');
-    if (result.code !== 0) {
-      return false;
+    console.log(chalk.green('Running post process'));
+    const isNode = fs.existsSync(path.join(options.targetPath, 'package.json'));
+    if (isNode) {
+        shell.cd(options.targetPath);
+        const result = shell.exec('npm install');
+        if (result.code !== 0) {
+            return false;
+        }
     }
-  }
-
-  return true;
+    return true;
 }
+
+scaffoldProject();
