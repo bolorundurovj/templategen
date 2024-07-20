@@ -36,7 +36,7 @@ const TEMPLATES: any = {
                 [Patterns.EventDriven]: []
             },
             [Frameworks.NestJS]: {
-                [Patterns.Monolithic]: [],
+                [Patterns.Monolithic]: ['https://github.com/bolorundurovj/nestjs-boilerplate'],
                 [Patterns.Microservices]: [],
                 [Patterns.CQRS]: [],
                 [Patterns.MVC]: [],

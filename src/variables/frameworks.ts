@@ -17,6 +17,7 @@ enum Frameworks {
 }
 
 const getFrameworkChoices = (projectType: ProjectTypes, language: Languages, altProjectType?: string): Array<Frameworks> => {
+    console.log(projectType, language, altProjectType);
     if (projectType === ProjectTypes.FULLSTACK) {
         if (altProjectType === 'frontend') {
             switch (language) {

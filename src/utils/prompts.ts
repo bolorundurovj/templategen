@@ -70,7 +70,7 @@ async function askFrameworks(projectType: ProjectTypes, language: Array<Language
             type: 'checkbox',
             name: 'backendFramework',
             message: 'Select the framework for backend:',
-            choices: getFrameworkChoices(projectType, language[1], 'backend'),
+            choices: getFrameworkChoices(projectType, language[0] ?? language[1], 'backend'),
             when: () => projectType !== ProjectTypes.FRONTEND
         }
     ];
