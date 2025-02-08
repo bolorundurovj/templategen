@@ -1,63 +1,193 @@
-<h1 align="center">Welcome to templategen 👋</h1>
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.1-blue.svg?cacheSeconds=2592000" />
-  <a href="/docs" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
-  <a href="/licence" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-  </a>
-  <a href="https://twitter.com/bolorundurovb" target="_blank">
-    <img alt="Twitter: bolorundurovb" src="https://img.shields.io/twitter/follow/bolorundurovb.svg?style=social" />
-  </a>
-</p>
+🚀 TemplateGen
+==============
 
-> A template project generator
+![Version](https://img.shields.io/badge/version-1.0.1-blue.svg) ![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg) ![License](https://img.shields.io/badge/License-MIT-yellow.svg) ![Twitter Follow](https://img.shields.io/twitter/follow/bolorundurovb.svg?style=social)
 
-### 🏠 [Homepage](/home)
+📑 Table of Contents
+--------------------
 
-### ✨ [Demo](/demo)
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Testing](#testing)
+6. [Contributing](#contributing)
+7. [Support](#support)
+8. [License](#license)
+9. [Author](#author)
 
-## Install
+🌍 Introduction
+---------------
 
-```sh
-npm install
-```
+Welcome to TemplateGen – a world-class CLI tool that effortlessly scaffolds your next project with style and efficiency.
+Designed with modern developers in mind, TemplateGen leverages the power of ES Modules and TypeScript to deliver a
+seamless experience from setup to deployment.
 
-## Usage
+🌟 Features
+-----------
 
-```sh
-npm run start
-```
+* ⚡️ Rapid Project Setup: Kickstart new projects in seconds
+* 🎨 Customizable Templates: Tailor templates to your workflow
+* 🔧 Modern Stack: Built with ES Modules + TypeScript
+* 📚 Developer-Friendly: Intuitive CLI & clear documentation
+* 🌈 Colorful Terminal Output: Visual feedback for all actions
 
-## Run tests
+📦 Installation
+---------------
 
-```sh
-npm run test
-```
+### Local Development
 
-## Author
+    git clone https://github.com/bolorundurovj/templategen.git
+    cd templategen
+    npm install
 
-👤 **Bolorunduro Valiant-Joshua**
+### Global CLI Tool
 
-* Website: bolorundurovb.live
-* Twitter: [@bolorundurovb](https://twitter.com/bolorundurovb)
-* Github: [@bolorundurovj](https://github.com/bolorundurovj)
-* LinkedIn: [@bolorundurovb](https://linkedin.com/in/bolorundurovb)
+    npm install -g @bolorundurovb/mvcli
 
-## 🤝 Contributing
+🚀 Usage
+--------
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](/issues). You can also take a look at the [contributing guide](/contributing).
+### Basic Generation
 
-## Show your support
+    npm run start
 
-Give a ⭐️ if this project helped you!
+### Global CLI Usage
 
-<a href="https://www.patreon.com/bolorundurovb">
-  <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
+    mvcli
 
-## 📝 License
+### Full CLI Arguments
 
-Copyright © 2021 [Bolorunduro Valiant-Joshua](https://github.com/bolorundurovj).<br />
-This project is [MIT](/licence) licensed.
+    mvcli \
+      --projectName "api-service" \
+      --projectType "backend" \
+      --language "python" \
+      --framework "FastAPI" \
+      --architecturePattern "microservices" \
+      --database "postgresql"
+
+### Interactive Mode
+
+    mvcli --projectName "my-app"
+    # Answer subsequent prompts
+
+<div class="command-reference">
+  <h2>Command Options Reference</h2>
+
+  <table class="options-table">
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>Required</th>
+        <th>Allowed Values</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--projectName</code></td>
+        <td>✅ Yes</td>
+        <td>Any valid string</td>
+        <td>Name for your project directory</td>
+      </tr>
+      <tr>
+        <td><code>--projectType</code></td>
+        <td>✅ Yes</td>
+        <td>
+          <code>frontend</code>, 
+          <code>backend</code>, 
+          <code>fullstack</code>
+        </td>
+        <td>Type of project to scaffold</td>
+      </tr>
+      <tr>
+        <td><code>--language</code></td>
+        <td>✅ Yes</td>
+        <td>
+          <code>javascript</code>, 
+          <code>typescript</code>, 
+          <code>python</code>, 
+          <code>csharp</code>
+        </td>
+        <td>Primary programming language</td>
+      </tr>
+      <tr>
+        <td><code>--framework</code></td>
+        <td>✅ Yes</td>
+        <td>Any specified framework name</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td><code>--architecturePattern</code></td>
+        <td>❌ No</td>
+        <td>
+          <code>monolithic</code>, 
+          <code>microservices</code>, 
+          <code>cqrs</code>, 
+          <code>mvc</code>, 
+          <code>event-driven</code>
+        </td>
+        <td>Architectural approach</td>
+      </tr>
+      <tr>
+        <td><code>--database</code></td>
+        <td>❌ No</td>
+        <td>
+          <code>mongodb</code>, 
+          <code>postgresql</code>, 
+          <code>mysql</code>, 
+          <code>sqlite</code>
+        </td>
+        <td>Database system integration</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="table-notes">
+    <p>💡 <strong>Note:</strong> When using interactive mode, you'll be prompted for any missing required options.</p>
+    <p>🔍 <strong>Validation:</strong> Invalid values will trigger error messages with suggestions</p>
+  </div>
+</div>
+
+#### To see all available commands
+
+    mvcli --help
+
+🧪 Testing
+----------
+
+    npm run test
+
+🤝 Contributing
+---------------
+
+We welcome contributions through:
+
+* 📝 [Issue tracking](/issues)
+* 🛠 [Contribution guidelines](/contributing)
+* 🔀 PR submissions
+
+❤️ Support
+----------
+
+Show your love:
+
+* ⭐️ Star the repository
+* 💖 [Support on Patreon](https://www.patreon.com/bolorundurovb)
+
+📜 License
+----------
+
+MIT Licensed - See [full license details](/licence)
+
+👨💻 Author
+-----------
+
+**Bolorunduro Valiant-Joshua**
+
+* 🌐 [Portfolio](https://bolorundurovb.live)
+* 🐦 [Twitter](https://twitter.com/bolorundurovb)
+* 💼 [LinkedIn](https://linkedin.com/in/bolorundurovb)
+* 👨💻 [GitHub](https://github.com/bolorundurovj)
+
+Made with ❤️ by BolorunduroVB • Happy coding! 🚀

@@ -1,18 +1,27 @@
 {
   "name": "@bolorundurovb/mvcli",
   "version": "1.0.1",
-  "description": "A simple CLI tool for scaffolding projects",
+  "description": "A modern CLI tool for scaffolding and generating project templates with style and ease.",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "node --loader ts-node/esm src/index.ts",
     "build": "tsc",
-    "bundle": "tsc && rollup dist/index.js --format esm --file dist/bundle.js"
+    "bundle": "tsc && rollup dist/index.js --format esm --file dist/bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "bin": {
     "mvcli": "./dist/index.js"
   },
+  "keywords": [
+    "cli",
+    "scaffold",
+    "generator",
+    "template",
+    "project",
+    "typescript"
+  ],
   "author": "Bolorunduro Valiant-Joshua",
   "license": "MIT",
   "devDependencies": {
