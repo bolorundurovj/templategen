@@ -6,6 +6,8 @@ import * as path from 'path';
 import {input, select, Separator} from '@inquirer/prompts';
 import chalk from 'chalk';
 import * as shell from 'shelljs';
+import yargs from 'yargs'
+import { hideBin } from 'yargs/helpers'
 
 export interface CliOptions {
     projectName: string;
@@ -351,8 +353,8 @@ const REPOS: any = {
     'fullstack-typescript-typescript-angular-nestjs-sqlite-event-driven': "https://github.com/bolorundurovj/templategen",
 };
 
-async function run() {
-    const projectType: string = await select({
+async function run(argv: any) {
+    const projectType: string = argv.projectType || await select({
         message: 'What type of project are you scaffolding?',
         choices: [
             {
@@ -386,33 +388,35 @@ async function run() {
         ]
     });
 
-    const language: string = await select({
+    const language: string = argv.language || await select({
         message: 'Which programming language would you like to use?',
         choices: PROGRAMMING_LANGUAGES[projectType]
     });
 
-    let framework: string = '';
+    let framework: string = argv.framework || '';
 
-    if (projectType === 'frontend') {
-        framework = await select({
-            message: 'Select the frontend framework:',
-            choices: FRONTEND_FRAMEWORKS[language]
-        });
-    } else if (projectType === 'backend') {
-        framework = await select({
-            message: 'Select the backend framework:',
-            choices: BACKEND_FRAMEWORKS[language]
-        });
-    } else if (projectType === 'fullstack') {
-        const frontendFramework = await select({
-            message: 'Select the frontend framework:',
-            choices: FRONTEND_FRAMEWORKS[language]
-        });
-        const backendFramework = await select({
-            message: 'Select the backend framework:',
-            choices: BACKEND_FRAMEWORKS[language]
-        });
-        framework = `${frontendFramework}-${backendFramework}`;
+    if(framework === '') {
+        if (projectType === 'frontend') {
+            framework = await select({
+                message: 'Select the frontend framework:',
+                choices: FRONTEND_FRAMEWORKS[language]
+            });
+        } else if (projectType === 'backend') {
+            framework = await select({
+                message: 'Select the backend framework:',
+                choices: BACKEND_FRAMEWORKS[language]
+            });
+        } else if (projectType === 'fullstack') {
+            const frontendFramework = await select({
+                message: 'Select the frontend framework:',
+                choices: FRONTEND_FRAMEWORKS[language]
+            });
+            const backendFramework = await select({
+                message: 'Select the backend framework:',
+                choices: BACKEND_FRAMEWORKS[language]
+            });
+            framework = `${frontendFramework}-${backendFramework}`;
+        }
     }
 
     console.log(projectType, language, framework);
@@ -422,9 +426,9 @@ async function run() {
         return;
     }
 
-    let architecturePattern: string = '';
+    let architecturePattern: string = argv.architecturePattern || '';
 
-    if (['backend', 'fullstack'].includes(projectType)) {
+    if (['backend', 'fullstack'].includes(projectType) && architecturePattern === '') {
         architecturePattern = await select({
             message: 'Select the architectural pattern:',
             choices: [
@@ -452,8 +456,8 @@ async function run() {
         });
     }
 
-    let database: string = '';
-    if (['backend', 'fullstack'].includes(projectType)) {
+    let database: string = argv.database || '';
+    if (['backend', 'fullstack'].includes(projectType) && database === '') {
         database = await select({
             message: 'Select the database:',
             choices: [
@@ -483,7 +487,7 @@ async function run() {
     console.log(chalk.yellow(`Architecture Pattern: ${architecturePattern}`));
     console.log(chalk.yellow(`Database: ${database}`));
 
-    const projectName: string = await input({message: 'What do you want to name your project?'});
+    const projectName: string = argv.projectName || await input({ message: 'What do you want to name your project?' });
     const targetPath = path.join(CURR_DIR, projectName);
 
     let templateKey = `${projectType}-${language}-${framework}`;
@@ -545,8 +549,35 @@ function postProcess(options: CliOptions) {
     return true;
 }
 
-run().then(() => {
-    console.log(chalk.green('Done'));
-}).catch(err => {
-    console.error(chalk.red(err));
-});
+yargs(hideBin(process.argv))
+    .command(
+        '$0',
+        'Scaffold a new project',
+        (yargs) => {
+            yargs.option('projectType', {
+                describe: 'Type of the project',
+                choices: ['frontend', 'backend', 'fullstack']
+            })
+                .option('language', {
+                    describe: 'Programming language',
+                    choices: ['javascript', 'typescript', 'python', 'csharp']
+                })
+                .option('framework', {
+                    describe: 'Framework to use'
+                })
+                .option('architecturePattern', {
+                    describe: 'Architecture pattern',
+                    choices: ['monolithic', 'microservices', 'cqrs', 'mvc', 'event-driven']
+                })
+                .option('database', {
+                    describe: 'Database to use',
+                    choices: ['mongodb', 'postgresql', 'mysql', 'sqlite']
+                })
+                .option('projectName', {
+                    describe: 'Name of the project'
+                });
+        },
+        (argv) => run(argv)
+    )
+    .help()
+    .argv;
