@@ -2,13 +2,14 @@
   "name": "@bolorundurovb/mvcli",
   "version": "1.0.1",
   "description": "Noe Typescript",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "start": "ts-node src/index.ts",
     "start:watch": "nodemon --watch src --exec ts-node src/index.ts",
     "build": "tsc",
-    "bundle": "tsc && esbuild dist/index.js --bundle --outfile=dist/bundle.js"
+    "bundle": "tsc && rollup dist/index.js --format esm --file dist/bundle.js"
   },
   "bin": {
     "mvcli": "./dist/index.js"
@@ -21,15 +22,15 @@
     "@types/node": "^22.10.6",
     "@types/shelljs": "^0.8.8",
     "@types/yargs": "^15.0.11",
-    "esbuild": "^0.24.2",
     "nodemon": "^2.0.20",
+    "rollup": "^4.34.6",
     "shx": "^0.3.3",
     "ts-node": "^9.1.1",
     "typescript": "^5.7.3"
   },
   "dependencies": {
     "@inquirer/prompts": "^7.3.1",
-    "ejs": "^3.1.7",
+    "chalk": "^5.4.1",
     "shelljs": "^0.8.5",
     "yargs": "^16.2.0"
   }
