@@ -1,17 +1,11 @@
 import {input, select, Separator} from "@inquirer/prompts";
-import {BACKEND_FRAMEWORKS, FRONTEND_FRAMEWORKS, PROGRAMMING_LANGUAGES, REPOS} from "./choices";
-import {requiresArchitecturePattern, requiresDatabase} from "./validators";
+import {BACKEND_FRAMEWORKS, FRONTEND_FRAMEWORKS, PROGRAMMING_LANGUAGES, REPOS} from "./choices.js";
+import {requiresArchitecturePattern, requiresDatabase} from "./validators.js";
 import path from "path";
 import fs from "fs";
-import * as shell from "shelljs";
-import {logger} from "./logger";
-
-export interface CliOptions {
-    projectName: string;
-    templateName: string;
-    templatePath: string;
-    targetPath: string;
-}
+import shell from "shelljs";
+import {logger} from "./logger.js";
+import {CliOptions, findCsProj, findJsDir, findPyDir, isCSharp, isJavaScript, isPython} from "./utils.js";
 
 
 const CURR_DIR = process.cwd();
@@ -189,7 +183,7 @@ export const run = async (argv: any) => {
         logger.error('Template not found');
         return;
     }
-    logger.success(`Creating project from template: ${templateRepo}`);
+    logger.info(`Creating project from template: ${templateRepo}`);
 
     const result = createProject(projectName, templateRepo);
 
@@ -197,7 +191,9 @@ export const run = async (argv: any) => {
         projectName,
         templateName: templateKey,
         templatePath: templateRepo,
-        targetPath
+        targetPath,
+        isFullstack: projectType === 'fullstack',
+        language
     };
 
     if (result) {
@@ -222,11 +218,48 @@ function createProject(projectPath: string, gitRepo: string) {
 
 function postProcess(options: CliOptions) {
     logger.info('Running post process');
-    const isNode = fs.existsSync(path.join(options.targetPath, 'package.json'));
-    if (isNode) {
-        shell.cd(options.targetPath);
+
+    if (isJavaScript(options)) {
+        const jsDir = findJsDir(options);
+        if (!jsDir) {
+            logger.error('Could not find the JavaScript directory');
+            return false;
+        }
+        shell.cd(jsDir);
+        logger.info('Installing dependencies');
         const result = shell.exec('npm install');
         if (result.code !== 0) {
+            logger.error('Error installing dependencies');
+            return false;
+        }
+    }
+
+    if (isCSharp(options)) {
+        const csProj = findCsProj(options);
+        if (!csProj) {
+            logger.error('Could not find the .csproj file');
+            return false;
+        }
+        shell.cd(csProj);
+        logger.info('Restoring packages');
+        const result = shell.exec('dotnet restore');
+        if (result.code !== 0) {
+            logger.error('Error restoring packages');
+            return false;
+        }
+    }
+
+    if (isPython(options)) {
+        logger.info('Installing dependencies');
+        const pyProj = findPyDir(options);
+        if (!pyProj) {
+            logger.error('Could not find the Python directory');
+            return false;
+        }
+        shell.cd(pyProj.path);
+        const result = shell.exec(pyProj.command);
+        if (result.code !== 0) {
+            logger.error('Error installing dependencies');
             return false;
         }
     }

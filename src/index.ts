@@ -2,7 +2,7 @@
 
 import yargs from 'yargs'
 import {hideBin} from 'yargs/helpers'
-import {run} from "./scaffold";
+import {run} from "./scaffold.js";
 
 yargs(hideBin(process.argv))
     .command(

@@ -10,6 +10,7 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true, // Skip type checks for dependencies
-    "types": ["node"] // Ensure Node.js types are included
+    "types": ["node"], // Ensure Node.js types are included
+    "resolveJsonModule": true // Allow importing JSON files
   },
 }
