@@ -1,3 +1,6 @@
+/**
+ * Interface representing a choice.
+ */
 export interface MVChoice {
     name: string;
     value: string;
@@ -5,11 +8,16 @@ export interface MVChoice {
     disabled?: boolean;
 }
 
+/**
+ * Interface representing a map of choices.
+ */
 export interface MVChoiceMap {
     [key: string]: MVChoice[];
 }
 
-
+/**
+ * A map of project types and their corresponding choices.
+ */
 export const PROGRAMMING_LANGUAGES: MVChoiceMap = {
     frontend: [
         {
@@ -59,6 +67,9 @@ export const PROGRAMMING_LANGUAGES: MVChoiceMap = {
     ]
 }
 
+/**
+ * A map of frontend frameworks and their corresponding choices.
+ */
 export const FRONTEND_FRAMEWORKS: MVChoiceMap = {
     javascript: [
         {
@@ -118,6 +129,9 @@ export const FRONTEND_FRAMEWORKS: MVChoiceMap = {
     ]
 }
 
+/**
+ * A map of backend frameworks and their corresponding choices.
+ */
 export const BACKEND_FRAMEWORKS: MVChoiceMap = {
     javascript: [
         {
@@ -209,6 +223,35 @@ export const BACKEND_FRAMEWORKS: MVChoiceMap = {
     ]
 }
 
+/**
+ * A map of architecture patterns and their corresponding choices.
+ */
+export const ARCHITECTURE_PATTERNS: MVChoice[] = [
+    {
+        name: 'Monolithic',
+        value: 'monolithic'
+    },
+    {
+        name: 'Microservices',
+        value: 'microservices'
+    },
+    {
+        name: 'CQRS',
+        value: 'cqrs'
+    },
+    {
+        name: 'MVC',
+        value: 'mvc'
+    },
+    {
+        name: 'Event Driven',
+        value: 'event-driven'
+    }
+]
+
+/**
+ * A map of github repositories for each project type.
+ */
 export const REPOS: { [key: string]: string } = {
     'frontend-javascript-react': "https://github.com/bolorundurovj/templategen",
     'frontend-javascript-vue': "https://github.com/bolorundurovj/templategen",

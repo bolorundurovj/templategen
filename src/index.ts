@@ -4,6 +4,19 @@ import yargs from 'yargs'
 import {hideBin} from 'yargs/helpers'
 import {run} from "./scaffold.js";
 
+/**
+ * Sets up the CLI to scaffold a new project.
+ *
+ * The CLI accepts the following options:
+ * - projectType: The type of the project (frontend, backend, fullstack)
+ * - language: The programming language to use (javascript, typescript, python, csharp)
+ * - framework: The framework to use
+ * - architecturePattern: The architecture pattern to use (monolithic, microservices, cqrs, mvc, event-driven)
+ * - database: The database to use (mongodb, postgresql, mysql, sqlite)
+ * - projectName: The name of the project
+ *
+ * The run function from scaffold.js is called with the parsed arguments.
+ */
 yargs(hideBin(process.argv))
     .command(
         '$0',

@@ -1,5 +1,11 @@
 import {input, select, Separator} from "@inquirer/prompts";
-import {BACKEND_FRAMEWORKS, FRONTEND_FRAMEWORKS, PROGRAMMING_LANGUAGES, REPOS} from "./choices.js";
+import {
+    ARCHITECTURE_PATTERNS,
+    BACKEND_FRAMEWORKS,
+    FRONTEND_FRAMEWORKS,
+    PROGRAMMING_LANGUAGES,
+    REPOS
+} from "./choices.js";
 import {requiresArchitecturePattern, requiresDatabase} from "./validators.js";
 import path from "path";
 import fs from "fs";
@@ -10,7 +16,12 @@ import {CliOptions, findCsProj, findJsDir, findPyDir, isCSharp, isJavaScript, is
 
 const CURR_DIR = process.cwd();
 
+/**
+ * Runs the scaffolding process for creating a new project.
+ * @param {any} argv - The command line arguments if any.
+ */
 export const run = async (argv: any) => {
+    // Get the project type
     const projectType: string = argv.projectType || await select({
         message: 'What type of project are you scaffolding?',
         choices: [
@@ -50,6 +61,7 @@ export const run = async (argv: any) => {
         return;
     }
 
+    // Get the programming language
     const language: string = argv.language || await select({
         message: 'Which programming language would you like to use?',
         choices: PROGRAMMING_LANGUAGES[projectType]
@@ -60,8 +72,8 @@ export const run = async (argv: any) => {
         return;
     }
 
+    // Get the framework
     let framework: string = argv.framework || '';
-
     if (framework === '') {
         if (projectType === 'frontend') {
             framework = await select({
@@ -91,33 +103,12 @@ export const run = async (argv: any) => {
         return;
     }
 
+    // Get the architecture pattern if required
     let architecturePattern: string = argv.architecturePattern || '';
-
     if (requiresArchitecturePattern(projectType) && architecturePattern === '') {
         architecturePattern = await select({
             message: 'Select the architectural pattern:',
-            choices: [
-                {
-                    name: 'Monolithic',
-                    value: 'monolithic'
-                },
-                {
-                    name: 'Microservices',
-                    value: 'microservices'
-                },
-                {
-                    name: 'CQRS',
-                    value: 'cqrs'
-                },
-                {
-                    name: 'MVC',
-                    value: 'mvc'
-                },
-                {
-                    name: 'Event Driven',
-                    value: 'event-driven'
-                }
-            ]
+            choices: ARCHITECTURE_PATTERNS
         });
     }
 
@@ -126,6 +117,7 @@ export const run = async (argv: any) => {
         return;
     }
 
+    // Get the database if required
     let database: string = argv.database || '';
     if (requiresDatabase(projectType) && database === '') {
         database = await select({
@@ -155,6 +147,7 @@ export const run = async (argv: any) => {
         return;
     }
 
+    // Log the selected options
     logger.info(`${'= '.repeat(20)} Selected Options ${'= '.repeat(20)}`);
     logger.info(`Project Type: ${projectType}`);
     logger.info(`Language: ${language}`);
@@ -167,9 +160,11 @@ export const run = async (argv: any) => {
     }
     logger.info(`${'= '.repeat(50)}`);
 
+    // Get the project name and target path
     const projectName: string = argv.projectName || await input({message: 'What do you want to name your project?'});
     const targetPath = path.join(CURR_DIR, projectName);
 
+    // Construct the template key and get the template repository URL
     let templateKey = `${projectType}-${language}-${framework}`;
     if (database !== '') {
         templateKey = `${templateKey}-${database}`;
@@ -185,6 +180,7 @@ export const run = async (argv: any) => {
     }
     logger.info(`Creating project from template: ${templateRepo}`);
 
+    // Create the project from the template
     const result = createProject(projectName, templateRepo);
 
     const options: CliOptions = {
@@ -196,6 +192,7 @@ export const run = async (argv: any) => {
         language
     };
 
+    // Run post-processing steps if the project was created successfully
     if (result) {
         const postProcessResult = postProcess(options);
         if (postProcessResult) {
@@ -204,7 +201,13 @@ export const run = async (argv: any) => {
     }
 }
 
-function createProject(projectPath: string, gitRepo: string) {
+/**
+ * Clones the template repository to the specified project path.
+ * @param {string} projectPath - The path where the project will be created.
+ * @param {string} gitRepo - The URL of the template repository.
+ * @returns {boolean} - Returns true if the project was created successfully, false otherwise.
+ */
+function createProject(projectPath: string, gitRepo: string): boolean {
     if (fs.existsSync(projectPath)) {
         logger.error(`Folder ${projectPath} exists. Delete or use another name.`);
         return false;
@@ -216,7 +219,12 @@ function createProject(projectPath: string, gitRepo: string) {
     return true;
 }
 
-function postProcess(options: CliOptions) {
+/**
+ * Runs post-processing steps after the project has been created.
+ * @param {CliOptions} options - The CLI options.
+ * @returns {boolean} - Returns true if the post-processing steps were successful, false otherwise.
+ */
+function postProcess(options: CliOptions): boolean {
     logger.info('Running post process');
 
     if (isJavaScript(options)) {
