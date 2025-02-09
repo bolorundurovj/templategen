@@ -6,10 +6,20 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "ci": "yarn install --frozen-lockfile",
     "start": "node --loader ts-node/esm src/index.ts",
     "build": "tsc",
     "bundle": "tsc && rollup dist/index.js --format esm --file dist/bundle.js",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "jest",
+    "prepare": "husky",
+    "lint": "eslint src --fix",
+    "format": "prettier --write src/**/*.{ts,tsx}"
+  },
+  "lint-staged": {
+    "*.{js,ts,json}": [
+      "yarn  lint",
+      "yarn format"
+    ]
   },
   "bin": {
     "mvcli": "./dist/index.js"
@@ -31,7 +41,15 @@
     "@types/node": "^22.10.6",
     "@types/shelljs": "^0.8.8",
     "@types/yargs": "^17.0.33",
+    "@typescript-eslint/eslint-plugin": "^8.23.0",
+    "@typescript-eslint/parser": "^8.23.0",
+    "eslint": "^9.20.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.0",
     "rollup": "^4.34.6",
     "shx": "^0.3.3",
     "ts-jest": "^29.2.5",
@@ -43,5 +61,6 @@
     "chalk": "^5.4.1",
     "shelljs": "^0.8.5",
     "yargs": "^16.2.0"
-  }
+  },
+  "licence": "MIT"
 }
