@@ -11,18 +11,25 @@ jobs:
       - name: Assign Code Owners Automatically
         uses: necojackarc/auto-request-review@v0.9.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           config: .github/reviewers.yml
 
   validate-pr:
     runs-on: ubuntu-latest
     steps:
+      - name: Authenticate GitHub CLI
+        run: gh auth status
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Get PR Details
-        id: get_pr
         run: |
-          PR_BODY=$(gh pr view ${{ github.event.pull_request.number }} --json body -q ".body")
+          PR_BODY=$(gh pr view ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --json body -q ".body")
           PRIMARY=$(echo "$PR_BODY" | grep -oP '(?<=\*\*Primary Reviewer:\*\* @)\S+')
           CODEOWNER=$(echo "$PR_BODY" | grep -oP '(?<=\*\*Code Owner:\*\* @)\S+')
+
+          echo "Primary Reviewer: $PRIMARY"
+          echo "Code Owner: $CODEOWNER"
 
           echo "PRIMARY=$PRIMARY" >> $GITHUB_ENV
           echo "CODEOWNER=$CODEOWNER" >> $GITHUB_ENV
