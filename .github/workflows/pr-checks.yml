@@ -7,21 +7,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - run: npm ci
-      - run: npm run lint
+      - run: yarn ci
+      - run: yarn lint
 
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - run: npm ci
-      - run: npm test
+      - run: yarn ci
+      - run: yarn test
 
   security:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - run: npm ci
-      - run: npm audit
+      - run: yarn ci
+      - run: yarn audit
