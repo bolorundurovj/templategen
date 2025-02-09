@@ -6,6 +6,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "ci": "yarn install --frozen-lockfile",
     "start": "node --loader ts-node/esm src/index.ts",
     "build": "tsc",
     "bundle": "tsc && rollup dist/index.js --format esm --file dist/bundle.js",
