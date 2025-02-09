@@ -275,6 +275,3 @@ export function postProcess(options: CliOptions): boolean {
   }
   return true;
 }
-
-// Run the CLI
-console.log('Running CLI');
