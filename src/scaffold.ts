@@ -2,6 +2,7 @@ import {input, select, Separator} from "@inquirer/prompts";
 import {
     ARCHITECTURE_PATTERNS,
     BACKEND_FRAMEWORKS,
+    DATABASES,
     FRONTEND_FRAMEWORKS,
     PROGRAMMING_LANGUAGES,
     REPOS
@@ -123,23 +124,7 @@ export const run = async (argv: any) => {
     if (requiresDatabase(projectType) && database === '') {
         database = await select({
             message: 'Select the database:',
-            choices: [
-                {
-                    name: 'MongoDB',
-                    value: 'mongodb'
-                },
-                {
-                    name: 'PostgreSQL',
-                    value: 'postgresql'
-                },
-                {
-                    name: 'MySQL',
-                    value: 'mysql'
-                },
-                {
-                    name: 'SQLite',
-                    value: 'sqlite'
-                }]
+            choices: DATABASES
         });
     }
 
