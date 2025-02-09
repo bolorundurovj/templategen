@@ -1,0 +1,73 @@
+name: PR Approval & Validation
+
+on:
+  pull_request:
+    types: [opened, edited, review_requested, review_submitted]
+
+jobs:
+  assign-reviewers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign Code Owners Automatically
+        uses: necojackarc/auto-request-review@v0.9.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: .github/reviewers.yml
+
+  validate-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get PR Details
+        id: get_pr
+        run: |
+          PR_BODY=$(gh pr view ${{ github.event.pull_request.number }} --json body -q ".body")
+          PRIMARY=$(echo "$PR_BODY" | grep -oP '(?<=\*\*Primary Reviewer:\*\* @)\S+')
+          CODEOWNER=$(echo "$PR_BODY" | grep -oP '(?<=\*\*Code Owner:\*\* @)\S+')
+
+          echo "PRIMARY=$PRIMARY" >> $GITHUB_ENV
+          echo "CODEOWNER=$CODEOWNER" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check Approvals
+        run: |
+          APPROVED=$(gh pr view ${{ github.event.pull_request.number }} --json reviews -q '.reviews[] | select(.state=="APPROVED") | .author.login')
+
+          echo "✅ Approved by: $APPROVED"
+
+          if [[ ! "$APPROVED" =~ "$PRIMARY" ]]; then
+            echo "❌ ERROR: Primary Reviewer ($PRIMARY) has not approved!"
+            exit 1
+          fi
+
+          if [[ ! "$APPROVED" =~ "$CODEOWNER" ]]; then
+            echo "❌ ERROR: Code Owner ($CODEOWNER) has not approved!"
+            exit 1
+          fi
+
+          echo "✅ Both Primary Reviewer and Code Owner have approved!"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Validate PR Checklist
+        run: |
+          PR_BODY=$(gh pr view ${{ github.event.pull_request.number }} --json body -q ".body")
+
+          REQUIRED_CHECKBOXES=("Tests added" "Documentation updated" "Linting passed" "Prettier formatting")
+          MISSING_CHECKS=0
+
+          for CHECK in "${REQUIRED_CHECKBOXES[@]}"; do
+            if ! echo "$PR_BODY" | grep -q "\- \[x\] $CHECK"; then
+              echo "❌ ERROR: '$CHECK' is not checked in the PR checklist!"
+              MISSING_CHECKS=$((MISSING_CHECKS + 1))
+            fi
+          done
+
+          if [ "$MISSING_CHECKS" -gt 0 ]; then
+            echo "❌ PR checklist validation failed."
+            exit 1
+          else
+            echo "✅ All required checklist items are checked!"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
