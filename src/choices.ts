@@ -282,7 +282,7 @@ export const REPOS: { [key: string]: string } = {
     'frontend-javascript-nuxtjs': 'https://github.com/bolorundurovj/templategen',
     'frontend-javascript-vanillajs': 'https://github.com/bolorundurovj/templategen',
     'frontend-typescript-angular': 'https://github.com/bolorundurovj/templategen',
-    'frontend-typescript-react': 'https://github.com/bolorundurovj/templategen',
+    'frontend-typescript-react': 'https://github.com/TheSoftwareHouse/react-starter-boilerplate.git',
     'frontend-typescript-vue': 'https://github.com/bolorundurovj/templategen',
     'frontend-typescript-svelte': 'https://github.com/bolorundurovj/templategen',
     'frontend-typescript-nextjs': 'https://github.com/bolorundurovj/templategen',
