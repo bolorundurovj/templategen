@@ -17,35 +17,44 @@ import {run} from "./scaffold.js";
  *
  * The run function from scaffold.js is called with the parsed arguments.
  */
-yargs(hideBin(process.argv))
-    .command(
-        '$0',
-        'Scaffold a new project',
-        (yargs) => {
-            yargs.option('projectType', {
-                describe: 'Type of the project',
-                choices: ['frontend', 'backend', 'fullstack']
-            })
-                .option('language', {
-                    describe: 'Programming language',
-                    choices: ['javascript', 'typescript', 'python', 'csharp']
+export async function main() {
+    yargs(hideBin(process.argv))
+        .command(
+            '$0',
+            'Scaffold a new project',
+            (yargs) => {
+                yargs.option('projectType', {
+                    describe: 'Type of the project',
+                    choices: ['frontend', 'backend', 'fullstack']
                 })
-                .option('framework', {
-                    describe: 'Framework to use'
-                })
-                .option('architecturePattern', {
-                    describe: 'Architecture pattern',
-                    choices: ['monolithic', 'microservices', 'cqrs', 'mvc', 'event-driven']
-                })
-                .option('database', {
-                    describe: 'Database to use',
-                    choices: ['mongodb', 'postgresql', 'mysql', 'sqlite']
-                })
-                .option('projectName', {
-                    describe: 'Name of the project'
-                });
-        },
-        (argv) => run(argv)
-    )
-    .help()
-    .argv;
+                    .option('language', {
+                        describe: 'Programming language',
+                        choices: ['javascript', 'typescript', 'python', 'csharp']
+                    })
+                    .option('framework', {
+                        describe: 'Framework to use'
+                    })
+                    .option('architecturePattern', {
+                        describe: 'Architecture pattern',
+                        choices: ['monolithic', 'microservices', 'cqrs', 'mvc', 'event-driven']
+                    })
+                    .option('database', {
+                        describe: 'Database to use',
+                        choices: ['mongodb', 'postgresql', 'mysql', 'sqlite']
+                    })
+                    .option('projectName', {
+                        describe: 'Name of the project'
+                    });
+            },
+            (argv) => run(argv)
+        )
+        .help()
+        .argv;
+
+}
+
+
+main().catch(err => {
+    console.error(err);
+    process.exit(1);
+});

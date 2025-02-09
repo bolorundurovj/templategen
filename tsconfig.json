@@ -13,4 +13,11 @@
     "types": ["node"], // Ensure Node.js types are included
     "resolveJsonModule": true // Allow importing JSON files
   },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/__tests__/**/*"
+  ]
 }

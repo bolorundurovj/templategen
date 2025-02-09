@@ -25,7 +25,7 @@ export const isJavaScript = (options: CliOptions): boolean => {
     }
 
     if (options.isFullstack) {
-        const languages = options.language.split(',');
+        const languages = options.language.split('-');
         if (languages.includes('javascript') || languages.includes('typescript')) {
             return true;
         }
@@ -46,7 +46,7 @@ export const isPython = (options: CliOptions): boolean => {
     }
 
     if (options.isFullstack) {
-        const languages = options.language.split(',');
+        const languages = options.language.split('-');
         if (languages.includes('python')) {
             return true;
         }
@@ -67,7 +67,7 @@ export const isCSharp = (options: CliOptions): boolean => {
     }
 
     if (options.isFullstack) {
-        const languages = options.language.split(',');
+        const languages = options.language.split('-');
         if (languages.includes('csharp')) {
             return true;
         }

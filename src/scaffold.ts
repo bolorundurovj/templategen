@@ -12,6 +12,7 @@ import fs from "fs";
 import shell from "shelljs";
 import {logger} from "./logger.js";
 import {CliOptions, findCsProj, findJsDir, findPyDir, isCSharp, isJavaScript, isPython} from "./utils.js";
+import * as self from "./scaffold.js";
 
 
 const CURR_DIR = process.cwd();
@@ -181,7 +182,7 @@ export const run = async (argv: any) => {
     logger.info(`Creating project from template: ${templateRepo}`);
 
     // Create the project from the template
-    const result = createProject(projectName, templateRepo);
+    const result = self.createProject(projectName, templateRepo);
 
     const options: CliOptions = {
         projectName,
@@ -194,7 +195,7 @@ export const run = async (argv: any) => {
 
     // Run post-processing steps if the project was created successfully
     if (result) {
-        const postProcessResult = postProcess(options);
+        const postProcessResult = self.postProcess(options);
         if (postProcessResult) {
             logger.success('Project ready');
         }
@@ -207,7 +208,7 @@ export const run = async (argv: any) => {
  * @param {string} gitRepo - The URL of the template repository.
  * @returns {boolean} - Returns true if the project was created successfully, false otherwise.
  */
-function createProject(projectPath: string, gitRepo: string): boolean {
+export function createProject(projectPath: string, gitRepo: string): boolean {
     if (fs.existsSync(projectPath)) {
         logger.error(`Folder ${projectPath} exists. Delete or use another name.`);
         return false;
@@ -224,7 +225,7 @@ function createProject(projectPath: string, gitRepo: string): boolean {
  * @param {CliOptions} options - The CLI options.
  * @returns {boolean} - Returns true if the post-processing steps were successful, false otherwise.
  */
-function postProcess(options: CliOptions): boolean {
+export function postProcess(options: CliOptions): boolean {
     logger.info('Running post process');
 
     if (isJavaScript(options)) {
@@ -273,3 +274,4 @@ function postProcess(options: CliOptions): boolean {
     }
     return true;
 }
+

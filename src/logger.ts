@@ -23,6 +23,9 @@ export default class Logger {
         if (!Logger.instance) {
             Logger.instance = new Logger(options);
         }
+        if (options.showTimestamp !== undefined) {
+            Logger.instance.showTimestamp = options.showTimestamp;
+        }
         return Logger.instance;
     }
 
@@ -84,7 +87,7 @@ export default class Logger {
                 colorFn = chalk.white;
         }
 
-        const timestamp = this.showTimestamp ? `[${this.getTimestamp()}] ` : '';
+        const timestamp = this?.showTimestamp === true ? `[${this.getTimestamp()}] ` : '';
         const levelTag = colorFn(`[${level.toUpperCase()}]`);
         console.log(`${timestamp}${levelTag}`, ...args);
     }
