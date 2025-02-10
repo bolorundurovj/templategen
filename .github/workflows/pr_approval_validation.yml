@@ -2,7 +2,9 @@ name: PR Approval & Validation
 
 on:
   pull_request:
-    types: [opened, edited, review_requested, review_submitted]
+    types: [opened, edited, review_requested, review_request_removed, reopened, assigned, unassigned, ready_for_review]
+  pull_request_review:
+    types: [ submitted, edited ]
 
 jobs:
   assign-reviewers:
@@ -16,6 +18,9 @@ jobs:
 
   validate-pr:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+      contents: read
     steps:
       - name: Authenticate GitHub CLI
         run: gh auth status
@@ -36,29 +41,51 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Debug PR Reviews
+        run: gh pr view ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --json reviews
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Check Approvals
         run: |
-          APPROVED=$(gh pr view ${{ github.event.pull_request.number }} --json reviews -q '.reviews[] | select(.state=="APPROVED") | .author.login')
-
-          echo "✅ Approved by: $APPROVED"
-
-          if [[ ! "$APPROVED" =~ "$PRIMARY" ]]; then
+          echo "ℹ️ Primary Reviewer: $PRIMARY"
+          echo "ℹ️ Code Owner: $CODEOWNER"
+          
+          # Get all users who approved the PR
+          APPROVED_LIST=$(gh pr view ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --json reviews -q '
+            [.reviews[] | select(.state=="APPROVED") | .author.login] | unique')
+          
+          echo "✅ Approved by: $APPROVED_LIST"
+          
+          if [[ -z "$PRIMARY" || -z "$CODEOWNER" ]]; then
+            echo "❌ ERROR: PRIMARY or CODEOWNER variable is empty!"
+            exit 1
+          fi
+          
+          if [[ -z "$APPROVED_LIST" || "$APPROVED_LIST" == "[]" ]]; then
+            echo "❌ ERROR: No valid approvals found!"
+            exit 1
+          fi
+          
+          # Check if Primary Reviewer is in the list
+          if ! echo "$APPROVED_LIST" | grep -q "$PRIMARY"; then
             echo "❌ ERROR: Primary Reviewer ($PRIMARY) has not approved!"
             exit 1
           fi
-
-          if [[ ! "$APPROVED" =~ "$CODEOWNER" ]]; then
+          
+          # Check if Code Owner is in the list
+          if ! echo "$APPROVED_LIST" | grep -q "$CODEOWNER"; then
             echo "❌ ERROR: Code Owner ($CODEOWNER) has not approved!"
             exit 1
           fi
-
+          
           echo "✅ Both Primary Reviewer and Code Owner have approved!"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Validate PR Checklist
         run: |
-          PR_BODY=$(gh pr view ${{ github.event.pull_request.number }} --json body -q ".body")
+          PR_BODY=$(gh pr view ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --json body -q ".body")
 
           REQUIRED_CHECKBOXES=("Tests added" "Documentation updated" "Linting passed" "Prettier formatting")
           MISSING_CHECKS=0
