@@ -40,7 +40,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Debug PR Reviews
-        run: gh pr view ${{ github.event.pull_request.number }} --json reviews
+        run: gh pr view ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --json reviews
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -49,7 +49,7 @@ jobs:
           echo "ℹ️  Primary Reviewer: $PRIMARY"
           echo "ℹ️  Code Owner: $CODEOWNER"
           
-          APPROVED=$(gh pr view ${{ github.event.pull_request.number }} --json reviews -q '.reviews[] | select(.state=="APPROVED") | .author.login' || echo "None")
+          APPROVED=$(gh pr view ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --json reviews -q '.reviews[] | select(.state=="APPROVED") | .author.login' || echo "None")
           echo "✅ Approved by: $APPROVED"
           
           if [[ -z "$PRIMARY" || -z "$CODEOWNER" ]]; then
@@ -78,7 +78,7 @@ jobs:
 
       - name: Validate PR Checklist
         run: |
-          PR_BODY=$(gh pr view ${{ github.event.pull_request.number }} --json body -q ".body")
+          PR_BODY=$(gh pr view ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --json body -q ".body")
 
           REQUIRED_CHECKBOXES=("Tests added" "Documentation updated" "Linting passed" "Prettier formatting")
           MISSING_CHECKS=0
