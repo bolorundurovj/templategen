@@ -1,6 +1,9 @@
 ## Description
 <!-- Describe your changes and link to issues (if applicable) -->
 
+## Exploratory Testing
+<!-- Describe how you tested your changes -->
+
 ## Changes
 - [ ] Bug fix
 - [ ] Feature
