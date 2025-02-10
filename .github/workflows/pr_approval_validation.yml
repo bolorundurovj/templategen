@@ -46,28 +46,33 @@ jobs:
 
       - name: Check Approvals
         run: |
-          echo "ℹ️  Primary Reviewer: $PRIMARY"
-          echo "ℹ️  Code Owner: $CODEOWNER"
+          echo "ℹ️ Primary Reviewer: $PRIMARY"
+          echo "ℹ️ Code Owner: $CODEOWNER"
           
-          APPROVED=$(gh pr view ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --json reviews -q '.reviews[] | select(.state=="DISMISSED") | .author.login' || echo "None")
-          echo "✅ Approved by: $APPROVED"
+          # Get all users who approved the PR
+          APPROVED_LIST=$(gh pr view ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --json reviews -q '
+            [.reviews[] | select(.state=="APPROVED") | .author.login] | unique')
+          
+          echo "✅ Approved by: $APPROVED_LIST"
           
           if [[ -z "$PRIMARY" || -z "$CODEOWNER" ]]; then
             echo "❌ ERROR: PRIMARY or CODEOWNER variable is empty!"
             exit 1
           fi
           
-          if [[ "$APPROVED" == "None" ]]; then
-            echo "❌ ERROR: No approvals found!"
+          if [[ -z "$APPROVED_LIST" || "$APPROVED_LIST" == "[]" ]]; then
+            echo "❌ ERROR: No valid approvals found!"
             exit 1
           fi
           
-          if [[ ! "$APPROVED" =~ "$PRIMARY" ]]; then
+          # Check if Primary Reviewer is in the list
+          if ! echo "$APPROVED_LIST" | grep -q "$PRIMARY"; then
             echo "❌ ERROR: Primary Reviewer ($PRIMARY) has not approved!"
             exit 1
           fi
           
-          if [[ ! "$APPROVED" =~ "$CODEOWNER" ]]; then
+          # Check if Code Owner is in the list
+          if ! echo "$APPROVED_LIST" | grep -q "$CODEOWNER"; then
             echo "❌ ERROR: Code Owner ($CODEOWNER) has not approved!"
             exit 1
           fi
