@@ -1,8 +1,8 @@
 name: PR Approval & Validation
-on: [pull_request]
-#on:
-#  pull_request:
-#    types: [opened, edited, review_requested, review_submitted]
+
+on:
+  pull_request:
+    types: [opened, edited, review_requested, review_submitted]
 
 jobs:
   assign-reviewers:
