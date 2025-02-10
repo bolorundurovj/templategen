@@ -49,7 +49,7 @@ jobs:
           echo "ℹ️  Primary Reviewer: $PRIMARY"
           echo "ℹ️  Code Owner: $CODEOWNER"
           
-          APPROVED=$(gh pr view ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --json reviews -q '.reviews[] | select(.state=="APPROVED") | .author.login' || echo "None")
+          APPROVED=$(gh pr view ${{ github.event.pull_request.number }} --repo ${{ github.repository }} --json reviews -q '.reviews[] | select(.state=="DISMISSED") | .author.login' || echo "None")
           echo "✅ Approved by: $APPROVED"
           
           if [[ -z "$PRIMARY" || -z "$CODEOWNER" ]]; then
