@@ -16,6 +16,9 @@ jobs:
 
   validate-pr:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+      contents: read
     steps:
       - name: Authenticate GitHub CLI
         run: gh auth status
@@ -36,22 +39,39 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Debug PR Reviews
+        run: gh pr view ${{ github.event.pull_request.number }} --json reviews
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Check Approvals
         run: |
-          APPROVED=$(gh pr view ${{ github.event.pull_request.number }} --json reviews -q '.reviews[] | select(.state=="APPROVED") | .author.login')
-
+          echo "ℹ️  Primary Reviewer: $PRIMARY"
+          echo "ℹ️  Code Owner: $CODEOWNER"
+          
+          APPROVED=$(gh pr view ${{ github.event.pull_request.number }} --json reviews -q '.reviews[] | select(.state=="APPROVED") | .author.login' || echo "None")
           echo "✅ Approved by: $APPROVED"
-
+          
+          if [[ -z "$PRIMARY" || -z "$CODEOWNER" ]]; then
+            echo "❌ ERROR: PRIMARY or CODEOWNER variable is empty!"
+            exit 1
+          fi
+          
+          if [[ "$APPROVED" == "None" ]]; then
+            echo "❌ ERROR: No approvals found!"
+            exit 1
+          fi
+          
           if [[ ! "$APPROVED" =~ "$PRIMARY" ]]; then
             echo "❌ ERROR: Primary Reviewer ($PRIMARY) has not approved!"
             exit 1
           fi
-
+          
           if [[ ! "$APPROVED" =~ "$CODEOWNER" ]]; then
             echo "❌ ERROR: Code Owner ($CODEOWNER) has not approved!"
             exit 1
           fi
-
+          
           echo "✅ Both Primary Reviewer and Code Owner have approved!"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
