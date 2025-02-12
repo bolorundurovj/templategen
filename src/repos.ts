@@ -19,7 +19,7 @@ export const REPOS: { [key: string]: string } = {
   'frontend-typescript-vanillajs':
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-express-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/hagopj13/node-express-boilerplate',
   'backend-javascript-express-mongodb-microservices':
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-express-mongodb-cqrs':
