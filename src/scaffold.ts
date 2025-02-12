@@ -5,7 +5,6 @@ import {
   DATABASES,
   FRONTEND_FRAMEWORKS,
   PROGRAMMING_LANGUAGES,
-  REPOS,
 } from './choices.js';
 import { requiresArchitecturePattern, requiresDatabase } from './validators.js';
 import path from 'path';
@@ -22,6 +21,7 @@ import {
   isPython,
 } from './utils.js';
 import * as self from './scaffold.js';
+import { REPOS } from './repos';
 
 const CURR_DIR = process.cwd();
 
