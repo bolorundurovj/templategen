@@ -21,7 +21,7 @@ import {
   isPython,
 } from './utils.js';
 import * as self from './scaffold.js';
-import { REPOS } from './repos';
+import { REPOS } from './repos.js';
 
 const CURR_DIR = process.cwd();
 
@@ -99,13 +99,14 @@ export const run = async (argv: any) => {
         choices: BACKEND_FRAMEWORKS[language],
       });
     } else if (projectType === 'fullstack') {
+      const [feLang, beLang] = language.split('-');
       const frontendFramework = await select({
         message: 'Select the frontend framework:',
-        choices: FRONTEND_FRAMEWORKS[language],
+        choices: FRONTEND_FRAMEWORKS[feLang],
       });
       const backendFramework = await select({
         message: 'Select the backend framework:',
-        choices: BACKEND_FRAMEWORKS[language],
+        choices: BACKEND_FRAMEWORKS[beLang],
       });
       framework = `${frontendFramework}-${backendFramework}`;
     }
