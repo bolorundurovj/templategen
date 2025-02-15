@@ -2,10 +2,12 @@
  * A map of GitHub repositories for each project type.
  */
 export const REPOS: { [key: string]: string } = {
-  'frontend-javascript-react': 'https://github.com/bolorundurovj/templategen',
+  'frontend-javascript-react':
+    'https://github.com/react-boilerplate/react-boilerplate',
   'frontend-javascript-vue': 'https://github.com/acfatah/vue-shadcn-js',
-  'frontend-javascript-svelte': 'https://github.com/bolorundurovj/templategen',
-  'frontend-javascript-nextjs': 'https://github.com/bolorundurovj/templategen',
+  'frontend-javascript-svelte': 'https://github.com/pankod/svelte-boilerplate',
+  'frontend-javascript-nextjs':
+    'https://github.com/cheatcode/nextjs-boilerplate',
   'frontend-javascript-nuxtjs': 'https://github.com/bolorundurovj/templategen',
   'frontend-javascript-vanillajs':
     'https://github.com/bolorundurovj/templategen',
@@ -13,8 +15,8 @@ export const REPOS: { [key: string]: string } = {
   'frontend-typescript-react':
     'https://github.com/TheSoftwareHouse/react-starter-boilerplate.git',
   'frontend-typescript-vue': 'https://github.com/bolorundurovj/templategen',
-  'frontend-typescript-svelte': 'https://github.com/bolorundurovj/templategen',
-  'frontend-typescript-nextjs': 'https://github.com/bolorundurovj/templategen',
+  'frontend-typescript-svelte': 'https://github.com/pankod/svelte-boilerplate',
+  'frontend-typescript-nextjs': 'https://github.com/ixartz/Next-js-Boilerplate',
   'frontend-typescript-nuxtjs': 'https://github.com/bolorundurovj/templategen',
   'frontend-typescript-vanillajs':
     'https://github.com/bolorundurovj/templategen',
