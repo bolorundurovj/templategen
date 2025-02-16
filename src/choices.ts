@@ -142,43 +142,11 @@ export const BACKEND_FRAMEWORKS: MVChoiceMap = {
       name: 'NestJS',
       value: 'nestjs',
     },
-    {
-      name: 'AdonisJS',
-      value: 'adonisjs',
-    },
-    {
-      name: 'Koa',
-      value: 'koa',
-    },
-    {
-      name: 'Hapi',
-      value: 'hapi',
-    },
-    {
-      name: 'FeathersJS',
-      value: 'feathersjs',
-    },
   ],
   typescript: [
     {
       name: 'NestJS',
       value: 'nestjs',
-    },
-    {
-      name: 'AdonisJS',
-      value: 'adonisjs',
-    },
-    {
-      name: 'TypeORM',
-      value: 'typeorm',
-    },
-    {
-      name: 'Loopback',
-      value: 'loopback',
-    },
-    {
-      name: 'FeathersJS',
-      value: 'feathersjs',
     },
   ],
   python: [
