@@ -176,18 +176,6 @@ export const BACKEND_FRAMEWORKS: MVChoiceMap = {
       name: 'DotNet Core',
       value: 'dotnetcore',
     },
-    {
-      name: 'Nancy',
-      value: 'nancy',
-    },
-    {
-      name: 'ServiceStack',
-      value: 'servicestack',
-    },
-    {
-      name: 'WebAPI',
-      value: 'webapi',
-    },
   ],
 };
 
