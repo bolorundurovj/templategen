@@ -4,22 +4,27 @@
 export const REPOS: { [key: string]: string } = {
   'frontend-javascript-react':
     'https://github.com/react-boilerplate/react-boilerplate',
-  'frontend-javascript-vue': 'https://github.com/acfatah/vue-shadcn-js',
+  'frontend-javascript-vue': 'https://github.com/zmts/beauty-vuejs-boilerplate',
   'frontend-javascript-svelte': 'https://github.com/pankod/svelte-boilerplate',
   'frontend-javascript-nextjs':
     'https://github.com/cheatcode/nextjs-boilerplate',
-  'frontend-javascript-nuxtjs': 'https://github.com/bolorundurovj/templategen',
+  'frontend-javascript-nuxtjs':
+    'https://github.com/dennisfrijlink/nuxt-spa-boilerplate',
   'frontend-javascript-vanillajs':
-    'https://github.com/bolorundurovj/templategen',
-  'frontend-typescript-angular': 'https://github.com/bolorundurovj/templategen',
+    'https://github.com/josephlegere/Boilerplate-Vanilla-JS-Frontend-Framework',
+  'frontend-typescript-angular':
+    'https://github.com/ArslanAmeer/angular-boilerplate',
   'frontend-typescript-react':
-    'https://github.com/TheSoftwareHouse/react-starter-boilerplate.git',
-  'frontend-typescript-vue': 'https://github.com/bolorundurovj/templategen',
-  'frontend-typescript-svelte': 'https://github.com/pankod/svelte-boilerplate',
+    'https://github.com/TheSoftwareHouse/react-starter-boilerplate', //https://github.com/kyronsatt/frontend-boilerplate-with-react-ts
+  'frontend-typescript-vue':
+    'https://github.com/Vue-Boilerplates/vue-typescript-boilerplate',
+  'frontend-typescript-svelte':
+    'https://github.com/Narigo/sveltekit-boilerplate',
   'frontend-typescript-nextjs': 'https://github.com/ixartz/Next-js-Boilerplate',
-  'frontend-typescript-nuxtjs': 'https://github.com/bolorundurovj/templategen',
+  'frontend-typescript-nuxtjs':
+    'https://github.com/typescript-nuxtjs-boilerplate/typescript-nuxtjs-boilerplate',
   'frontend-typescript-vanillajs':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/doinel1a/vite-vanilla-ts',
   'backend-javascript-express-mongodb-monolithic':
     'https://github.com/hagopj13/node-express-boilerplate',
   'backend-javascript-express-mongodb-microservices':
