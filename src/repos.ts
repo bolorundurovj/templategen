@@ -1626,7 +1626,7 @@ const FULLSTACK_TS_TS_REPOS: IRepo = {
   ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_VANILLAJS_NESTJS_SQLITE_REPOS,
 };
 
-const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_MONGODB_REPOS: IRepo = {
   'fullstack-typescript-python-angular-django-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-mongodb-microservices':
@@ -1637,6 +1637,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_POSTGRESQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-django-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-postgresql-microservices':
@@ -1647,6 +1650,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_MYSQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-django-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-mysql-microservices':
@@ -1657,6 +1663,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_SQLITE_REPOS: IRepo = {
   'fullstack-typescript-python-angular-django-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-sqlite-microservices':
@@ -1667,6 +1676,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_MONGODB_REPOS: IRepo = {
   'fullstack-typescript-python-angular-flask-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-mongodb-microservices':
@@ -1677,6 +1689,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_POSTGRESQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-flask-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-postgresql-microservices':
@@ -1687,6 +1702,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_MYSQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-flask-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-mysql-microservices':
@@ -1697,6 +1715,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_SQLITE_REPOS: IRepo = {
   'fullstack-typescript-python-angular-flask-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-sqlite-microservices':
@@ -1707,6 +1728,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_MONGODB_REPOS: IRepo = {
   'fullstack-typescript-python-angular-fastapi-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-mongodb-microservices':
@@ -1717,6 +1741,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_POSTGRESQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-fastapi-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-postgresql-microservices':
@@ -1727,6 +1754,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_MYSQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-fastapi-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-mysql-microservices':
@@ -1737,6 +1767,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_SQLITE_REPOS: IRepo = {
   'fullstack-typescript-python-angular-fastapi-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-sqlite-microservices':
@@ -1747,6 +1780,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_MONGODB_REPOS: IRepo = {
   'fullstack-typescript-python-angular-sanic-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-mongodb-microservices':
@@ -1757,6 +1793,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_POSTGRESQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-sanic-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-postgresql-microservices':
@@ -1767,6 +1806,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_MYSQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-sanic-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-mysql-microservices':
@@ -1777,6 +1819,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_SQLITE_REPOS: IRepo = {
   'fullstack-typescript-python-angular-sanic-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-sqlite-microservices':
@@ -1787,6 +1832,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_MONGODB_REPOS: IRepo = {
   'fullstack-typescript-python-angular-tornado-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-mongodb-microservices':
@@ -1797,6 +1845,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_POSTGRESQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-tornado-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-postgresql-microservices':
@@ -1807,6 +1858,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_MYSQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-tornado-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-mysql-microservices':
@@ -1817,6 +1871,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_SQLITE_REPOS: IRepo = {
   'fullstack-typescript-python-angular-tornado-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-sqlite-microservices':
@@ -1827,6 +1884,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_DJANGO_MONGODB_REPOS: IRepo = {
   'fullstack-typescript-python-react-django-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-mongodb-microservices':
@@ -1837,6 +1897,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_DJANGO_POSTGRESQL_REPOS: IRepo = {
   'fullstack-typescript-python-react-django-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-postgresql-microservices':
@@ -1847,6 +1910,9 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_DJANGO_MYQL_REPOS: IRepo = {
   'fullstack-typescript-python-react-django-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-mysql-microservices':
@@ -1857,6 +1923,32 @@ const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TS_PYTHON_REPOS: { [key: string]: string } = {
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_DJANGO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_DJANGO_POSTGRESQL_REPOS,
+
   'fullstack-typescript-python-react-django-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-sqlite-microservices':
