@@ -3590,7 +3590,7 @@ const FULLSTACK_TS_PYTHON_REPOS: IRepo = {
   ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_TORNADO_SQLITE_REPOS,
 };
 
-const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
+const FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_MONGODB_REPOS = {
   'fullstack-typescript-csharp-angular-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-mongodb-microservices':
@@ -3601,6 +3601,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_POSTGRESQL_REPOS = {
   'fullstack-typescript-csharp-angular-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-postgresql-microservices':
@@ -3611,6 +3614,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_MYSQL_REPOS = {
   'fullstack-typescript-csharp-angular-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-mysql-microservices':
@@ -3621,6 +3627,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_SQLITE_REPOS = {
   'fullstack-typescript-csharp-angular-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-sqlite-microservices':
@@ -3631,6 +3640,10 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+// ---------- React groups ----------
+const FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_MONGODB_REPOS = {
   'fullstack-typescript-csharp-react-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-mongodb-microservices':
@@ -3641,6 +3654,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_POSTGRESQL_REPOS = {
   'fullstack-typescript-csharp-react-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-postgresql-microservices':
@@ -3651,6 +3667,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_MYSQL_REPOS = {
   'fullstack-typescript-csharp-react-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-mysql-microservices':
@@ -3661,6 +3680,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_SQLITE_REPOS = {
   'fullstack-typescript-csharp-react-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-sqlite-microservices':
@@ -3671,6 +3693,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_MONGODB_REPOS = {
   'fullstack-typescript-csharp-vue-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-mongodb-microservices':
@@ -3681,6 +3706,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_POSTGRESQL_REPOS = {
   'fullstack-typescript-csharp-vue-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-postgresql-microservices':
@@ -3691,6 +3719,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_MYSQL_REPOS = {
   'fullstack-typescript-csharp-vue-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-mysql-microservices':
@@ -3701,6 +3732,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_SQLITE_REPOS = {
   'fullstack-typescript-csharp-vue-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-sqlite-microservices':
@@ -3711,6 +3745,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_MONGODB_REPOS = {
   'fullstack-typescript-csharp-svelte-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-mongodb-microservices':
@@ -3721,6 +3758,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_POSTGRESQL_REPOS = {
   'fullstack-typescript-csharp-svelte-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-postgresql-microservices':
@@ -3731,6 +3771,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_MYSQL_REPOS = {
   'fullstack-typescript-csharp-svelte-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-mysql-microservices':
@@ -3741,6 +3784,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_SQLITE_REPOS = {
   'fullstack-typescript-csharp-svelte-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-sqlite-microservices':
@@ -3751,6 +3797,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_MONGODB_REPOS = {
   'fullstack-typescript-csharp-nextjs-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-mongodb-microservices':
@@ -3761,6 +3810,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_POSTGRESQL_REPOS = {
   'fullstack-typescript-csharp-nextjs-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-postgresql-microservices':
@@ -3771,6 +3823,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_MYSQL_REPOS = {
   'fullstack-typescript-csharp-nextjs-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-mysql-microservices':
@@ -3781,6 +3836,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_SQLITE_REPOS = {
   'fullstack-typescript-csharp-nextjs-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-sqlite-microservices':
@@ -3791,6 +3849,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_MONGODB_REPOS = {
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-mongodb-microservices':
@@ -3801,6 +3862,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_POSTGRESQL_REPOS = {
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-postgresql-microservices':
@@ -3811,6 +3875,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_MYSQL_REPOS = {
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-mysql-microservices':
@@ -3821,6 +3888,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_SQLITE_REPOS = {
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-sqlite-microservices':
@@ -3831,6 +3901,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_MONGODB_REPOS = {
   'fullstack-typescript-csharp-vanillajs-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-mongodb-microservices':
@@ -3841,6 +3914,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_POSTGRESQL_REPOS = {
   'fullstack-typescript-csharp-vanillajs-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-postgresql-microservices':
@@ -3851,6 +3927,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_MYSQL_REPOS = {
   'fullstack-typescript-csharp-vanillajs-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-mysql-microservices':
@@ -3861,6 +3940,9 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_SQLITE_REPOS = {
   'fullstack-typescript-csharp-vanillajs-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-sqlite-microservices':
@@ -3871,6 +3953,37 @@ const FULLSTACK_TS_CSHARP_REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TS_CSHARP_REPOS: IRepo = {
+  ...FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_SQLITE_REPOS,
 };
 
 const FULLSTACK_REPOS: { [key: string]: string } = {
