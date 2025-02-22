@@ -2,7 +2,7 @@ name: PR Approval & Validation
 
 on:
   pull_request:
-    types: [opened, edited, review_requested, review_request_removed, reopened, assigned, unassigned, ready_for_review]
+    types: [opened, submitted, edited, review_requested, review_request_removed, reopened, assigned, unassigned, ready_for_review]
   pull_request_review:
     types: [ submitted, edited ]
 
