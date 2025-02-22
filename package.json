@@ -13,7 +13,7 @@
     "test": "jest",
     "prepare": "husky",
     "lint": "eslint src --fix",
-    "format": "prettier --write src/**/*.{ts,tsx}"
+    "format": "prettier --write \"src/**/*.{ts,tsx}\""
   },
   "lint-staged": {
     "*.{js,ts,json}": [

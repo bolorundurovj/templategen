@@ -1,45 +1,65 @@
+interface IRepo {
+  [key: string]: string;
+}
+
 /**
- * A map of GitHub repositories for each project type.
+ * A map of GitHub repositories for frontend only projects.
  */
-export const REPOS: { [key: string]: string } = {
-  'frontend-javascript-react': 'https://github.com/bolorundurovj/templategen',
-  'frontend-javascript-vue': 'https://github.com/bolorundurovj/templategen',
-  'frontend-javascript-svelte': 'https://github.com/bolorundurovj/templategen',
-  'frontend-javascript-nextjs': 'https://github.com/bolorundurovj/templategen',
-  'frontend-javascript-nuxtjs': 'https://github.com/bolorundurovj/templategen',
+const FRONTEND_REPOS: IRepo = {
+  'frontend-javascript-react':
+    'https://github.com/react-boilerplate/react-boilerplate',
+  'frontend-javascript-vue': 'https://github.com/zmts/beauty-vuejs-boilerplate',
+  'frontend-javascript-svelte': 'https://github.com/pankod/svelte-boilerplate',
+  'frontend-javascript-nextjs':
+    'https://github.com/cheatcode/nextjs-boilerplate',
+  'frontend-javascript-nuxtjs':
+    'https://github.com/dennisfrijlink/nuxt-spa-boilerplate',
   'frontend-javascript-vanillajs':
-    'https://github.com/bolorundurovj/templategen',
-  'frontend-typescript-angular': 'https://github.com/bolorundurovj/templategen',
+    'https://github.com/josephlegere/Boilerplate-Vanilla-JS-Frontend-Framework',
+  'frontend-typescript-angular':
+    'https://github.com/ArslanAmeer/angular-boilerplate',
   'frontend-typescript-react':
-    'https://github.com/TheSoftwareHouse/react-starter-boilerplate.git',
-  'frontend-typescript-vue': 'https://github.com/bolorundurovj/templategen',
-  'frontend-typescript-svelte': 'https://github.com/bolorundurovj/templategen',
-  'frontend-typescript-nextjs': 'https://github.com/bolorundurovj/templategen',
-  'frontend-typescript-nuxtjs': 'https://github.com/bolorundurovj/templategen',
+    'https://github.com/TheSoftwareHouse/react-starter-boilerplate', //https://github.com/kyronsatt/frontend-boilerplate-with-react-ts
+  'frontend-typescript-vue':
+    'https://github.com/Vue-Boilerplates/vue-typescript-boilerplate',
+  'frontend-typescript-svelte':
+    'https://github.com/Narigo/sveltekit-boilerplate',
+  'frontend-typescript-nextjs': 'https://github.com/ixartz/Next-js-Boilerplate',
+  'frontend-typescript-nuxtjs':
+    'https://github.com/typescript-nuxtjs-boilerplate/typescript-nuxtjs-boilerplate',
   'frontend-typescript-vanillajs':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/doinel1a/vite-vanilla-ts',
+};
+
+const BACKEND_JAVASCRIPT_EXPRESS_MONGODB_REPOS: IRepo = {
   'backend-javascript-express-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/hagopj13/node-express-boilerplate', //https://github.com/santiq/bulletproof-nodejs
   'backend-javascript-express-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/ajays97/node-microservice-boilerplate',
   'backend-javascript-express-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/fdhhhdjd/Microservice_CQRS_Event-Sourcing',
   'backend-javascript-express-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/joanjpx/nodejs-mvc',
   'backend-javascript-express-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/babkristof/node-sola-boilerplate',
+};
+
+const BACKEND_JAVASCRIPT_EXPRESS_POSTGRESQL_REPOS: IRepo = {
   'backend-javascript-express-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/japananh/node-express-postgres-boilerplate',
   'backend-javascript-express-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/CunningDJ/node-postgres-microservice-diw',
   'backend-javascript-express-postgresql-cqrs':
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-express-postgresql-mvc':
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-express-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_JAVASCRIPT_EXPRESS_MYSQL_REPOS: IRepo = {
   'backend-javascript-express-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/mangya/node-express-mysql-boilerplate',
   'backend-javascript-express-mysql-microservices':
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-express-mysql-cqrs':
@@ -48,8 +68,11 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-express-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_JAVASCRIPT_EXPRESS_SQLITE_REPOS: IRepo = {
   'backend-javascript-express-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/santiq/bulletproof-nodejs',
   'backend-javascript-express-sqlite-microservices':
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-express-sqlite-cqrs':
@@ -58,6 +81,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-express-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_JAVASCRIPT_NESTJS_MONGODB_REPOS: IRepo = {
   'backend-javascript-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-nestjs-mongodb-microservices':
@@ -68,6 +94,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_JAVASCRIPT_NESTJS_POSTGRESQL_REPOS: IRepo = {
   'backend-javascript-nestjs-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-nestjs-postgresql-microservices':
@@ -78,6 +107,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-nestjs-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_JAVASCRIPT_NESTJS_MYSQL_REPOS: IRepo = {
   'backend-javascript-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-nestjs-mysql-microservices':
@@ -88,6 +120,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_JAVASCRIPT_NESTJS_SQLITE_REPOS: IRepo = {
   'backend-javascript-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-nestjs-sqlite-microservices':
@@ -98,166 +133,20 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-koa-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-hapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-javascript-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_JS_REPOS: IRepo = {
+  ...BACKEND_JAVASCRIPT_EXPRESS_MONGODB_REPOS,
+  ...BACKEND_JAVASCRIPT_EXPRESS_POSTGRESQL_REPOS,
+  ...BACKEND_JAVASCRIPT_EXPRESS_MYSQL_REPOS,
+  ...BACKEND_JAVASCRIPT_EXPRESS_SQLITE_REPOS,
+  ...BACKEND_JAVASCRIPT_NESTJS_MONGODB_REPOS,
+  ...BACKEND_JAVASCRIPT_NESTJS_POSTGRESQL_REPOS,
+  ...BACKEND_JAVASCRIPT_NESTJS_MYSQL_REPOS,
+  ...BACKEND_JAVASCRIPT_NESTJS_SQLITE_REPOS,
+};
+
+const BACKEND_TYPESCRIPT_NESTJS_MONGODB_REPOS: IRepo = {
   'backend-typescript-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-typescript-nestjs-mongodb-microservices':
@@ -268,6 +157,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-typescript-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_TYPESCRIPT_NESTJS_POSTGRESQL_REPOS: IRepo = {
   'backend-typescript-nestjs-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-typescript-nestjs-postgresql-microservices':
@@ -278,6 +170,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-typescript-nestjs-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_TYPESCRIPT_NESTJS_MYSQL_REPOS: IRepo = {
   'backend-typescript-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-typescript-nestjs-mysql-microservices':
@@ -288,6 +183,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-typescript-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_TYPESCRIPT_NESTJS_SQLITE_REPOS: IRepo = {
   'backend-typescript-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-typescript-nestjs-sqlite-microservices':
@@ -298,166 +196,16 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-typescript-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-typeorm-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-loopback-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-typescript-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_TS_REPOS: IRepo = {
+  ...BACKEND_TYPESCRIPT_NESTJS_MONGODB_REPOS,
+  ...BACKEND_TYPESCRIPT_NESTJS_POSTGRESQL_REPOS,
+  ...BACKEND_TYPESCRIPT_NESTJS_MYSQL_REPOS,
+  ...BACKEND_TYPESCRIPT_NESTJS_SQLITE_REPOS,
+};
+
+const BACKEND_PYTHON_DJANGO_MONGODB_REPOS: IRepo = {
   'backend-python-django-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-django-mongodb-microservices':
@@ -468,6 +216,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-django-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_DJANGO_POSTGRESQL_REPOS: IRepo = {
   'backend-python-django-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-django-postgresql-microservices':
@@ -478,6 +229,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-django-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_DJANGO_MYSQL_REPOS: IRepo = {
   'backend-python-django-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-django-mysql-microservices':
@@ -488,6 +242,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-django-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_DJANGO_SQLITE_REPOS: IRepo = {
   'backend-python-django-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-django-sqlite-microservices':
@@ -498,6 +255,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-django-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_FLASK_MONGODB_REPOS: IRepo = {
   'backend-python-flask-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-flask-mongodb-microservices':
@@ -508,6 +268,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-flask-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_FLASK_POSTGRESQL_REPOS: IRepo = {
   'backend-python-flask-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-flask-postgresql-microservices':
@@ -518,6 +281,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-flask-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_FLASK_MYSQL_REPOS: IRepo = {
   'backend-python-flask-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-flask-mysql-microservices':
@@ -528,6 +294,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-flask-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_FLASK_SQLITE_REPOS: IRepo = {
   'backend-python-flask-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-flask-sqlite-microservices':
@@ -538,6 +307,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-flask-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_FASTAPI_MONGODB_REPOS: IRepo = {
   'backend-python-fastapi-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-fastapi-mongodb-microservices':
@@ -548,6 +320,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-fastapi-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_FASTAPI_POSTGRESQL_REPOS: IRepo = {
   'backend-python-fastapi-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-fastapi-postgresql-microservices':
@@ -558,6 +333,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-fastapi-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_FASTAPI_MYSQL_REPOS: IRepo = {
   'backend-python-fastapi-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-fastapi-mysql-microservices':
@@ -568,6 +346,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-fastapi-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_FASTAPI_SQLITE_REPOS: IRepo = {
   'backend-python-fastapi-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-fastapi-sqlite-microservices':
@@ -578,6 +359,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-fastapi-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_SANIC_MONGODB_REPOS: IRepo = {
   'backend-python-sanic-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-sanic-mongodb-microservices':
@@ -588,6 +372,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-sanic-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_SANIC_POSTGRESQL_REPOS: IRepo = {
   'backend-python-sanic-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-sanic-postgresql-microservices':
@@ -598,6 +385,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-sanic-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_SANIC_MYSQL_REPOS: IRepo = {
   'backend-python-sanic-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-sanic-mysql-microservices':
@@ -608,6 +398,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-sanic-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_SANIC_SQLITE_REPOS: IRepo = {
   'backend-python-sanic-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-sanic-sqlite-microservices':
@@ -618,6 +411,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-sanic-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_TORNADO_MONGODB_REPOS: IRepo = {
   'backend-python-tornado-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-tornado-mongodb-microservices':
@@ -628,6 +424,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-tornado-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_TORNADO_POSTGRESQL_REPOS: IRepo = {
   'backend-python-tornado-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-tornado-postgresql-microservices':
@@ -638,6 +437,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-tornado-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_TORNADO_MYSQL_REPOS: IRepo = {
   'backend-python-tornado-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-tornado-mysql-microservices':
@@ -648,6 +450,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-tornado-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_TORNADO_SQLITE_REPOS: IRepo = {
   'backend-python-tornado-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-python-tornado-sqlite-microservices':
@@ -658,6 +463,32 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-python-tornado-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_PYTHON_REPOS: IRepo = {
+  ...BACKEND_PYTHON_DJANGO_MONGODB_REPOS,
+  ...BACKEND_PYTHON_DJANGO_POSTGRESQL_REPOS,
+  ...BACKEND_PYTHON_DJANGO_MYSQL_REPOS,
+  ...BACKEND_PYTHON_DJANGO_SQLITE_REPOS,
+  ...BACKEND_PYTHON_FLASK_MONGODB_REPOS,
+  ...BACKEND_PYTHON_FLASK_POSTGRESQL_REPOS,
+  ...BACKEND_PYTHON_FLASK_MYSQL_REPOS,
+  ...BACKEND_PYTHON_FLASK_SQLITE_REPOS,
+  ...BACKEND_PYTHON_FASTAPI_MONGODB_REPOS,
+  ...BACKEND_PYTHON_FASTAPI_POSTGRESQL_REPOS,
+  ...BACKEND_PYTHON_FASTAPI_MYSQL_REPOS,
+  ...BACKEND_PYTHON_FASTAPI_SQLITE_REPOS,
+  ...BACKEND_PYTHON_SANIC_MONGODB_REPOS,
+  ...BACKEND_PYTHON_SANIC_POSTGRESQL_REPOS,
+  ...BACKEND_PYTHON_SANIC_MYSQL_REPOS,
+  ...BACKEND_PYTHON_SANIC_SQLITE_REPOS,
+  ...BACKEND_PYTHON_TORNADO_MONGODB_REPOS,
+  ...BACKEND_PYTHON_TORNADO_POSTGRESQL_REPOS,
+  ...BACKEND_PYTHON_TORNADO_MYSQL_REPOS,
+  ...BACKEND_PYTHON_TORNADO_SQLITE_REPOS,
+};
+
+const BACKEND_CSHARP_DOTNETCORE_MONGODB_REPOS: IRepo = {
   'backend-csharp-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-csharp-dotnetcore-mongodb-microservices':
@@ -668,6 +499,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-csharp-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_CSHARP_DOTNETCORE_POSTGRESQL_REPOS: IRepo = {
   'backend-csharp-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-csharp-dotnetcore-postgresql-microservices':
@@ -678,6 +512,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-csharp-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_CSHARP_DOTNETCORE_MYSQL_REPOS: IRepo = {
   'backend-csharp-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-csharp-dotnetcore-mysql-microservices':
@@ -688,6 +525,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-csharp-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_CSHARP_DOTNETCORE_SQLITE_REPOS: IRepo = {
   'backend-csharp-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'backend-csharp-dotnetcore-sqlite-microservices':
@@ -698,126 +538,23 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'backend-csharp-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-nancy-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-servicestack-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'backend-csharp-webapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const BACKEND_CSHARP_REPOS: IRepo = {
+  ...BACKEND_CSHARP_DOTNETCORE_MONGODB_REPOS,
+  ...BACKEND_CSHARP_DOTNETCORE_POSTGRESQL_REPOS,
+  ...BACKEND_CSHARP_DOTNETCORE_MYSQL_REPOS,
+  ...BACKEND_CSHARP_DOTNETCORE_SQLITE_REPOS,
+};
+
+const BACKEND_REPOS: { [key: string]: string } = {
+  ...BACKEND_JS_REPOS,
+  ...BACKEND_TS_REPOS,
+  ...BACKEND_PYTHON_REPOS,
+  ...BACKEND_CSHARP_REPOS,
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_EXPRESS_MONGODB_REPOS: IRepo = {
   'fullstack-javascript-javascript-react-express-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-express-mongodb-microservices':
@@ -828,6 +565,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-express-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_EXPRESS_POSTGRESQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-react-express-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-express-postgresql-microservices':
@@ -838,6 +578,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-express-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_EXPRESS_MYSQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-react-express-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-express-mysql-microservices':
@@ -848,6 +591,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-express-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_EXPRESS_SQLITE_REPOS: IRepo = {
   'fullstack-javascript-javascript-react-express-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-express-sqlite-microservices':
@@ -858,6 +604,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-express-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_NESTJS_MONGODB_REPOS: IRepo = {
   'fullstack-javascript-javascript-react-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-nestjs-mongodb-microservices':
@@ -868,6 +617,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_NESTJS_POSTGRESQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-react-nestjs-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-nestjs-postgresql-microservices':
@@ -878,6 +630,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-nestjs-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_NESTJS_MYSQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-react-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-nestjs-mysql-microservices':
@@ -888,6 +643,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_NESTJS_SQLITE_REPOS: IRepo = {
   'fullstack-javascript-javascript-react-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-nestjs-sqlite-microservices':
@@ -898,166 +656,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-react-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-koa-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-hapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-react-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE_EXPRESS_MONGODB_REPOS: IRepo = {
   'fullstack-javascript-javascript-vue-express-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-express-mongodb-microservices':
@@ -1068,6 +669,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-express-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE_EXPRESS_POSTGRESQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-vue-express-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-express-postgresql-microservices':
@@ -1078,6 +682,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-express-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE_EXPRESS_MYSQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-vue-express-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-express-mysql-microservices':
@@ -1088,6 +695,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-express-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE_EXPRESS_SQLITE_REPOS: IRepo = {
   'fullstack-javascript-javascript-vue-express-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-express-sqlite-microservices':
@@ -1098,6 +708,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-express-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE__NESTJS_MONGODB_REPOS: IRepo = {
   'fullstack-javascript-javascript-vue-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-nestjs-mongodb-microservices':
@@ -1108,6 +721,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE__NESTJS_POSTGRESQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-vue-nestjs-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-nestjs-postgresql-microservices':
@@ -1118,6 +734,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-nestjs-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE__NESTJS_MYSQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-vue-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-nestjs-mysql-microservices':
@@ -1128,6 +747,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE__NESTJS_SQLITE_REPOS: IRepo = {
   'fullstack-javascript-javascript-vue-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-nestjs-sqlite-microservices':
@@ -1138,166 +760,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vue-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-koa-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-hapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vue-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_EXPRESS_MONGODB_REPOS: IRepo = {
   'fullstack-javascript-javascript-svelte-express-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-express-mongodb-microservices':
@@ -1308,6 +773,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-express-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_EXPRESS_POSTGRESQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-svelte-express-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-express-postgresql-microservices':
@@ -1318,6 +786,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-express-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_EXPRESS_MYSQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-svelte-express-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-express-mysql-microservices':
@@ -1328,6 +799,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-express-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_EXPRESS_SQLITE_REPOS: IRepo = {
   'fullstack-javascript-javascript-svelte-express-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-express-sqlite-microservices':
@@ -1338,6 +812,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-express-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_NESTJS_MONGODB_REPOS: IRepo = {
   'fullstack-javascript-javascript-svelte-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-nestjs-mongodb-microservices':
@@ -1348,6 +825,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_NESTJS_POSTGRESQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-svelte-nestjs-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-nestjs-postgresql-microservices':
@@ -1358,6 +838,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-nestjs-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_NESTJS_MYSQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-svelte-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-nestjs-mysql-microservices':
@@ -1368,6 +851,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_NESTJS_SQLITE_REPOS: IRepo = {
   'fullstack-javascript-javascript-svelte-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-nestjs-sqlite-microservices':
@@ -1378,166 +864,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-svelte-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-koa-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-hapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-svelte-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_EXPRESS_MONGODB_REPOS: IRepo = {
   'fullstack-javascript-javascript-nextjs-express-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-express-mongodb-microservices':
@@ -1548,6 +877,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-express-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_EXPRESS_POSTGRESQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-nextjs-express-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-express-postgresql-microservices':
@@ -1558,6 +890,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-express-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_EXPRESS_MYSQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-nextjs-express-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-express-mysql-microservices':
@@ -1568,6 +903,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-express-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_EXPRESS_SQLITE_REPOS: IRepo = {
   'fullstack-javascript-javascript-nextjs-express-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-express-sqlite-microservices':
@@ -1578,6 +916,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-express-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_NESTJS_MONGODB_REPOS: IRepo = {
   'fullstack-javascript-javascript-nextjs-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-nestjs-mongodb-microservices':
@@ -1588,8 +929,11 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_NESTJS_POSTGRESQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-nextjs-nestjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/thisismydesign/next-nest',
   'fullstack-javascript-javascript-nextjs-nestjs-postgresql-microservices':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-nestjs-postgresql-cqrs':
@@ -1598,6 +942,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-nestjs-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_NESTJS_MYSQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-nextjs-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-nestjs-mysql-microservices':
@@ -1608,6 +955,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_NESTJS_SQLITE_REPOS: IRepo = {
   'fullstack-javascript-javascript-nextjs-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-nestjs-sqlite-microservices':
@@ -1618,166 +968,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-koa-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-hapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nextjs-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_EXPRESS_MONGODB_REPOS: IRepo = {
   'fullstack-javascript-javascript-nuxtjs-express-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-express-mongodb-microservices':
@@ -1788,6 +981,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-express-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_EXPRESS_POSTGRESQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-nuxtjs-express-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-express-postgresql-microservices':
@@ -1798,6 +994,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-express-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_EXPRESS_MYSQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-nuxtjs-express-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-express-mysql-microservices':
@@ -1808,6 +1007,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-express-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_EXPRESS_SQLITE_REPOS: IRepo = {
   'fullstack-javascript-javascript-nuxtjs-express-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-express-sqlite-microservices':
@@ -1818,6 +1020,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-express-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_NESTJS_MONGODB_REPOS: IRepo = {
   'fullstack-javascript-javascript-nuxtjs-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-nestjs-mongodb-microservices':
@@ -1828,6 +1033,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_NESTJS_POSTGRESQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-nuxtjs-nestjs-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-nestjs-postgresql-microservices':
@@ -1838,6 +1046,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-nestjs-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_NESTJS_MYSQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-nuxtjs-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-nestjs-mysql-microservices':
@@ -1848,6 +1059,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_NESTJS_SQLITE_REPOS: IRepo = {
   'fullstack-javascript-javascript-nuxtjs-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-nestjs-sqlite-microservices':
@@ -1858,166 +1072,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nuxtjs-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-koa-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-hapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-nuxtjs-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_EXPRESS_MONGODB_REPOS: IRepo = {
   'fullstack-javascript-javascript-vanillajs-express-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vanillajs-express-mongodb-microservices':
@@ -2028,16 +1085,23 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vanillajs-express-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-express-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-express-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-express-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-express-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-express-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_EXPRESS_POSTGRESQL_REPOS: IRepo =
+  {
+    'fullstack-javascript-javascript-vanillajs-express-postgresql-monolithic':
+      'https://github.com/bolorundurovj/templategen',
+    'fullstack-javascript-javascript-vanillajs-express-postgresql-microservices':
+      'https://github.com/bolorundurovj/templategen',
+    'fullstack-javascript-javascript-vanillajs-express-postgresql-cqrs':
+      'https://github.com/bolorundurovj/templategen',
+    'fullstack-javascript-javascript-vanillajs-express-postgresql-mvc':
+      'https://github.com/bolorundurovj/templategen',
+    'fullstack-javascript-javascript-vanillajs-express-postgresql-event-driven':
+      'https://github.com/bolorundurovj/templategen',
+  };
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_EXPRESS_MYSQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-vanillajs-express-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vanillajs-express-mysql-microservices':
@@ -2048,6 +1112,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vanillajs-express-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_EXPRESS_SQLITE_REPOS: IRepo = {
   'fullstack-javascript-javascript-vanillajs-express-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vanillajs-express-sqlite-microservices':
@@ -2058,6 +1125,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vanillajs-express-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_NESTJS_MONGODB_REPOS: IRepo = {
   'fullstack-javascript-javascript-vanillajs-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vanillajs-nestjs-mongodb-microservices':
@@ -2068,16 +1138,23 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vanillajs-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-nestjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-nestjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-nestjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-nestjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-nestjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_NESTJS_POSTGRESQL_REPOS: IRepo =
+  {
+    'fullstack-javascript-javascript-vanillajs-nestjs-postgresql-monolithic':
+      'https://github.com/bolorundurovj/templategen',
+    'fullstack-javascript-javascript-vanillajs-nestjs-postgresql-microservices':
+      'https://github.com/bolorundurovj/templategen',
+    'fullstack-javascript-javascript-vanillajs-nestjs-postgresql-cqrs':
+      'https://github.com/bolorundurovj/templategen',
+    'fullstack-javascript-javascript-vanillajs-nestjs-postgresql-mvc':
+      'https://github.com/bolorundurovj/templategen',
+    'fullstack-javascript-javascript-vanillajs-nestjs-postgresql-event-driven':
+      'https://github.com/bolorundurovj/templategen',
+  };
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_NESTJS_MYSQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-vanillajs-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vanillajs-nestjs-mysql-microservices':
@@ -2088,6 +1165,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vanillajs-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_NESTJS_SQLITE_REPOS: IRepo = {
   'fullstack-javascript-javascript-vanillajs-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vanillajs-nestjs-sqlite-microservices':
@@ -2098,166 +1178,60 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-vanillajs-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-koa-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-hapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-javascript-javascript-vanillajs-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_JS_JS_REPOS: IRepo = {
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_EXPRESS_MONGODB_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_EXPRESS_POSTGRESQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_EXPRESS_MYSQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_EXPRESS_SQLITE_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_NESTJS_MONGODB_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_NESTJS_POSTGRESQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_NESTJS_MYSQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_REACT_NESTJS_SQLITE_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE_EXPRESS_MONGODB_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE_EXPRESS_POSTGRESQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE_EXPRESS_MYSQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE_EXPRESS_SQLITE_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE__NESTJS_MONGODB_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE__NESTJS_POSTGRESQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE__NESTJS_MYSQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VUE__NESTJS_SQLITE_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_EXPRESS_MONGODB_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_EXPRESS_POSTGRESQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_EXPRESS_MYSQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_EXPRESS_SQLITE_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_NESTJS_MONGODB_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_NESTJS_POSTGRESQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_NESTJS_MYSQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_SVELTE_NESTJS_SQLITE_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_EXPRESS_MONGODB_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_EXPRESS_POSTGRESQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_EXPRESS_MYSQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_EXPRESS_SQLITE_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_NESTJS_MONGODB_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_NESTJS_POSTGRESQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_NESTJS_MYSQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_NESTJS_SQLITE_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_EXPRESS_MONGODB_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_EXPRESS_POSTGRESQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_EXPRESS_MYSQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_EXPRESS_SQLITE_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_NESTJS_MONGODB_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_NESTJS_POSTGRESQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_NESTJS_MYSQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_NUXTJS_NESTJS_SQLITE_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_EXPRESS_MONGODB_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_EXPRESS_POSTGRESQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_EXPRESS_MYSQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_EXPRESS_SQLITE_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_NESTJS_MONGODB_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_NESTJS_POSTGRESQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_NESTJS_MYSQL_REPOS,
+  ...FULLSTACK_JAVASCRIPT_JAVASCRIPT_VANILLAJS_NESTJS_SQLITE_REPOS,
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_ANGULAR_NESTJS_MONGODB_REPOS = {
   'fullstack-typescript-typescript-angular-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-angular-nestjs-mongodb-microservices':
@@ -2268,6 +1242,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-angular-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_ANGULAR_NESTJS_POSTGRESQL_REPOS = {
   'fullstack-typescript-typescript-angular-nestjs-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-angular-nestjs-postgresql-microservices':
@@ -2278,6 +1255,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-angular-nestjs-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_ANGULAR_NESTJS_MYSQL_REPOS = {
   'fullstack-typescript-typescript-angular-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-angular-nestjs-mysql-microservices':
@@ -2288,6 +1268,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-angular-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_ANGULAR_NESTJS_SQLITE_REPOS = {
   'fullstack-typescript-typescript-angular-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-angular-nestjs-sqlite-microservices':
@@ -2298,166 +1281,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-angular-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-typeorm-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-loopback-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-angular-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_REACT_NESTJS_MONGODB_REPOS = {
   'fullstack-typescript-typescript-react-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-react-nestjs-mongodb-microservices':
@@ -2468,6 +1294,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-react-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_REACT_NESTJS_POSTGRESQL_REPOS = {
   'fullstack-typescript-typescript-react-nestjs-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-react-nestjs-postgresql-microservices':
@@ -2478,6 +1307,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-react-nestjs-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_REACT_NESTJS_MYSQL_REPOS = {
   'fullstack-typescript-typescript-react-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-react-nestjs-mysql-microservices':
@@ -2488,6 +1320,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-react-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_REACT_NESTJS_SQLITE_REPOS = {
   'fullstack-typescript-typescript-react-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-react-nestjs-sqlite-microservices':
@@ -2498,166 +1333,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-react-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-typeorm-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-loopback-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-react-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_VUE_NESTJS_MONGODB_REPOS = {
   'fullstack-typescript-typescript-vue-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vue-nestjs-mongodb-microservices':
@@ -2668,6 +1346,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vue-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_VUE_NESTJS_POSTGRESQL_REPOS = {
   'fullstack-typescript-typescript-vue-nestjs-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vue-nestjs-postgresql-microservices':
@@ -2678,6 +1359,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vue-nestjs-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_VUE_NESTJS_MYSQL_REPOS = {
   'fullstack-typescript-typescript-vue-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vue-nestjs-mysql-microservices':
@@ -2688,6 +1372,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vue-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_VUE_NESTJS_SQLITE_REPOS = {
   'fullstack-typescript-typescript-vue-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vue-nestjs-sqlite-microservices':
@@ -2698,166 +1385,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vue-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-typeorm-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-loopback-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vue-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_SVELTE_NESTJS_MONGODB_REPOS = {
   'fullstack-typescript-typescript-svelte-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-svelte-nestjs-mongodb-microservices':
@@ -2868,6 +1398,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-svelte-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_SVELTE_NESTJS_POSTGRESQL_REPOS = {
   'fullstack-typescript-typescript-svelte-nestjs-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-svelte-nestjs-postgresql-microservices':
@@ -2878,6 +1411,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-svelte-nestjs-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_SVELTE_NESTJS_MYSQL_REPOS = {
   'fullstack-typescript-typescript-svelte-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-svelte-nestjs-mysql-microservices':
@@ -2888,6 +1424,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-svelte-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_SVELTE_NESTJS_SQLITE_REPOS = {
   'fullstack-typescript-typescript-svelte-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-svelte-nestjs-sqlite-microservices':
@@ -2898,166 +1437,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-svelte-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-typeorm-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-loopback-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-svelte-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_NEXTJS_NESTJS_MONGODB_REPOS = {
   'fullstack-typescript-typescript-nextjs-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nextjs-nestjs-mongodb-microservices':
@@ -3068,8 +1450,11 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nextjs-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_NEXTJS_NESTJS_POSTGRESQL_REPOS = {
   'fullstack-typescript-typescript-nextjs-nestjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/thisismydesign/next-nest',
   'fullstack-typescript-typescript-nextjs-nestjs-postgresql-microservices':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nextjs-nestjs-postgresql-cqrs':
@@ -3078,6 +1463,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nextjs-nestjs-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_NEXTJS_NESTJS_MYSQL_REPOS = {
   'fullstack-typescript-typescript-nextjs-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nextjs-nestjs-mysql-microservices':
@@ -3088,6 +1476,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nextjs-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_NEXTJS_NESTJS_SQLITE_REPOS = {
   'fullstack-typescript-typescript-nextjs-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nextjs-nestjs-sqlite-microservices':
@@ -3098,166 +1489,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nextjs-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-typeorm-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-loopback-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nextjs-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_NUXTJS_NESTJS_MONGODB_REPOS = {
   'fullstack-typescript-typescript-nuxtjs-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nuxtjs-nestjs-mongodb-microservices':
@@ -3268,6 +1502,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nuxtjs-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_NUXTJS_NESTJS_POSTGRESQL_REPOS = {
   'fullstack-typescript-typescript-nuxtjs-nestjs-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nuxtjs-nestjs-postgresql-microservices':
@@ -3278,6 +1515,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nuxtjs-nestjs-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_NUXTJS_NESTJS_MYSQL_REPOS = {
   'fullstack-typescript-typescript-nuxtjs-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nuxtjs-nestjs-mysql-microservices':
@@ -3288,6 +1528,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nuxtjs-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_NUXTJS_NESTJS_SQLITE_REPOS = {
   'fullstack-typescript-typescript-nuxtjs-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nuxtjs-nestjs-sqlite-microservices':
@@ -3298,166 +1541,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nuxtjs-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-typeorm-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-loopback-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-nuxtjs-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_VANILLAJS_NESTJS_MONGODB_REPOS = {
   'fullstack-typescript-typescript-vanillajs-nestjs-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vanillajs-nestjs-mongodb-microservices':
@@ -3468,6 +1554,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vanillajs-nestjs-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_VANILLAJS_NESTJS_POSTGRESQL_REPOS = {
   'fullstack-typescript-typescript-vanillajs-nestjs-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vanillajs-nestjs-postgresql-microservices':
@@ -3478,6 +1567,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vanillajs-nestjs-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_VANILLAJS_NESTJS_MYSQL_REPOS = {
   'fullstack-typescript-typescript-vanillajs-nestjs-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vanillajs-nestjs-mysql-microservices':
@@ -3488,6 +1580,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vanillajs-nestjs-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_TYPESCRIPT_VANILLAJS_NESTJS_SQLITE_REPOS = {
   'fullstack-typescript-typescript-vanillajs-nestjs-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vanillajs-nestjs-sqlite-microservices':
@@ -3498,166 +1593,40 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-vanillajs-nestjs-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-adonisjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-typeorm-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-loopback-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-typescript-vanillajs-feathersjs-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TS_TS_REPOS: IRepo = {
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_ANGULAR_NESTJS_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_ANGULAR_NESTJS_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_ANGULAR_NESTJS_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_ANGULAR_NESTJS_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_REACT_NESTJS_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_REACT_NESTJS_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_REACT_NESTJS_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_REACT_NESTJS_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_VUE_NESTJS_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_VUE_NESTJS_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_VUE_NESTJS_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_VUE_NESTJS_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_SVELTE_NESTJS_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_SVELTE_NESTJS_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_SVELTE_NESTJS_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_SVELTE_NESTJS_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_NEXTJS_NESTJS_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_NEXTJS_NESTJS_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_NEXTJS_NESTJS_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_NEXTJS_NESTJS_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_NUXTJS_NESTJS_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_NUXTJS_NESTJS_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_NUXTJS_NESTJS_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_NUXTJS_NESTJS_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_VANILLAJS_NESTJS_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_VANILLAJS_NESTJS_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_VANILLAJS_NESTJS_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_TYPESCRIPT_VANILLAJS_NESTJS_SQLITE_REPOS,
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_MONGODB_REPOS: IRepo = {
   'fullstack-typescript-python-angular-django-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-mongodb-microservices':
@@ -3668,6 +1637,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_POSTGRESQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-django-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-postgresql-microservices':
@@ -3678,6 +1650,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_MYSQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-django-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-mysql-microservices':
@@ -3688,6 +1663,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_SQLITE_REPOS: IRepo = {
   'fullstack-typescript-python-angular-django-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-sqlite-microservices':
@@ -3698,6 +1676,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-django-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_MONGODB_REPOS: IRepo = {
   'fullstack-typescript-python-angular-flask-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-mongodb-microservices':
@@ -3708,6 +1689,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_POSTGRESQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-flask-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-postgresql-microservices':
@@ -3718,6 +1702,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_MYSQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-flask-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-mysql-microservices':
@@ -3728,6 +1715,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_SQLITE_REPOS: IRepo = {
   'fullstack-typescript-python-angular-flask-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-sqlite-microservices':
@@ -3738,6 +1728,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-flask-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_MONGODB_REPOS: IRepo = {
   'fullstack-typescript-python-angular-fastapi-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-mongodb-microservices':
@@ -3748,6 +1741,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_POSTGRESQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-fastapi-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-postgresql-microservices':
@@ -3758,6 +1754,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_MYSQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-fastapi-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-mysql-microservices':
@@ -3768,6 +1767,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_SQLITE_REPOS: IRepo = {
   'fullstack-typescript-python-angular-fastapi-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-sqlite-microservices':
@@ -3778,6 +1780,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-fastapi-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_MONGODB_REPOS: IRepo = {
   'fullstack-typescript-python-angular-sanic-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-mongodb-microservices':
@@ -3788,6 +1793,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_POSTGRESQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-sanic-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-postgresql-microservices':
@@ -3798,6 +1806,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_MYSQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-sanic-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-mysql-microservices':
@@ -3808,6 +1819,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_SQLITE_REPOS: IRepo = {
   'fullstack-typescript-python-angular-sanic-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-sqlite-microservices':
@@ -3818,6 +1832,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-sanic-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_MONGODB_REPOS: IRepo = {
   'fullstack-typescript-python-angular-tornado-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-mongodb-microservices':
@@ -3828,6 +1845,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_POSTGRESQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-tornado-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-postgresql-microservices':
@@ -3838,6 +1858,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_MYSQL_REPOS: IRepo = {
   'fullstack-typescript-python-angular-tornado-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-mysql-microservices':
@@ -3848,6 +1871,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_SQLITE_REPOS: IRepo = {
   'fullstack-typescript-python-angular-tornado-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-sqlite-microservices':
@@ -3858,6 +1884,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-angular-tornado-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_DJANGO_MONGODB_REPOS: IRepo = {
   'fullstack-typescript-python-react-django-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-mongodb-microservices':
@@ -3868,6 +1897,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_DJANGO_POSTGRESQL_REPOS: IRepo = {
   'fullstack-typescript-python-react-django-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-postgresql-microservices':
@@ -3878,6 +1910,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_DJANGO_MYSQL_REPOS: IRepo = {
   'fullstack-typescript-python-react-django-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-mysql-microservices':
@@ -3888,6 +1923,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_DJANGO_SQLITE_REPOS: IRepo = {
   'fullstack-typescript-python-react-django-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-sqlite-microservices':
@@ -3898,6 +1936,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-django-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_FLASK_MONGODB_REPOS: IRepo = {
   'fullstack-typescript-python-react-flask-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-flask-mongodb-microservices':
@@ -3908,6 +1949,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-flask-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_FLASK_POSTGRESQL_REPOS: IRepo = {
   'fullstack-typescript-python-react-flask-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-flask-postgresql-microservices':
@@ -3918,6 +1962,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-flask-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_FLASK_MYSQL_REPOS: IRepo = {
   'fullstack-typescript-python-react-flask-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-flask-mysql-microservices':
@@ -3928,6 +1975,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-flask-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_FLASK_SQLITE_REPOS: IRepo = {
   'fullstack-typescript-python-react-flask-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-flask-sqlite-microservices':
@@ -3938,6 +1988,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-flask-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_FASTAPI_MONGODB_REPOS = {
   'fullstack-typescript-python-react-fastapi-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-fastapi-mongodb-microservices':
@@ -3948,6 +2001,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-fastapi-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_FASTAPI_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-react-fastapi-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-fastapi-postgresql-microservices':
@@ -3958,6 +2014,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-fastapi-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_FASTAPI_MYSQL_REPOS = {
   'fullstack-typescript-python-react-fastapi-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-fastapi-mysql-microservices':
@@ -3968,6 +2027,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-fastapi-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_FASTAPI_SQLITE_REPOS = {
   'fullstack-typescript-python-react-fastapi-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-fastapi-sqlite-microservices':
@@ -3978,6 +2040,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-fastapi-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_SANIC_MONGODB_REPOS = {
   'fullstack-typescript-python-react-sanic-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-sanic-mongodb-microservices':
@@ -3988,6 +2053,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-sanic-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_SANIC_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-react-sanic-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-sanic-postgresql-microservices':
@@ -3998,6 +2066,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-sanic-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_SANIC_MYSQL_REPOS = {
   'fullstack-typescript-python-react-sanic-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-sanic-mysql-microservices':
@@ -4008,6 +2079,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-sanic-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_SANIC_SQLITE_REPOS = {
   'fullstack-typescript-python-react-sanic-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-sanic-sqlite-microservices':
@@ -4018,6 +2092,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-sanic-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_TORNADO_MONGODB_REPOS = {
   'fullstack-typescript-python-react-tornado-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-tornado-mongodb-microservices':
@@ -4028,6 +2105,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-tornado-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_TORNADO_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-react-tornado-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-tornado-postgresql-microservices':
@@ -4038,6 +2118,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-tornado-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_TORNADO_MYSQL_REPOS = {
   'fullstack-typescript-python-react-tornado-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-tornado-mysql-microservices':
@@ -4048,6 +2131,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-tornado-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_REACT_TORNADO_SQLITE_REPOS = {
   'fullstack-typescript-python-react-tornado-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-tornado-sqlite-microservices':
@@ -4058,6 +2144,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-react-tornado-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_DJANGO_MONGODB_REPOS = {
   'fullstack-typescript-python-vue-django-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-django-mongodb-microservices':
@@ -4068,6 +2157,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-django-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_DJANGO_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-vue-django-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-django-postgresql-microservices':
@@ -4078,6 +2170,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-django-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_DJANGO_MYSQL_REPOS = {
   'fullstack-typescript-python-vue-django-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-django-mysql-microservices':
@@ -4088,6 +2183,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-django-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_DJANGO_SQLITE_REPOS = {
   'fullstack-typescript-python-vue-django-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-django-sqlite-microservices':
@@ -4098,6 +2196,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-django-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_FLASK_MONGODB_REPOS = {
   'fullstack-typescript-python-vue-flask-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-flask-mongodb-microservices':
@@ -4108,6 +2209,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-flask-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_FLASK_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-vue-flask-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-flask-postgresql-microservices':
@@ -4118,6 +2222,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-flask-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_FLASK_MYSQL_REPOS = {
   'fullstack-typescript-python-vue-flask-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-flask-mysql-microservices':
@@ -4128,6 +2235,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-flask-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_FLASK_SQLITE_REPOS = {
   'fullstack-typescript-python-vue-flask-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-flask-sqlite-microservices':
@@ -4138,6 +2248,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-flask-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_FASTAPI_MONGODB_REPOS = {
   'fullstack-typescript-python-vue-fastapi-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-fastapi-mongodb-microservices':
@@ -4148,6 +2261,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-fastapi-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_FASTAPI_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-vue-fastapi-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-fastapi-postgresql-microservices':
@@ -4158,6 +2274,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-fastapi-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_FASTAPI_MYSQL_REPOS = {
   'fullstack-typescript-python-vue-fastapi-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-fastapi-mysql-microservices':
@@ -4168,6 +2287,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-fastapi-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_FASTAPI_SQLITE_REPOS = {
   'fullstack-typescript-python-vue-fastapi-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-fastapi-sqlite-microservices':
@@ -4178,6 +2300,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-fastapi-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_SANIC_MONGODB_REPOS = {
   'fullstack-typescript-python-vue-sanic-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-sanic-mongodb-microservices':
@@ -4188,6 +2313,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-sanic-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_SANIC_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-vue-sanic-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-sanic-postgresql-microservices':
@@ -4198,6 +2326,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-sanic-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_SANIC_MYSQL_REPOS = {
   'fullstack-typescript-python-vue-sanic-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-sanic-mysql-microservices':
@@ -4208,6 +2339,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-sanic-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_SANIC_SQLITE_REPOS = {
   'fullstack-typescript-python-vue-sanic-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-sanic-sqlite-microservices':
@@ -4218,6 +2352,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-sanic-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_TORNADO_MONGODB_REPOS = {
   'fullstack-typescript-python-vue-tornado-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-tornado-mongodb-microservices':
@@ -4228,6 +2365,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-tornado-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_TORNADO_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-vue-tornado-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-tornado-postgresql-microservices':
@@ -4238,6 +2378,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-tornado-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_TORNADO_MYSQL_REPOS = {
   'fullstack-typescript-python-vue-tornado-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-tornado-mysql-microservices':
@@ -4248,6 +2391,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-tornado-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VUE_TORNADO_SQLITE_REPOS = {
   'fullstack-typescript-python-vue-tornado-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-tornado-sqlite-microservices':
@@ -4258,6 +2404,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vue-tornado-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_DJANGO_MONGODB_REPOS = {
   'fullstack-typescript-python-svelte-django-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-django-mongodb-microservices':
@@ -4268,6 +2417,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-django-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_DJANGO_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-svelte-django-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-django-postgresql-microservices':
@@ -4278,6 +2430,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-django-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_DJANGO_MYSQL_REPOS = {
   'fullstack-typescript-python-svelte-django-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-django-mysql-microservices':
@@ -4288,6 +2443,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-django-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_DJANGO_SQLITE_REPOS = {
   'fullstack-typescript-python-svelte-django-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-django-sqlite-microservices':
@@ -4298,6 +2456,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-django-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FLASK_MONGODB_REPOS = {
   'fullstack-typescript-python-svelte-flask-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-flask-mongodb-microservices':
@@ -4308,6 +2469,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-flask-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FLASK_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-svelte-flask-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-flask-postgresql-microservices':
@@ -4318,6 +2482,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-flask-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FLASK_MYSQL_REPOS = {
   'fullstack-typescript-python-svelte-flask-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-flask-mysql-microservices':
@@ -4328,6 +2495,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-flask-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FLASK_SQLITE_REPOS = {
   'fullstack-typescript-python-svelte-flask-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-flask-sqlite-microservices':
@@ -4338,6 +2508,10 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-flask-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+// Svelte + FastAPI Framework Groups
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FASTAPI_MONGODB_REPOS = {
   'fullstack-typescript-python-svelte-fastapi-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-fastapi-mongodb-microservices':
@@ -4348,6 +2522,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-fastapi-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FASTAPI_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-svelte-fastapi-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-fastapi-postgresql-microservices':
@@ -4358,6 +2535,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-fastapi-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FASTAPI_MYSQL_REPOS = {
   'fullstack-typescript-python-svelte-fastapi-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-fastapi-mysql-microservices':
@@ -4368,6 +2548,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-fastapi-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FASTAPI_SQLITE_REPOS = {
   'fullstack-typescript-python-svelte-fastapi-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-fastapi-sqlite-microservices':
@@ -4378,6 +2561,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-fastapi-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_SANIC_MONGODB_REPOS = {
   'fullstack-typescript-python-svelte-sanic-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-sanic-mongodb-microservices':
@@ -4388,6 +2574,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-sanic-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_SANIC_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-svelte-sanic-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-sanic-postgresql-microservices':
@@ -4398,6 +2587,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-sanic-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_SANIC_MYSQL_REPOS = {
   'fullstack-typescript-python-svelte-sanic-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-sanic-mysql-microservices':
@@ -4408,6 +2600,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-sanic-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_SANIC_SQLITE_REPOS = {
   'fullstack-typescript-python-svelte-sanic-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-sanic-sqlite-microservices':
@@ -4418,6 +2613,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-sanic-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_TORNADO_MONGODB_REPOS = {
   'fullstack-typescript-python-svelte-tornado-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-tornado-mongodb-microservices':
@@ -4428,6 +2626,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-tornado-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_TORNADO_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-svelte-tornado-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-tornado-postgresql-microservices':
@@ -4438,6 +2639,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-tornado-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_TORNADO_MYSQL_REPOS = {
   'fullstack-typescript-python-svelte-tornado-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-tornado-mysql-microservices':
@@ -4448,6 +2652,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-tornado-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_TORNADO_SQLITE_REPOS = {
   'fullstack-typescript-python-svelte-tornado-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-tornado-sqlite-microservices':
@@ -4458,6 +2665,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-svelte-tornado-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_DJANGO_MONGODB_REPOS = {
   'fullstack-typescript-python-nextjs-django-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-django-mongodb-microservices':
@@ -4468,6 +2678,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-django-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_DJANGO_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-nextjs-django-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-django-postgresql-microservices':
@@ -4478,6 +2691,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-django-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_DJANGO_MYSQL_REPOS = {
   'fullstack-typescript-python-nextjs-django-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-django-mysql-microservices':
@@ -4488,6 +2704,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-django-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_DJANGO_SQLITE_REPOS = {
   'fullstack-typescript-python-nextjs-django-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-django-sqlite-microservices':
@@ -4498,6 +2717,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-django-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FLASK_MONGODB_REPOS = {
   'fullstack-typescript-python-nextjs-flask-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-flask-mongodb-microservices':
@@ -4508,6 +2730,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-flask-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FLASK_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-nextjs-flask-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-flask-postgresql-microservices':
@@ -4518,6 +2743,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-flask-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FLASK_MYSQL_REPOS = {
   'fullstack-typescript-python-nextjs-flask-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-flask-mysql-microservices':
@@ -4528,6 +2756,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-flask-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FLASK_SQLITE_REPOS = {
   'fullstack-typescript-python-nextjs-flask-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-flask-sqlite-microservices':
@@ -4538,6 +2769,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-flask-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FASTAPI_MONGODB_REPOS = {
   'fullstack-typescript-python-nextjs-fastapi-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-fastapi-mongodb-microservices':
@@ -4548,6 +2782,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-fastapi-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FASTAPI_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-nextjs-fastapi-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-fastapi-postgresql-microservices':
@@ -4558,6 +2795,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-fastapi-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FASTAPI_MYSQL_REPOS = {
   'fullstack-typescript-python-nextjs-fastapi-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-fastapi-mysql-microservices':
@@ -4568,6 +2808,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-fastapi-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FASTAPI_SQLITE_REPOS = {
   'fullstack-typescript-python-nextjs-fastapi-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-fastapi-sqlite-microservices':
@@ -4578,6 +2821,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-fastapi-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_SANIC_MONGODB_REPOS = {
   'fullstack-typescript-python-nextjs-sanic-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-sanic-mongodb-microservices':
@@ -4588,6 +2834,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-sanic-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_SANIC_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-nextjs-sanic-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-sanic-postgresql-microservices':
@@ -4598,6 +2847,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-sanic-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_SANIC_MYSQL_REPOS = {
   'fullstack-typescript-python-nextjs-sanic-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-sanic-mysql-microservices':
@@ -4608,6 +2860,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-sanic-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_SANIC_SQLITE_REPOS = {
   'fullstack-typescript-python-nextjs-sanic-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-sanic-sqlite-microservices':
@@ -4618,6 +2873,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-sanic-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_TORNADO_MONGODB_REPOS = {
   'fullstack-typescript-python-nextjs-tornado-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-tornado-mongodb-microservices':
@@ -4628,6 +2886,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-tornado-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_TORNADO_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-nextjs-tornado-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-tornado-postgresql-microservices':
@@ -4638,6 +2899,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-tornado-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_TORNADO_MYSQL_REPOS = {
   'fullstack-typescript-python-nextjs-tornado-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-tornado-mysql-microservices':
@@ -4648,6 +2912,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-tornado-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_TORNADO_SQLITE_REPOS = {
   'fullstack-typescript-python-nextjs-tornado-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-tornado-sqlite-microservices':
@@ -4658,6 +2925,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nextjs-tornado-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_DJANGO_MONGODB_REPOS = {
   'fullstack-typescript-python-nuxtjs-django-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-django-mongodb-microservices':
@@ -4668,6 +2938,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-django-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_DJANGO_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-nuxtjs-django-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-django-postgresql-microservices':
@@ -4678,6 +2951,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-django-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_DJANGO_MYSQL_REPOS = {
   'fullstack-typescript-python-nuxtjs-django-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-django-mysql-microservices':
@@ -4688,6 +2964,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-django-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_DJANGO_SQLITE_REPOS = {
   'fullstack-typescript-python-nuxtjs-django-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-django-sqlite-microservices':
@@ -4698,6 +2977,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-django-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FLASK_MONGODB_REPOS = {
   'fullstack-typescript-python-nuxtjs-flask-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-flask-mongodb-microservices':
@@ -4708,6 +2990,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-flask-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FLASK_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-nuxtjs-flask-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-flask-postgresql-microservices':
@@ -4718,6 +3003,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-flask-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FLASK_MYSQL_REPOS = {
   'fullstack-typescript-python-nuxtjs-flask-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-flask-mysql-microservices':
@@ -4728,6 +3016,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-flask-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FLASK_SQLITE_REPOS = {
   'fullstack-typescript-python-nuxtjs-flask-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-flask-sqlite-microservices':
@@ -4738,6 +3029,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-flask-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FASTAPI_MONGODB_REPOS = {
   'fullstack-typescript-python-nuxtjs-fastapi-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-fastapi-mongodb-microservices':
@@ -4748,6 +3042,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-fastapi-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FASTAPI_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-nuxtjs-fastapi-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-fastapi-postgresql-microservices':
@@ -4758,6 +3055,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-fastapi-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FASTAPI_MYSQL_REPOS = {
   'fullstack-typescript-python-nuxtjs-fastapi-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-fastapi-mysql-microservices':
@@ -4768,6 +3068,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-fastapi-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FASTAPI_SQLITE_REPOS = {
   'fullstack-typescript-python-nuxtjs-fastapi-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-fastapi-sqlite-microservices':
@@ -4778,6 +3081,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-fastapi-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_SANIC_MONGODB_REPOS = {
   'fullstack-typescript-python-nuxtjs-sanic-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-sanic-mongodb-microservices':
@@ -4788,6 +3094,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-sanic-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_SANIC_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-nuxtjs-sanic-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-sanic-postgresql-microservices':
@@ -4798,6 +3107,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-sanic-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_SANIC_MYSQL_REPOS = {
   'fullstack-typescript-python-nuxtjs-sanic-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-sanic-mysql-microservices':
@@ -4808,6 +3120,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-sanic-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_SANIC_SQLITE_REPOS = {
   'fullstack-typescript-python-nuxtjs-sanic-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-sanic-sqlite-microservices':
@@ -4818,6 +3133,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-sanic-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_TORNADO_MONGODB_REPOS = {
   'fullstack-typescript-python-nuxtjs-tornado-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-tornado-mongodb-microservices':
@@ -4828,6 +3146,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-tornado-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_TORNADO_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-nuxtjs-tornado-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-tornado-postgresql-microservices':
@@ -4838,6 +3159,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-tornado-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_TORNADO_MYSQL_REPOS = {
   'fullstack-typescript-python-nuxtjs-tornado-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-tornado-mysql-microservices':
@@ -4848,6 +3172,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-tornado-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_TORNADO_SQLITE_REPOS = {
   'fullstack-typescript-python-nuxtjs-tornado-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-tornado-sqlite-microservices':
@@ -4858,6 +3185,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-nuxtjs-tornado-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_DJANGO_MONGODB_REPOS = {
   'fullstack-typescript-python-vanillajs-django-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-django-mongodb-microservices':
@@ -4868,6 +3198,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-django-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_DJANGO_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-vanillajs-django-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-django-postgresql-microservices':
@@ -4878,6 +3211,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-django-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_DJANGO_MYSQL_REPOS = {
   'fullstack-typescript-python-vanillajs-django-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-django-mysql-microservices':
@@ -4888,6 +3224,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-django-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_DJANGO_SQLITE_REPOS = {
   'fullstack-typescript-python-vanillajs-django-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-django-sqlite-microservices':
@@ -4898,6 +3237,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-django-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FLASK_MONGODB_REPOS = {
   'fullstack-typescript-python-vanillajs-flask-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-flask-mongodb-microservices':
@@ -4908,6 +3250,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-flask-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FLASK_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-vanillajs-flask-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-flask-postgresql-microservices':
@@ -4918,6 +3263,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-flask-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FLASK_MYSQL_REPOS = {
   'fullstack-typescript-python-vanillajs-flask-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-flask-mysql-microservices':
@@ -4928,6 +3276,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-flask-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FLASK_SQLITE_REPOS = {
   'fullstack-typescript-python-vanillajs-flask-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-flask-sqlite-microservices':
@@ -4938,6 +3289,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-flask-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FASTAPI_MONGODB_REPOS = {
   'fullstack-typescript-python-vanillajs-fastapi-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-fastapi-mongodb-microservices':
@@ -4948,6 +3302,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-fastapi-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FASTAPI_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-vanillajs-fastapi-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-fastapi-postgresql-microservices':
@@ -4958,6 +3315,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-fastapi-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FASTAPI_MYSQL_REPOS = {
   'fullstack-typescript-python-vanillajs-fastapi-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-fastapi-mysql-microservices':
@@ -4968,6 +3328,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-fastapi-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FASTAPI_SQLITE_REPOS = {
   'fullstack-typescript-python-vanillajs-fastapi-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-fastapi-sqlite-microservices':
@@ -4978,6 +3341,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-fastapi-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_SANIC_MONGODB_REPOS = {
   'fullstack-typescript-python-vanillajs-sanic-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-sanic-mongodb-microservices':
@@ -4988,6 +3354,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-sanic-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_SANIC_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-vanillajs-sanic-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-sanic-postgresql-microservices':
@@ -4998,6 +3367,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-sanic-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_SANIC_MYSQL_REPOS = {
   'fullstack-typescript-python-vanillajs-sanic-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-sanic-mysql-microservices':
@@ -5008,6 +3380,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-sanic-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_SANIC_SQLITE_REPOS = {
   'fullstack-typescript-python-vanillajs-sanic-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-sanic-sqlite-microservices':
@@ -5018,6 +3393,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-sanic-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_TORNADO_MONGODB_REPOS = {
   'fullstack-typescript-python-vanillajs-tornado-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-tornado-mongodb-microservices':
@@ -5028,6 +3406,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-tornado-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_TORNADO_POSTGRESQL_REPOS = {
   'fullstack-typescript-python-vanillajs-tornado-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-tornado-postgresql-microservices':
@@ -5038,6 +3419,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-tornado-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_TORNADO_MYSQL_REPOS = {
   'fullstack-typescript-python-vanillajs-tornado-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-tornado-mysql-microservices':
@@ -5048,6 +3432,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-tornado-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_TORNADO_SQLITE_REPOS = {
   'fullstack-typescript-python-vanillajs-tornado-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-tornado-sqlite-microservices':
@@ -5058,6 +3445,152 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-python-vanillajs-tornado-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TS_PYTHON_REPOS: IRepo = {
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_DJANGO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FLASK_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_FASTAPI_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_SANIC_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_ANGULAR_TORNADO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_DJANGO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_DJANGO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_DJANGO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_DJANGO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_FLASK_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_FLASK_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_FLASK_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_FLASK_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_FASTAPI_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_FASTAPI_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_FASTAPI_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_FASTAPI_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_SANIC_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_SANIC_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_SANIC_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_SANIC_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_TORNADO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_TORNADO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_TORNADO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_REACT_TORNADO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_DJANGO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_DJANGO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_DJANGO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_DJANGO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_FLASK_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_FLASK_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_FLASK_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_FLASK_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_FASTAPI_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_FASTAPI_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_FASTAPI_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_FASTAPI_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_SANIC_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_SANIC_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_SANIC_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_SANIC_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_TORNADO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_TORNADO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_TORNADO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VUE_TORNADO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_DJANGO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_DJANGO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_DJANGO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_DJANGO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FLASK_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FLASK_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FLASK_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FLASK_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FASTAPI_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FASTAPI_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FASTAPI_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_FASTAPI_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_SANIC_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_SANIC_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_SANIC_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_SANIC_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_TORNADO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_TORNADO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_TORNADO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_SVELTE_TORNADO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_DJANGO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_DJANGO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_DJANGO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_DJANGO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FLASK_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FLASK_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FLASK_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FLASK_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FASTAPI_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FASTAPI_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FASTAPI_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_FASTAPI_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_SANIC_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_SANIC_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_SANIC_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_SANIC_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_TORNADO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_TORNADO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_TORNADO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NEXTJS_TORNADO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_DJANGO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_DJANGO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_DJANGO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_DJANGO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FLASK_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FLASK_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FLASK_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FLASK_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FASTAPI_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FASTAPI_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FASTAPI_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_FASTAPI_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_SANIC_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_SANIC_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_SANIC_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_SANIC_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_TORNADO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_TORNADO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_TORNADO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_NUXTJS_TORNADO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_DJANGO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_DJANGO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_DJANGO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_DJANGO_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FLASK_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FLASK_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FLASK_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FLASK_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FASTAPI_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FASTAPI_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FASTAPI_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_FASTAPI_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_SANIC_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_SANIC_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_SANIC_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_SANIC_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_TORNADO_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_TORNADO_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_TORNADO_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_PYTHON_VANILLAJS_TORNADO_SQLITE_REPOS,
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_MONGODB_REPOS = {
   'fullstack-typescript-csharp-angular-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-mongodb-microservices':
@@ -5068,6 +3601,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_POSTGRESQL_REPOS = {
   'fullstack-typescript-csharp-angular-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-postgresql-microservices':
@@ -5078,6 +3614,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_MYSQL_REPOS = {
   'fullstack-typescript-csharp-angular-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-mysql-microservices':
@@ -5088,6 +3627,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_SQLITE_REPOS = {
   'fullstack-typescript-csharp-angular-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-sqlite-microservices':
@@ -5098,126 +3640,10 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-angular-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-nancy-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-servicestack-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-angular-webapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+// ---------- React groups ----------
+const FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_MONGODB_REPOS = {
   'fullstack-typescript-csharp-react-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-mongodb-microservices':
@@ -5228,6 +3654,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_POSTGRESQL_REPOS = {
   'fullstack-typescript-csharp-react-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-postgresql-microservices':
@@ -5238,6 +3667,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_MYSQL_REPOS = {
   'fullstack-typescript-csharp-react-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-mysql-microservices':
@@ -5248,6 +3680,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_SQLITE_REPOS = {
   'fullstack-typescript-csharp-react-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-sqlite-microservices':
@@ -5258,126 +3693,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-react-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-nancy-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-servicestack-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-react-webapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_MONGODB_REPOS = {
   'fullstack-typescript-csharp-vue-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-mongodb-microservices':
@@ -5388,6 +3706,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_POSTGRESQL_REPOS = {
   'fullstack-typescript-csharp-vue-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-postgresql-microservices':
@@ -5398,6 +3719,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_MYSQL_REPOS = {
   'fullstack-typescript-csharp-vue-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-mysql-microservices':
@@ -5408,6 +3732,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_SQLITE_REPOS = {
   'fullstack-typescript-csharp-vue-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-sqlite-microservices':
@@ -5418,126 +3745,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vue-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-nancy-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-servicestack-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vue-webapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_MONGODB_REPOS = {
   'fullstack-typescript-csharp-svelte-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-mongodb-microservices':
@@ -5548,6 +3758,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_POSTGRESQL_REPOS = {
   'fullstack-typescript-csharp-svelte-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-postgresql-microservices':
@@ -5558,6 +3771,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_MYSQL_REPOS = {
   'fullstack-typescript-csharp-svelte-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-mysql-microservices':
@@ -5568,6 +3784,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_SQLITE_REPOS = {
   'fullstack-typescript-csharp-svelte-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-sqlite-microservices':
@@ -5578,126 +3797,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-svelte-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-nancy-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-servicestack-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-svelte-webapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_MONGODB_REPOS = {
   'fullstack-typescript-csharp-nextjs-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-mongodb-microservices':
@@ -5708,6 +3810,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_POSTGRESQL_REPOS = {
   'fullstack-typescript-csharp-nextjs-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-postgresql-microservices':
@@ -5718,6 +3823,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_MYSQL_REPOS = {
   'fullstack-typescript-csharp-nextjs-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-mysql-microservices':
@@ -5728,6 +3836,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_SQLITE_REPOS = {
   'fullstack-typescript-csharp-nextjs-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-sqlite-microservices':
@@ -5738,126 +3849,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nextjs-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-nancy-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-servicestack-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nextjs-webapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_MONGODB_REPOS = {
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-mongodb-microservices':
@@ -5868,6 +3862,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_POSTGRESQL_REPOS = {
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-postgresql-microservices':
@@ -5878,6 +3875,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_MYSQL_REPOS = {
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-mysql-microservices':
@@ -5888,6 +3888,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_SQLITE_REPOS = {
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-sqlite-microservices':
@@ -5898,126 +3901,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-nuxtjs-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-nancy-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-servicestack-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-nuxtjs-webapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_MONGODB_REPOS = {
   'fullstack-typescript-csharp-vanillajs-dotnetcore-mongodb-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-mongodb-microservices':
@@ -6028,6 +3914,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-mongodb-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_POSTGRESQL_REPOS = {
   'fullstack-typescript-csharp-vanillajs-dotnetcore-postgresql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-postgresql-microservices':
@@ -6038,6 +3927,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-postgresql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_MYSQL_REPOS = {
   'fullstack-typescript-csharp-vanillajs-dotnetcore-mysql-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-mysql-microservices':
@@ -6048,6 +3940,9 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-mysql-event-driven':
     'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_SQLITE_REPOS = {
   'fullstack-typescript-csharp-vanillajs-dotnetcore-sqlite-monolithic':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-sqlite-microservices':
@@ -6058,124 +3953,51 @@ export const REPOS: { [key: string]: string } = {
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-csharp-vanillajs-dotnetcore-sqlite-event-driven':
     'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-nancy-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-servicestack-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-mongodb-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-mongodb-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-mongodb-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-mongodb-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-mongodb-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-postgresql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-postgresql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-postgresql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-postgresql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-mysql-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-mysql-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-mysql-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-mysql-event-driven':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-sqlite-microservices':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-sqlite-cqrs':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-sqlite-mvc':
-    'https://github.com/bolorundurovj/templategen',
-  'fullstack-typescript-csharp-vanillajs-webapi-sqlite-event-driven':
-    'https://github.com/bolorundurovj/templategen',
+};
+
+const FULLSTACK_TS_CSHARP_REPOS: IRepo = {
+  ...FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_ANGULAR_DOTNETCORE_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_REACT_DOTNETCORE_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VUE_DOTNETCORE_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_SVELTE_DOTNETCORE_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NEXTJS_DOTNETCORE_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_NUXTJS_DOTNETCORE_SQLITE_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_MONGODB_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_POSTGRESQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_MYSQL_REPOS,
+  ...FULLSTACK_TYPESCRIPT_CSHARP_VANILLAJS_DOTNETCORE_SQLITE_REPOS,
+};
+
+const FULLSTACK_REPOS: { [key: string]: string } = {
+  ...FULLSTACK_JS_JS_REPOS,
+  ...FULLSTACK_TS_TS_REPOS,
+  ...FULLSTACK_TS_PYTHON_REPOS,
+  ...FULLSTACK_TS_CSHARP_REPOS,
+};
+
+/**
+ * A map of GitHub repositories for each project type.
+ */
+export const REPOS: { [key: string]: string } = {
+  ...FRONTEND_REPOS,
+  ...BACKEND_REPOS,
+  ...FULLSTACK_REPOS,
 };
