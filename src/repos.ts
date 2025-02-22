@@ -33,7 +33,7 @@ const FRONTEND_REPOS: IRepo = {
 
 const BACKEND_JAVASCRIPT_EXPRESS_MONGODB_REPOS: IRepo = {
   'backend-javascript-express-mongodb-monolithic':
-    'https://github.com/hagopj13/node-express-boilerplate',
+    'https://github.com/hagopj13/node-express-boilerplate', //https://github.com/santiq/bulletproof-nodejs
   'backend-javascript-express-mongodb-microservices':
     'https://github.com/ajays97/node-microservice-boilerplate',
   'backend-javascript-express-mongodb-cqrs':
@@ -59,7 +59,7 @@ const BACKEND_JAVASCRIPT_EXPRESS_POSTGRESQL_REPOS: IRepo = {
 
 const BACKEND_JAVASCRIPT_EXPRESS_MYSQL_REPOS: IRepo = {
   'backend-javascript-express-mysql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/mangya/node-express-mysql-boilerplate',
   'backend-javascript-express-mysql-microservices':
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-express-mysql-cqrs':
@@ -72,7 +72,7 @@ const BACKEND_JAVASCRIPT_EXPRESS_MYSQL_REPOS: IRepo = {
 
 const BACKEND_JAVASCRIPT_EXPRESS_SQLITE_REPOS: IRepo = {
   'backend-javascript-express-sqlite-monolithic':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/santiq/bulletproof-nodejs',
   'backend-javascript-express-sqlite-microservices':
     'https://github.com/bolorundurovj/templategen',
   'backend-javascript-express-sqlite-cqrs':
@@ -933,7 +933,7 @@ const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_NESTJS_MONGODB_REPOS: IRepo = {
 
 const FULLSTACK_JAVASCRIPT_JAVASCRIPT_NEXTJS_NESTJS_POSTGRESQL_REPOS: IRepo = {
   'fullstack-javascript-javascript-nextjs-nestjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/thisismydesign/next-nest',
   'fullstack-javascript-javascript-nextjs-nestjs-postgresql-microservices':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-javascript-javascript-nextjs-nestjs-postgresql-cqrs':
@@ -1454,7 +1454,7 @@ const FULLSTACK_TYPESCRIPT_TYPESCRIPT_NEXTJS_NESTJS_MONGODB_REPOS = {
 
 const FULLSTACK_TYPESCRIPT_TYPESCRIPT_NEXTJS_NESTJS_POSTGRESQL_REPOS = {
   'fullstack-typescript-typescript-nextjs-nestjs-postgresql-monolithic':
-    'https://github.com/bolorundurovj/templategen',
+    'https://github.com/thisismydesign/next-nest',
   'fullstack-typescript-typescript-nextjs-nestjs-postgresql-microservices':
     'https://github.com/bolorundurovj/templategen',
   'fullstack-typescript-typescript-nextjs-nestjs-postgresql-cqrs':
