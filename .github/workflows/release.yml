@@ -5,17 +5,19 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write   # To create GitHub releases and tags
+      issues: write     # To comment on issues
+      pull-requests: write  # To comment on PRs
+      id-token: write   # For npm provenance (optional but recommended)
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: yarn
           registry-url: https://registry.npmjs.org/
       - run: yarn ci
-      - run: yarn bundle
+      - run: yarn build
       - run: npx semantic-release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
