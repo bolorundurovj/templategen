@@ -16,7 +16,8 @@
     "test": "jest",
     "prepare": "husky",
     "lint": "eslint src --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "release": "semantic-release"
   },
   "lint-staged": {
     "*.{js,ts,json}": [
