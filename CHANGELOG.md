@@ -1,3 +1,9 @@
+## [1.0.0-beta.2](https://github.com-bolorundurovj/bolorundurovj/templategen/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2025-04-18)
+
+### Bug Fixes
+
+* Trigger Pre-Release ([9e3b401](https://github.com-bolorundurovj/bolorundurovj/templategen/commit/9e3b40128be0a40a4441e151781103a0c55e5036))
+
 ## 1.0.0-beta.1 (2025-04-18)
 
 ### Bug Fixes
