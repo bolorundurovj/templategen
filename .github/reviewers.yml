@@ -1,0 +1,3 @@
+reviewers:
+  "*": ["@bolorundurovj", "@bolorundurovb"]  # Default owners
+  "src/**": ["@backend-team"]  # Owners for specific folders
