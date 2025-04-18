@@ -1,6 +1,6 @@
 {
   "name": "@bolorundurovb/mvcli",
-  "version": "1.0.1",
+  "version": "1.0.0-beta.2",
   "description": "A modern CLI tool for scaffolding and generating project templates with style and ease.",
   "type": "module",
   "main": "dist/index.js",
@@ -17,7 +17,10 @@
     "prepare": "husky",
     "lint": "eslint src --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "release:dry": "semantic-release --dry-run",
+    "release:beta": "semantic-release --branch dev",
+    "publish": "npm publish --access public"
   },
   "lint-staged": {
     "*.{js,ts,json}": [
@@ -42,8 +45,6 @@
     "@jest/globals": "^29.7.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^11.0.1",
-    "@semantic-release/npm": "^12.0.1",
     "@types/inquirer": "^9.0.7",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.6",
@@ -51,6 +52,7 @@
     "@types/yargs": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^8.23.0",
     "@typescript-eslint/parser": "^8.23.0",
+    "conventional-changelog-conventionalcommits": "^8.0.0",
     "eslint": "^9.20.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
