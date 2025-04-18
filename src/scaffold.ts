@@ -177,8 +177,10 @@ export const run = async (argv: any) => {
   }
 
   const templateRepo = REPOS[templateKey];
-  if (!templateRepo) {
-    logger.error('Template not found');
+  if (!templateRepo || templateRepo === '') {
+    logger.error(
+      'Template not found. You can help us by adding to the repo: https://github.com/bolorundurovj/templategen',
+    );
     return;
   }
   logger.info(`Creating project from template: ${templateRepo}`);
