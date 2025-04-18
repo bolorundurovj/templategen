@@ -1,6 +1,6 @@
 {
   "name": "@bolorundurovb/mvcli",
-  "version": "1.0.1",
+  "version": "1.0.0-beta.1",
   "description": "A modern CLI tool for scaffolding and generating project templates with style and ease.",
   "type": "module",
   "main": "dist/index.js",
