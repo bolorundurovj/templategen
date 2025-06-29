@@ -7,7 +7,7 @@ interface IRepo {
  */
 const FRONTEND_REPOS: IRepo = {
   'frontend-javascript-react':
-    'https://github.com/react-boilerplate/react-boilerplate',
+    'https://github.com/bolorundurovj/React-Javascript-Boilerplate',
   'frontend-javascript-vue': 'https://github.com/zmts/beauty-vuejs-boilerplate',
   'frontend-javascript-svelte': 'https://github.com/pankod/svelte-boilerplate',
   'frontend-javascript-nextjs':
