@@ -19,7 +19,7 @@ const FRONTEND_REPOS: IRepo = {
   'frontend-typescript-angular':
     'https://github.com/ArslanAmeer/angular-boilerplate',
   'frontend-typescript-react':
-    'https://github.com/TheSoftwareHouse/react-starter-boilerplate', //https://github.com/kyronsatt/frontend-boilerplate-with-react-ts
+    'https://github.com/bolorundurovj/React-Typescript-Boilerplate',
   'frontend-typescript-vue':
     'https://github.com/Vue-Boilerplates/vue-typescript-boilerplate',
   'frontend-typescript-svelte':
