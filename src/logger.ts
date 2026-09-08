@@ -9,7 +9,6 @@ export default class Logger {
   private static instance: Logger;
   private showTimestamp: boolean;
 
-  // Private constructor to prevent direct instantiation.
   private constructor(options: LoggerOptions = {}) {
     this.showTimestamp = options.showTimestamp ?? false;
   }
@@ -54,7 +53,6 @@ export default class Logger {
     process.exit(exitCode);
   }
 
-  // Returns an ISO formatted timestamp.
   private getTimestamp(): string {
     return new Date().toISOString();
   }

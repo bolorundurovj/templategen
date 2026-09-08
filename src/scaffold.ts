@@ -27,11 +27,9 @@ import { renderTemplate } from './templating.js';
 const CURR_DIR = process.cwd();
 
 const getTemplatesDir = (): string => {
-  // If __dirname is defined (CommonJS / Jest), use it
   if (typeof __dirname !== 'undefined') {
     return path.resolve(__dirname, '../templates');
   }
-  // Otherwise evaluate import.meta dynamically to avoid TS1343 compile errors
   try {
     const importMetaUrl = new Function('return import.meta.url')();
     return path.resolve(dirname(fileURLToPath(importMetaUrl)), '../templates');
@@ -45,7 +43,6 @@ const getTemplatesDir = (): string => {
  * @param {any} argv - The command line arguments if any.
  */
 export const run = async (argv: any) => {
-  // Get the project type
   const projectType: string =
     argv.projectType ||
     (await select({
@@ -87,7 +84,6 @@ export const run = async (argv: any) => {
     return;
   }
 
-  // Get the programming language
   const language: string =
     argv.language ||
     (await select({
@@ -100,7 +96,6 @@ export const run = async (argv: any) => {
     return;
   }
 
-  // Get the framework
   let framework: string = argv.framework || '';
   if (framework === '') {
     if (projectType === 'frontend') {
@@ -132,7 +127,6 @@ export const run = async (argv: any) => {
     return;
   }
 
-  // Get the architecture pattern if required
   let architecturePattern: string = argv.architecturePattern || '';
   if (requiresArchitecturePattern(projectType) && architecturePattern === '') {
     architecturePattern = await select({
@@ -149,7 +143,6 @@ export const run = async (argv: any) => {
     return;
   }
 
-  // Get the database if required
   let database: string = argv.database || '';
   if (requiresDatabase(projectType) && database === '') {
     database = await select({
@@ -176,7 +169,6 @@ export const run = async (argv: any) => {
     }
   }
 
-  // Log the selected options
   logger.info(`${'= '.repeat(20)} Selected Options ${'= '.repeat(20)}`);
   logger.info(`Project Type: ${projectType}`);
   logger.info(`Language: ${language}`);
@@ -189,7 +181,6 @@ export const run = async (argv: any) => {
   }
   logger.info(`${'= '.repeat(50)}`);
 
-  // Get the project name and target path
   const projectName: string =
     argv.projectName ||
     (await input({ message: 'What do you want to name your project?' }));
@@ -200,7 +191,6 @@ export const run = async (argv: any) => {
     return;
   }
 
-  // Handle Fullstack Nx Monorepo scaffolding
   if (projectType === 'fullstack') {
     const [feLang, beLang] = language.split('-');
     const [feFramework, beFramework] = framework.split('-');
@@ -251,21 +241,18 @@ export const run = async (argv: any) => {
     };
 
     try {
-      // 1. Render Frontend into apps/client
       await renderTemplate(
         feSourceTemplatePath,
         clientTargetPath,
         feRenderOptions as any,
       );
 
-      // 2. Render Backend into apps/server
       await renderTemplate(
         beSourceTemplatePath,
         serverTargetPath,
         beRenderOptions as any,
       );
 
-      // 3. Generate root Nx configuration
       const nxJson = {
         $schema: './node_modules/nx/schemas/nx-schema.json',
         targetDefaults: {
@@ -289,7 +276,6 @@ export const run = async (argv: any) => {
         JSON.stringify(nxJson, null, 2),
       );
 
-      // 4. Generate root package.json
       const rootPackageJson = {
         name: projectName,
         version: '1.0.0',
@@ -311,7 +297,6 @@ export const run = async (argv: any) => {
         JSON.stringify(rootPackageJson, null, 2),
       );
 
-      // 5. If backend is Python or C#, generate project.json in apps/server so Nx can orchestrate dev & test
       if (beLang === 'python') {
         let runCmd = 'poetry run python main.py';
         if (beFramework === 'fastapi')
@@ -372,7 +357,6 @@ export const run = async (argv: any) => {
         );
       }
 
-      // 6. Generate root tests directory for fullstack workspace integration
       const testsDir = path.join(targetPath, 'tests');
       if (!fs.existsSync(testsDir)) {
         fs.mkdirSync(testsDir, { recursive: true });
@@ -405,7 +389,6 @@ describe('Fullstack Nx Workspace', () => {
         fullstackTestContent,
       );
 
-      // 7. Generate root README.md
       const readmeContent = `# ${projectName} (Nx Monorepo)
 
 This fullstack application was scaffolded with **TemplateGen** using **Nx**.
@@ -443,7 +426,6 @@ This fullstack application was scaffolded with **TemplateGen** using **Nx**.
     return;
   }
 
-  // Standalone Single Template Scaffolding
   const templateKey = `${projectType}-${language}-${framework}`;
   const sourceTemplatePath = join(getTemplatesDir(), templateKey);
 
@@ -465,7 +447,6 @@ This fullstack application was scaffolded with **TemplateGen** using **Nx**.
     language,
   };
 
-  // Extend options with architecture and database for templating
   const renderOptions = {
     ...options,
     architecturePattern,
@@ -476,7 +457,6 @@ This fullstack application was scaffolded with **TemplateGen** using **Nx**.
   try {
     await renderTemplate(sourceTemplatePath, targetPath, renderOptions as any);
 
-    // Run post-processing steps if the project was created successfully
     const postProcessResult = self.postProcess(options);
     if (postProcessResult) {
       logger.success('Project ready');
@@ -495,7 +475,6 @@ export function postProcess(options: CliOptions): boolean {
   logger.info('Running post process');
 
   if (options.isFullstack) {
-    // 1. Root workspace npm install (installs Nx)
     if (fs.existsSync(path.join(options.targetPath, 'package.json'))) {
       shell.cd(options.targetPath);
       logger.info('Installing root workspace dependencies');
@@ -505,7 +484,6 @@ export function postProcess(options: CliOptions): boolean {
       }
     }
 
-    // 2. Client dependencies
     const clientPath = path.join(options.targetPath, 'apps', 'client');
     if (fs.existsSync(path.join(clientPath, 'package.json'))) {
       shell.cd(clientPath);
@@ -513,7 +491,6 @@ export function postProcess(options: CliOptions): boolean {
       shell.exec('npm install');
     }
 
-    // 3. Server dependencies (Node)
     const serverPath = path.join(options.targetPath, 'apps', 'server');
     if (fs.existsSync(path.join(serverPath, 'package.json'))) {
       shell.cd(serverPath);
@@ -521,7 +498,6 @@ export function postProcess(options: CliOptions): boolean {
       shell.exec('npm install');
     }
 
-    // Server dependencies (Python)
     if (isPython(options)) {
       const pyProj = findPyDir({ ...options, targetPath: serverPath });
       if (pyProj) {
@@ -531,7 +507,6 @@ export function postProcess(options: CliOptions): boolean {
       }
     }
 
-    // Server dependencies (C#)
     if (isCSharp(options)) {
       const csProj = findCsProj({ ...options, targetPath: serverPath });
       if (csProj) {

@@ -28,7 +28,6 @@ export async function renderTemplate(
     if (fs.statSync(templatePath).isDirectory()) {
       await renderTemplate(templatePath, targetPath, options);
     } else {
-      // Basic check to avoid templating binary files like images
       if (
         ['.png', '.jpg', '.jpeg', '.ico', '.gif', '.svg'].includes(
           path.extname(file),
@@ -38,17 +37,15 @@ export async function renderTemplate(
       } else {
         const content = fs.readFileSync(templatePath, 'utf8');
         try {
-          // Render the file using EJS, passing down user options (e.g. database, architecturePattern)
           const rendered = ejs.render(content, options);
           if (rendered.trim() === '_SKIP_FILE_') {
-            continue; // Skip creating this file
+            continue;
           }
           fs.writeFileSync(targetPath, rendered);
         } catch (e) {
           logger.error(
             `Failed to render template file: ${file}. Copying raw file. Error: ${(e as Error).message}`,
           );
-          // fallback to copying raw file if ejs fails
           fs.copyFileSync(templatePath, targetPath);
         }
       }
