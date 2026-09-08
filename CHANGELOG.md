@@ -16,6 +16,17 @@
 
 * Refactor Logic ([9ef36b3](https://github.com-bolorundurovj/bolorundurovj/templategen/commit/9ef36b35774d2926dfc9eb80c786246b74f3442e))
 
+## [2.0.0](https://github.com/bolorundurovj/templategen/compare/v1.0.2...v2.0.0) (2026-09-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* **v2:** overhaul template generator with local EJS engin ([#40](https://github.com/bolorundurovj/templategen/issues/40))
+
+### Features
+
+* **v2:** overhaul template generator with local EJS engin ([#40](https://github.com/bolorundurovj/templategen/issues/40)) ([80e4ad7](https://github.com/bolorundurovj/templategen/commit/80e4ad70aa33bf670b8c3bab743cc628b6353d00))
+
 ## [1.0.0-beta.2](https://github.com-bolorundurovj/bolorundurovj/templategen/compare/v1.0.0-beta.1...v1.0.0-beta.2) (2025-04-18)
 
 ### Bug Fixes
