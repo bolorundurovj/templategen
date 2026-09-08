@@ -9,7 +9,7 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "ci": "yarn install --frozen-lockfile",
+    "ci": "yarn install --frozen-lockfile --ignore-engines",
     "start": "node --loader ts-node/esm src/index.ts",
     "build": "tsc",
     "bundle": "tsc && rollup dist/index.js --format esm --file dist/bundle.js",
@@ -64,7 +64,7 @@
     "express": "^5.2.1",
     "husky": "^9.1.7",
     "jest": "^29.7.0",
-    "jsdom": "^30.0.1",
+    "jsdom": "^26.0.0",
     "lint-staged": "^15.4.3",
     "prettier": "^3.5.0",
     "rollup": "^4.34.6",
@@ -75,7 +75,7 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3",
     "vite": "^6.2.0",
-    "vitest": "^5.0.0"
+    "vitest": "^3.2.7"
   },
   "dependencies": {
     "@inquirer/prompts": "^7.3.1",
