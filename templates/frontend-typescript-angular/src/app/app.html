@@ -1,0 +1,30 @@
+<main class="app-container">
+  <div class="hero">
+    <div class="badge">TemplateGen Starter</div>
+    <h1 class="title">Welcome to {{ title() }}</h1>
+    <p class="subtitle">
+      You've successfully scaffolded a modern Angular application.
+      Start editing <code class="code">src/app/app.html</code> to see changes instantly.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon-wrap">
+        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      </div>
+      <div>
+        <h3 class="card-title">Interactive Counter</h3>
+        <p class="card-desc">Test out Angular Signals reactivity.</p>
+      </div>
+    </div>
+
+    <div class="button-wrap">
+      <button class="btn" (click)="increment()">
+        Count is {{ count() }}
+      </button>
+    </div>
+  </div>
+</main>

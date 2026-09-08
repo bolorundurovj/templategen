@@ -145,6 +145,10 @@ export const BACKEND_FRAMEWORKS: MVChoiceMap = {
   ],
   typescript: [
     {
+      name: 'Express',
+      value: 'express',
+    },
+    {
       name: 'NestJS',
       value: 'nestjs',
     },

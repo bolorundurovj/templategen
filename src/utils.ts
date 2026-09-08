@@ -11,6 +11,7 @@ export interface CliOptions {
   targetPath: string;
   isFullstack: boolean;
   language: string;
+  shadcn?: boolean;
 }
 
 /**
@@ -148,22 +149,31 @@ export interface MVPythonDir {
  */
 export const findPyDir = (options: CliOptions): MVPythonDir | null => {
   const pythonFiles = [
+    'pyproject.toml',
     'requirements.txt',
     'Pipfile',
     'Pipfile.lock',
-    'pyproject.toml',
   ];
   const commands: any = {
+    'pyproject.toml': 'poetry install',
     'requirements.txt': 'pip install -r requirements.txt',
     Pipfile: 'pipenv install',
     'Pipfile.lock': 'pipenv install',
-    'pyproject.toml': 'poetry install',
   };
 
   const searchDir = (
     dir: string,
   ): { path: string; depFile: string; command: string } | null => {
     const files = fs.readdirSync(dir);
+    for (const pyFile of pythonFiles) {
+      if (files.includes(pyFile)) {
+        return {
+          path: dir,
+          depFile: pyFile,
+          command: commands[pyFile],
+        } as MVPythonDir;
+      }
+    }
     for (const file of files) {
       const fullPath = path.join(dir, file);
       if (fs.statSync(fullPath).isDirectory()) {
@@ -171,12 +181,6 @@ export const findPyDir = (options: CliOptions): MVPythonDir | null => {
         if (result) {
           return result;
         }
-      } else if (pythonFiles.includes(file)) {
-        return {
-          path: dir,
-          depFile: file,
-          command: commands[file],
-        } as MVPythonDir;
       }
     }
     return null;

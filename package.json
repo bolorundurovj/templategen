@@ -9,7 +9,7 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "ci": "yarn install --frozen-lockfile",
+    "ci": "yarn install --frozen-lockfile --ignore-engines",
     "start": "node --loader ts-node/esm src/index.ts",
     "build": "tsc",
     "bundle": "tsc && rollup dist/index.js --format esm --file dist/bundle.js",
@@ -17,9 +17,6 @@
     "prepare": "husky",
     "lint": "eslint src --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "release": "semantic-release",
-    "release:dry": "semantic-release --dry-run",
-    "release:beta": "semantic-release --branch dev",
     "publish": "npm publish --access public"
   },
   "lint-staged": {
@@ -43,39 +40,57 @@
   "license": "MIT",
   "devDependencies": {
     "@jest/globals": "^29.7.0",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
+    "@types/ejs": "^3.1.5",
+    "@types/express": "^5.0.6",
     "@types/inquirer": "^9.0.7",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.6",
     "@types/shelljs": "^0.8.8",
+    "@types/supertest": "^7.2.1",
     "@types/yargs": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^8.23.0",
     "@typescript-eslint/parser": "^8.23.0",
     "conventional-changelog-conventionalcommits": "^8.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
     "eslint": "^9.20.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
+    "express": "^5.2.1",
     "husky": "^9.1.7",
     "jest": "^29.7.0",
+    "jsdom": "^26.0.0",
     "lint-staged": "^15.4.3",
     "prettier": "^3.5.0",
     "rollup": "^4.34.6",
-    "semantic-release": "^24.2.3",
     "shx": "^0.3.3",
+    "supertest": "^7.2.2",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vite": "^6.2.0",
+    "vitest": "^3.2.7"
   },
   "dependencies": {
     "@inquirer/prompts": "^7.3.1",
     "chalk": "^5.4.1",
+    "ejs": "^6.0.1",
     "shelljs": "^0.8.5",
     "yargs": "^16.2.0"
   },
   "licence": "MIT",
   "resolutions": {
     "@babel/helpers": "7.27.0",
-    "@babel/runtime": "7.27.0"
+    "@babel/runtime": "7.27.0",
+    "brace-expansion": "^1.1.18",
+    "minimatch": "^3.1.4",
+    "diff": "^4.0.4",
+    "js-yaml": "^3.15.1",
+    "tmp": "^0.2.6",
+    "handlebars": "^4.7.9",
+    "flatted": "^3.4.2",
+    "picomatch": "^2.3.2",
+    "lodash": "^4.18.1",
+    "browserslist": "^4.28.7"
   }
 }

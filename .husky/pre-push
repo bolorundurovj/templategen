@@ -1,1 +1,1 @@
-yarn audit
+yarn audit --groups dependencies

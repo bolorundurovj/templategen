@@ -1,3 +1,9 @@
 node_modules
 dist
 .idea
+coverage
+scratch
+HANDOVER.md
+RESTRUCTURE_PLAN.md
+migrate.*
+repos_old_utf8.js
