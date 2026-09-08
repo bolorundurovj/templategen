@@ -1,0 +1,6 @@
+flask>=3.0.2
+pytest>=8.0.0
+<% if (database === 'mongodb') { %>pymongo>=4.6.2
+<% } else if (database === 'postgresql') { %>psycopg2-binary>=2.9.9
+<% } else if (database === 'mysql') { %>pymysql>=1.1.0
+<% } %>
