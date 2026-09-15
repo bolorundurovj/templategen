@@ -1,6 +1,7 @@
 <script>
   import Layout from './lib/components/Layout.svelte';
   import { counter } from './lib/stores/counter';
+  <% if (isFullstack) { %>import ItemsCrud from './lib/components/ItemsCrud.svelte';<% } %>
 </script>
 
 <Layout>
@@ -13,28 +14,49 @@
     </p>
   </div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="icon-wrap">
-        <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
+  <div class="cards-container">
+    <div class="card">
+      <div class="card-header">
+        <div class="icon-wrap">
+          <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <div>
+          <h3 class="card-title">Interactive Counter</h3>
+          <p class="card-desc">Persisted in localStorage with Svelte stores.</p>
+        </div>
       </div>
-      <div>
-        <h3 class="card-title">Interactive Counter</h3>
-        <p class="card-desc">Persisted in localStorage with Svelte stores.</p>
+
+      <div class="button-wrap">
+        <button class="btn" on:click={() => counter.increment()}>
+          Count is {$counter}
+        </button>
       </div>
     </div>
 
-    <div class="button-wrap">
-      <button class="btn" on:click={() => counter.increment()}>
-        Count is {$counter}
-      </button>
-    </div>
+    <% if (isFullstack) { %>
+    <ItemsCrud />
+    <% } %>
   </div>
 </Layout>
 
 <style>
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 56rem;
+  }
+  @media (min-width: 1024px) {
+    .cards-container {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+    }
+  }
   .hero {
     text-align: center;
     margin-bottom: 3rem;

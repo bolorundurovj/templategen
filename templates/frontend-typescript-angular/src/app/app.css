@@ -105,3 +105,20 @@
 .btn:hover {
   background-color: #0f766e;
 }
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+@media (min-width: 1024px) {
+  .cards-container {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}

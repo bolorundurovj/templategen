@@ -12,6 +12,9 @@ export interface CliOptions {
   isFullstack: boolean;
   language: string;
   shadcn?: boolean;
+  backendPort?: number;
+  backendFramework?: string;
+  apiUrl?: string;
 }
 
 /**

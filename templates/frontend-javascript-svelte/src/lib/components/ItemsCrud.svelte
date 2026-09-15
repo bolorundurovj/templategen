@@ -1,0 +1,267 @@
+<% if (!isFullstack) { %>_SKIP_FILE_<% } else { %>
+<script>
+  import { onMount } from 'svelte';
+  import { fetchItems, createItem, updateItem, deleteItem, API_BASE } from '../services/api';
+
+  let items = [];
+  let title = '';
+  let loading = true;
+  let error = null;
+
+  async function loadItems() {
+    try {
+      loading = true;
+      error = null;
+      const data = await fetchItems();
+      items = Array.isArray(data) ? data : [];
+    } catch (err) {
+      error = err.message || 'Failed to connect to backend';
+    } finally {
+      loading = false;
+    }
+  }
+
+  onMount(() => {
+    loadItems();
+  });
+
+  async function handleAdd() {
+    if (!title.trim()) return;
+    try {
+      const newItem = await createItem(title.trim());
+      items = [...items, newItem];
+      title = '';
+    } catch (err) {
+      error = err.message;
+    }
+  }
+
+  async function handleToggle(item) {
+    try {
+      const updated = await updateItem(item.id, { completed: !item.completed });
+      items = items.map((i) => (i.id === item.id ? { ...i, completed: updated.completed ?? !item.completed } : i));
+    } catch (err) {
+      error = err.message;
+    }
+  }
+
+  async function handleDelete(id) {
+    try {
+      await deleteItem(id);
+      items = items.filter((i) => i.id !== id);
+    } catch (err) {
+      error = err.message;
+    }
+  }
+</script>
+
+<div class="card crud-card">
+  <div class="crud-header">
+    <div class="header-left">
+      <span class="status-dot"></span>
+      <h3 class="card-title">Fullstack CRUD API</h3>
+    </div>
+    <span class="api-badge">{API_BASE}</span>
+  </div>
+
+  {#if error}
+    <div class="error-banner">
+      {error}
+    </div>
+  {/if}
+
+  <form on:submit|preventDefault={handleAdd} class="form-row">
+    <input
+      type="text"
+      bind:value={title}
+      placeholder="New item title..."
+      class="input-text"
+    />
+    <button type="submit" disabled={!title.trim()} class="btn-submit">
+      Add
+    </button>
+  </form>
+
+  <div class="items-list">
+    {#if loading}
+      <p class="empty-text">Loading items...</p>
+    {:else if items.length === 0}
+      <p class="empty-text">No items yet. Add one above!</p>
+    {:else}
+      {#each items as item (item.id)}
+        <div class="item-row">
+          <label class="item-label">
+            <input
+              type="checkbox"
+              checked={item.completed}
+              on:change={() => handleToggle(item)}
+              class="checkbox"
+            />
+            <span class={item.completed ? 'completed-text' : 'item-text'}>
+              {item.title}
+            </span>
+          </label>
+          <button
+            type="button"
+            on:click={() => handleDelete(item.id)}
+            class="btn-delete"
+            title="Delete item"
+          >
+            ✕
+          </button>
+        </div>
+      {/each}
+    {/if}
+  </div>
+</div>
+
+<style>
+  .crud-card {
+    background-color: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 28rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .crud-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color, #e2e8f0);
+  }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .status-dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 9999px;
+    background-color: #10b981;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  .card-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary, #1e293b);
+  }
+  .api-badge {
+    font-size: 0.75rem;
+    font-family: monospace;
+    color: var(--text-secondary, #64748b);
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .error-banner {
+    padding: 0.75rem;
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: #fff1f2;
+    color: #e11d48;
+    border: 1px solid #fecdd3;
+  }
+  .form-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .input-text {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    background-color: var(--bg-secondary, #f8fafc);
+    border: 1px solid var(--border-color, #cbd5e1);
+    border-radius: 0.5rem;
+    color: var(--text-primary, #0f172a);
+  }
+  .input-text:focus {
+    outline: none;
+    border-color: #0d9488;
+  }
+  .btn-submit {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background-color: #0d9488;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  .btn-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 14rem;
+    overflow-y: auto;
+  }
+  .empty-text {
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--text-secondary, #94a3b8);
+    padding: 1rem 0;
+  }
+  .item-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.625rem;
+    border-radius: 0.5rem;
+    background-color: var(--bg-secondary, #f8fafc);
+    border: 1px solid var(--border-color, #f1f5f9);
+  }
+  .item-label {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    cursor: pointer;
+    flex: 1;
+    min-width: 0;
+  }
+  .checkbox {
+    width: 1rem;
+    height: 1rem;
+    accent-color: #0d9488;
+  }
+  .item-text {
+    font-size: 0.875rem;
+    color: var(--text-primary, #334155);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .completed-text {
+    font-size: 0.875rem;
+    text-decoration: line-through;
+    color: var(--text-secondary, #94a3b8);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .btn-delete {
+    background: none;
+    border: none;
+    color: #f43f5e;
+    cursor: pointer;
+    padding: 0.25rem;
+    font-size: 0.75rem;
+  }
+</style>
+<% } %>

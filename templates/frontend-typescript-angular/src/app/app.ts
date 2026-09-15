@@ -1,13 +1,14 @@
 import { Component, signal, inject, effect } from '@angular/core';
 import { LayoutComponent } from './components/layout/layout.component';
 import { StorageService } from './services/storage.service';
+<% if (isFullstack) { %>import { ItemsCrudComponent } from './components/items-crud/items-crud.component';<% } %>
 
 @Component({
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
   standalone: true,
-  imports: [LayoutComponent],
+  imports: [LayoutComponent<% if (isFullstack) { %>, ItemsCrudComponent<% } %>],
 })
 export class App {
   private readonly storage = inject(StorageService);

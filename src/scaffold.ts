@@ -235,6 +235,16 @@ export const run = async (argv: any) => {
     const clientTargetPath = path.join(targetPath, 'apps', 'client');
     const serverTargetPath = path.join(targetPath, 'apps', 'server');
 
+    const defaultBackendPort = ['fastapi', 'django', 'sanic'].includes(
+      beFramework,
+    )
+      ? 8000
+      : beFramework === 'tornado'
+        ? 8888
+        : ['flask', 'dotnetcore'].includes(beFramework)
+          ? 5000
+          : 3000;
+
     const feRenderOptions = {
       projectName: `${projectName}-client`,
       templateName: feTemplateKey,
@@ -242,7 +252,10 @@ export const run = async (argv: any) => {
       targetPath: clientTargetPath,
       isFullstack: true,
       language: feLang,
-      shadcn,
+      shadcn: Boolean(shadcn),
+      backendPort: defaultBackendPort,
+      backendFramework: beFramework,
+      apiUrl: `http://localhost:${defaultBackendPort}`,
     };
 
     const beRenderOptions = {
@@ -261,6 +274,13 @@ export const run = async (argv: any) => {
         feSourceTemplatePath,
         clientTargetPath,
         feRenderOptions as any,
+      );
+
+      const clientEnvContent = `VITE_API_URL=http://localhost:${defaultBackendPort}\nNEXT_PUBLIC_API_URL=http://localhost:${defaultBackendPort}\nNUXT_PUBLIC_API_URL=http://localhost:${defaultBackendPort}\n`;
+      fs.writeFileSync(path.join(clientTargetPath, '.env'), clientEnvContent);
+      fs.writeFileSync(
+        path.join(clientTargetPath, '.env.example'),
+        clientEnvContent,
       );
 
       await renderTemplate(
@@ -546,7 +566,7 @@ This fullstack application was scaffolded with **TemplateGen** using **Nx**.
     ...options,
     architecturePattern,
     database,
-    shadcn,
+    shadcn: Boolean(shadcn),
   };
 
   try {

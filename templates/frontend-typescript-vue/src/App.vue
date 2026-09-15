@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AppLayout from './components/AppLayout.vue';
 import { useLocalStorage } from './composables/useLocalStorage';
+<% if (isFullstack) { %>import ItemsCrud from './components/ItemsCrud.vue';<% } %>
 
 const count = useLocalStorage<number>('app-count', 0);
 const increment = () => {
@@ -19,29 +20,50 @@ const increment = () => {
       </p>
     </div>
 
-    <div class="card">
-      <div class="card-header">
-        <div class="icon-wrap">
-          <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
+    <div class="cards-container">
+      <div class="card">
+        <div class="card-header">
+          <div class="icon-wrap">
+            <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="card-title">Interactive Counter</h3>
+            <p class="card-desc">Persisted in localStorage with Vue reactivity.</p>
+          </div>
         </div>
-        <div>
-          <h3 class="card-title">Interactive Counter</h3>
-          <p class="card-desc">Persisted in localStorage with Vue reactivity.</p>
+
+        <div class="button-wrap">
+          <button class="btn" @click="increment">
+            Count is {{ count }}
+          </button>
         </div>
       </div>
 
-      <div class="button-wrap">
-        <button class="btn" @click="increment">
-          Count is {{ count }}
-        </button>
-      </div>
+      <% if (isFullstack) { %>
+      <ItemsCrud />
+      <% } %>
     </div>
   </AppLayout>
 </template>
 
 <style scoped>
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 56rem;
+}
+@media (min-width: 1024px) {
+  .cards-container {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
 .hero {
   text-align: center;
   margin-bottom: 3rem;

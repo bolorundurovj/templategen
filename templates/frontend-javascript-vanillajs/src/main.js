@@ -4,6 +4,7 @@ import javascriptLogo from './assets/javascript.svg';
 import viteLogo from './assets/vite.svg';
 import { setupCounter } from './counter.js';
 import { setupNavigation } from './nav.js';
+<% if (isFullstack) { %>import { setupItemsCrud } from './items.js';<% } %>
 
 const app = document.querySelector('#app');
 
@@ -21,6 +22,9 @@ app.innerHTML = `
     <p>Edit <code>src/main.js</code> and save to test <code>HMR</code> with theming & responsive navigation</p>
   </div>
   <button id="counter" type="button" class="counter"></button>
+  <% if (isFullstack) { %>
+  <div id="crud-wrapper"></div>
+  <% } %>
 </section>
 
 <div class="ticks"></div>
@@ -65,3 +69,7 @@ app.innerHTML = `
 
 setupNavigation(document.querySelector('#nav-wrapper'));
 setupCounter(document.querySelector('#counter'));
+<% if (isFullstack) { %>
+const crudEl = document.querySelector('#crud-wrapper');
+if (crudEl) setupItemsCrud(crudEl);
+<% } %>
