@@ -1,3 +1,5 @@
+const { Injectable } = require('@nestjs/common');
+
 class AppService {
   getHello() {
     return { message: 'Welcome to <%= projectName %> NestJS API' };
@@ -10,5 +12,7 @@ class AppService {
     };
   }
 }
+
+Injectable()(AppService);
 
 module.exports = { AppService };

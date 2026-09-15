@@ -12,7 +12,7 @@ import {
 } from '@nestjs/common';
 import { ItemsService, CreateItemDto, UpdateItemDto } from './items.service';
 
-@Controller('items')
+@Controller(['api/items', 'items'])
 export class ItemsController {
   constructor(private readonly itemsService: ItemsService) {}
 

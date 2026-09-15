@@ -1,9 +1,21 @@
-const { Controller, Get, Post, Put, Delete, Body, Param, HttpCode, HttpStatus, BadRequestException } = require('@nestjs/common');
+const {
+  Controller,
+  Dependencies,
+  Get,
+  Post,
+  Put,
+  Delete,
+  Body,
+  Param,
+  HttpCode,
+  HttpStatus,
+  BadRequestException,
+} = require('@nestjs/common');
 const { ItemsService } = require('./items.service');
 
 class ItemsController {
-  constructor() {
-    this.itemsService = new ItemsService();
+  constructor(itemsService) {
+    this.itemsService = itemsService || new ItemsService();
   }
 
   findAll() {
@@ -30,13 +42,21 @@ class ItemsController {
   }
 }
 
-Controller('items')(ItemsController);
-Get()(ItemsController.prototype, 'findAll');
-Get(':id')(ItemsController.prototype, 'findOne');
-Post()(ItemsController.prototype, 'create');
-Put(':id')(ItemsController.prototype, 'update');
-Delete(':id')(ItemsController.prototype, 'remove');
-HttpCode(HttpStatus.NO_CONTENT)(ItemsController.prototype, 'remove');
+const desc = (prop) =>
+  Object.getOwnPropertyDescriptor(ItemsController.prototype, prop);
+
+Controller(['api/items', 'items'])(ItemsController);
+Dependencies(ItemsService)(ItemsController);
+Get()(ItemsController.prototype, 'findAll', desc('findAll'));
+Get(':id')(ItemsController.prototype, 'findOne', desc('findOne'));
+Post()(ItemsController.prototype, 'create', desc('create'));
+Put(':id')(ItemsController.prototype, 'update', desc('update'));
+Delete(':id')(ItemsController.prototype, 'remove', desc('remove'));
+HttpCode(HttpStatus.NO_CONTENT)(
+  ItemsController.prototype,
+  'remove',
+  desc('remove')
+);
 Param('id')(ItemsController.prototype, 'findOne', 0);
 Param('id')(ItemsController.prototype, 'update', 0);
 Param('id')(ItemsController.prototype, 'remove', 0);

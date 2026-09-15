@@ -1,3 +1,4 @@
+require('reflect-metadata');
 const { NestFactory } = require('@nestjs/core');
 const { AppModule } = require('./app.module');
 const { HttpExceptionFilter } = require('./filters/http-exception.filter');
@@ -13,4 +14,3 @@ async function bootstrap() {
   console.log(`🚀 NestJS server running on http://localhost:${port}`);
 }
 bootstrap();
-
