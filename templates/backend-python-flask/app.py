@@ -1,23 +1,47 @@
-from flask import Flask, jsonify
-from datetime import datetime
+from flask import Flask, jsonify, request
+from config.settings import get_config
+from config.logging_config import setup_logging
 <% if (database) { %>from config.db import init_db<% } %>
+from routes.api import api_bp
+<% if (database) { %>from routes.items import items_bp<% } %>
+from errors import register_error_handlers
 
-app = Flask(__name__)
 
-<% if (database) { %>
-init_db()
-<% } %>
+def create_app(config=None):
+    """Application factory."""
+    app = Flask(__name__)
+    app.config.from_object(config or get_config())
 
-@app.route('/')
-def index():
-    return jsonify({"message": "Welcome to <%= projectName %> API"})
+    # Configure centralized logging
+    setup_logging(app)
 
-@app.route('/api/health')
-def health():
-    return jsonify({
-        "status": "ok",
-        "timestamp": datetime.utcnow().isoformat()
-    })
+    <% if (database) { %>
+    if not app.config.get('TESTING'):
+        init_db()
+    <% } %>
+
+    # Request logging hook
+    @app.after_request
+    def log_request(response):
+        app.logger.info(f"{request.method} {request.path} {response.status_code}")
+        return response
+
+    # Register blueprints
+    app.register_blueprint(api_bp)
+    <% if (database) { %>app.register_blueprint(items_bp)
+    <% } %>
+
+    # Register error handlers
+    register_error_handlers(app)
+
+    @app.route('/')
+    def index():
+        return jsonify({"message": "Welcome to <%= projectName %> API"})
+
+    return app
+
+
+app = create_app()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

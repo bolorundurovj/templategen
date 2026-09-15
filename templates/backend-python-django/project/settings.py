@@ -20,6 +20,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'project.middleware.TimingMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -86,3 +87,47 @@ USE_I18N = True
 USE_TZ = True
 STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Centralized Logging Configuration
+LOG_FILE = os.getenv('LOG_FILE', '')
+LOG_TO_FILE = os.getenv('LOG_TO_FILE', 'false').lower() == 'true' or bool(LOG_FILE)
+LOG_HANDLERS = ['console']
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '[{asctime}] [{levelname}] {name}: {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'root': {
+        'handlers': LOG_HANDLERS,
+        'level': os.getenv('LOG_LEVEL', 'INFO'),
+    },
+    'loggers': {
+        'project': {
+            'handlers': LOG_HANDLERS,
+            'level': os.getenv('LOG_LEVEL', 'INFO'),
+            'propagate': False,
+        },
+    },
+}
+
+if LOG_TO_FILE:
+    log_path = LOG_FILE or str(BASE_DIR / 'logs' / 'app.log')
+    os.makedirs(os.path.dirname(log_path), exist_ok=True)
+    LOGGING['handlers']['file'] = {
+        'class': 'logging.FileHandler',
+        'filename': log_path,
+        'formatter': 'verbose',
+    }
+    LOGGING['root']['handlers'].append('file')
+    LOGGING['loggers']['project']['handlers'].append('file')

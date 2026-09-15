@@ -2,6 +2,7 @@ const { Module } = require('@nestjs/common');
 const { AppController } = require('./app.controller');
 const { AppService } = require('./app.service');
 <% if (database) { %>const { connectDatabase } = require('./config/db');<% } %>
+const { ItemsModule } = require('./items/items.module');
 
 class AppModule {
   async onModuleInit() {
@@ -14,9 +15,10 @@ class AppModule {
 }
 
 Module({
-  imports: [],
+  imports: [ItemsModule],
   controllers: [AppController],
   providers: [AppService],
 })(AppModule);
 
 module.exports = { AppModule };
+
