@@ -11,7 +11,6 @@ import path, { dirname, join } from 'path';
 import fs from 'fs';
 import shell from 'shelljs';
 import { logger } from './logger.js';
-import { fileURLToPath } from 'url';
 import {
   CliOptions,
   findCsProj,
@@ -27,15 +26,32 @@ import { renderTemplate } from './templating.js';
 const CURR_DIR = process.cwd();
 
 const getTemplatesDir = (): string => {
+  const candidates: string[] = [];
+
   if (typeof __dirname !== 'undefined') {
-    return path.resolve(__dirname, '../templates');
+    candidates.push(path.resolve(__dirname, '../templates'));
+    candidates.push(path.resolve(__dirname, 'templates'));
   }
-  try {
-    const importMetaUrl = new Function('return import.meta.url')();
-    return path.resolve(dirname(fileURLToPath(importMetaUrl)), '../templates');
-  } catch {
-    return path.resolve(process.cwd(), 'templates');
+
+  if (typeof process !== 'undefined') {
+    if (process.argv && process.argv[1]) {
+      try {
+        const scriptPath = fs.realpathSync(process.argv[1]);
+        const scriptDir = dirname(scriptPath);
+        candidates.push(path.resolve(scriptDir, '../templates'));
+        candidates.push(path.resolve(scriptDir, 'templates'));
+      } catch {}
+    }
+    candidates.push(path.resolve(process.cwd(), 'templates'));
   }
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
+  }
+
+  return path.resolve(process.cwd(), 'templates');
 };
 
 /**

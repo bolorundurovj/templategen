@@ -1,4 +1,4 @@
-.PHONY: help install build bundle start test test-contract test-integration test-unit lint format clean
+.PHONY: help install install-cli install-local uninstall-cli uninstall-local build bundle start test test-contract test-integration test-unit lint format clean
 
 # Default target
 all: build test
@@ -8,6 +8,8 @@ help: ## Show this help message
 	@echo ""
 	@echo "Available Targets:"
 	@echo "  install           Install project dependencies"
+	@echo "  install-cli       Build, bundle, and install CLI locally/globally"
+	@echo "  uninstall-cli     Uninstall CLI locally/globally"
 	@echo "  build             Compile TypeScript to dist/"
 	@echo "  bundle            Compile and bundle CLI with Rollup"
 	@echo "  start             Run CLI directly with ts-node"
@@ -29,6 +31,16 @@ build: ## Compile TypeScript
 
 bundle: ## Bundle CLI with Rollup
 	npm run bundle
+
+install-cli: bundle ## Build, bundle, and install CLI locally/globally
+	npm install -g .
+
+install-local: install-cli ## Alias for install-cli
+
+uninstall-cli: ## Uninstall CLI locally/globally
+	npm uninstall -g @bolorundurovb/mvcli
+
+uninstall-local: uninstall-cli ## Alias for uninstall-cli
 
 start: ## Start CLI in development mode
 	npm start
