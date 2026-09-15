@@ -16,6 +16,24 @@
 
 * Refactor Logic ([9ef36b3](https://github.com-bolorundurovj/bolorundurovj/templategen/commit/9ef36b35774d2926dfc9eb80c786246b74f3442e))
 
+## [2.1.0](https://github.com/bolorundurovj/templategen/compare/v2.0.0...v2.1.0) (2026-09-15)
+
+
+### Features
+
+* **cli:** fix package template resolution and add make install-cli targets ([aa839b5](https://github.com/bolorundurovj/templategen/commit/aa839b5f560c6aadb09f165ceceab5546f1e516d))
+* **fullstack:** add frontend CRUD API integration across all frameworks ([e2d120f](https://github.com/bolorundurovj/templategen/commit/e2d120f81bed82250e7b8b31dc526c80af901cff))
+* **templates/backend:** add logging, error handling, CRUD models, and tests ([8599741](https://github.com/bolorundurovj/templategen/commit/8599741b641b761fb0d9649d65ea09b0c41635d3))
+* **templates/frontend:** add responsive navigation, theming, layout, and tests ([8851af7](https://github.com/bolorundurovj/templategen/commit/8851af75eeb33a531730907c9a53a6167b9854b5))
+
+
+### Bug Fixes
+
+* **cli:** always write project.json for both frontend and backend in fullstack Nx monorepo ([40b81d8](https://github.com/bolorundurovj/templategen/commit/40b81d874b54958d94867805dd72ed94e6492b63))
+* **templates/backend-nestjs:** fix CommonJS method decorator descriptors and import reflect-metadata ([43ade08](https://github.com/bolorundurovj/templategen/commit/43ade0866ddeb7bf70ea482f09aa0a2525189548))
+* **templates/frontend:** remove duplicate theme toggle from desktop nav ([52253c6](https://github.com/bolorundurovj/templategen/commit/52253c6c8c9054d3aac9f006f9e4463ac197569d))
+* **templates/svelte:** replace Svelte 5 mount() with Svelte 4 new App() bootstrap ([10968ea](https://github.com/bolorundurovj/templategen/commit/10968ea6d8885bab070d6d31cd0c8b711f38b9c9))
+
 ## [2.0.0](https://github.com/bolorundurovj/templategen/compare/v1.0.2...v2.0.0) (2026-09-08)
 
 
