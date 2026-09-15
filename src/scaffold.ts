@@ -313,6 +313,46 @@ export const run = async (argv: any) => {
         JSON.stringify(rootPackageJson, null, 2),
       );
 
+      // Always write a project.json for the frontend client so Nx can discover it
+      const clientProjectJson = {
+        name: 'client',
+        targets: {
+          dev: {
+            executor: 'nx:run-commands',
+            options: {
+              command: 'npm run dev',
+              cwd: 'apps/client',
+            },
+          },
+          build: {
+            executor: 'nx:run-commands',
+            options: {
+              command: 'npm run build',
+              cwd: 'apps/client',
+            },
+          },
+          test: {
+            executor: 'nx:run-commands',
+            options: {
+              command: 'npm run test',
+              cwd: 'apps/client',
+            },
+          },
+          lint: {
+            executor: 'nx:run-commands',
+            options: {
+              command: 'npm run lint',
+              cwd: 'apps/client',
+            },
+          },
+        },
+      };
+      fs.writeFileSync(
+        path.join(clientTargetPath, 'project.json'),
+        JSON.stringify(clientProjectJson, null, 2),
+      );
+
+      // Always write a project.json for the backend server for all language types
       if (beLang === 'python') {
         let runCmd = 'poetry run python main.py';
         if (beFramework === 'fastapi')
@@ -324,7 +364,7 @@ export const run = async (argv: any) => {
         else if (beFramework === 'tornado')
           runCmd = 'poetry run python main.py';
 
-        const projectJson = {
+        const serverProjectJson = {
           name: 'server',
           targets: {
             dev: {
@@ -345,10 +385,10 @@ export const run = async (argv: any) => {
         };
         fs.writeFileSync(
           path.join(serverTargetPath, 'project.json'),
-          JSON.stringify(projectJson, null, 2),
+          JSON.stringify(serverProjectJson, null, 2),
         );
       } else if (beLang === 'csharp') {
-        const projectJson = {
+        const serverProjectJson = {
           name: 'server',
           targets: {
             dev: {
@@ -369,7 +409,46 @@ export const run = async (argv: any) => {
         };
         fs.writeFileSync(
           path.join(serverTargetPath, 'project.json'),
-          JSON.stringify(projectJson, null, 2),
+          JSON.stringify(serverProjectJson, null, 2),
+        );
+      } else {
+        // JavaScript / TypeScript backends (express, nestjs)
+        const serverProjectJson = {
+          name: 'server',
+          targets: {
+            dev: {
+              executor: 'nx:run-commands',
+              options: {
+                command: 'npm run dev',
+                cwd: 'apps/server',
+              },
+            },
+            build: {
+              executor: 'nx:run-commands',
+              options: {
+                command: 'npm run build',
+                cwd: 'apps/server',
+              },
+            },
+            test: {
+              executor: 'nx:run-commands',
+              options: {
+                command: 'npm run test',
+                cwd: 'apps/server',
+              },
+            },
+            lint: {
+              executor: 'nx:run-commands',
+              options: {
+                command: 'npm run lint',
+                cwd: 'apps/server',
+              },
+            },
+          },
+        };
+        fs.writeFileSync(
+          path.join(serverTargetPath, 'project.json'),
+          JSON.stringify(serverProjectJson, null, 2),
         );
       }
 
