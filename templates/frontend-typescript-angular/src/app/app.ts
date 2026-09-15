@@ -1,14 +1,25 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject, effect } from '@angular/core';
+import { LayoutComponent } from './components/layout/layout.component';
+import { StorageService } from './services/storage.service';
 
 @Component({
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
   standalone: true,
+  imports: [LayoutComponent],
 })
 export class App {
+  private readonly storage = inject(StorageService);
+
   readonly title = signal('<%= projectName %>');
-  readonly count = signal(0);
+  readonly count = signal<number>(this.storage.getItem('app-count', 0));
+
+  constructor() {
+    effect(() => {
+      this.storage.setItem('app-count', this.count());
+    });
+  }
 
   increment(): void {
     this.count.update((c) => c + 1);

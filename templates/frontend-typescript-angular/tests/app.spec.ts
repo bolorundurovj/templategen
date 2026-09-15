@@ -27,7 +27,7 @@ describe('Angular App Component', () => {
 
   it('initializes count at 0 and increments upon button click', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    const button = compiled.querySelector('button') as HTMLButtonElement;
+    const button = compiled.querySelector('.btn') as HTMLButtonElement;
     expect(button.textContent).toContain('Count is 0');
 
     button.click();

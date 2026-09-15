@@ -1,16 +1,14 @@
 <script>
-  let count = 0;
-  function increment() {
-    count += 1;
-  }
+  import Layout from './lib/components/Layout.svelte';
+  import { counter } from './lib/stores/counter';
 </script>
 
-<main class="app-container">
+<Layout>
   <div class="hero">
     <div class="badge">TemplateGen Starter</div>
     <h1 class="title">Welcome to <%= projectName %></h1>
     <p class="subtitle">
-      You've successfully scaffolded a modern Svelte application.
+      You've successfully scaffolded a modern Svelte application with theming and responsive navigation.
       Start editing <code class="code">src/App.svelte</code> to see changes instantly.
     </p>
   </div>
@@ -24,30 +22,19 @@
       </div>
       <div>
         <h3 class="card-title">Interactive Counter</h3>
-        <p class="card-desc">Test out Svelte reactivity.</p>
+        <p class="card-desc">Persisted in localStorage with Svelte stores.</p>
       </div>
     </div>
 
     <div class="button-wrap">
-      <button class="btn" on:click={increment}>
-        Count is {count}
+      <button class="btn" on:click={() => counter.increment()}>
+        Count is {$counter}
       </button>
     </div>
   </div>
-</main>
+</Layout>
 
 <style>
-  .app-container {
-    min-height: 100vh;
-    background-color: #f8fafc;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    font-family: system-ui, -apple-system, sans-serif;
-    color: #0f172a;
-  }
   .hero {
     text-align: center;
     margin-bottom: 3rem;
@@ -63,29 +50,42 @@
     font-size: 0.875rem;
     text-transform: uppercase;
   }
+  :global([data-theme="dark"]) .badge,
+  :global(.dark) .badge {
+    background-color: rgba(13, 148, 136, 0.25);
+    color: #5eead4;
+  }
   .title {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 800;
     color: #0f766e;
     margin: 0 0 1rem;
   }
+  :global([data-theme="dark"]) .title,
+  :global(.dark) .title {
+    color: #2dd4bf;
+  }
   .subtitle {
     font-size: 1.125rem;
-    color: #475569;
+    color: var(--text-secondary, #475569);
     max-width: 38rem;
     margin: 0 auto;
   }
   .code {
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
+    background-color: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #e2e8f0);
     color: #0f766e;
     padding: 0.2rem 0.4rem;
     border-radius: 0.25rem;
     font-family: monospace;
   }
+  :global([data-theme="dark"]) .code,
+  :global(.dark) .code {
+    color: #2dd4bf;
+  }
   .card {
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
+    background-color: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #e2e8f0);
     border-radius: 0.75rem;
     padding: 2rem;
     width: 100%;
@@ -99,7 +99,7 @@
     margin-bottom: 1.5rem;
   }
   .icon-wrap {
-    background-color: #f0fdfa;
+    background-color: rgba(13, 148, 136, 0.1);
     padding: 0.75rem;
     border-radius: 0.5rem;
   }
@@ -108,20 +108,24 @@
     height: 1.5rem;
     color: #0d9488;
   }
+  :global([data-theme="dark"]) .icon,
+  :global(.dark) .icon {
+    color: #2dd4bf;
+  }
   .card-title {
     margin: 0;
     font-size: 1.25rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--text-primary, #1e293b);
   }
   .card-desc {
     margin: 0.25rem 0 0;
     font-size: 0.875rem;
-    color: #64748b;
+    color: var(--text-secondary, #64748b);
   }
   .button-wrap {
     padding-top: 1rem;
-    border-top: 1px solid #f1f5f9;
+    border-top: 1px solid var(--border-color, #f1f5f9);
   }
   .btn {
     width: 100%;

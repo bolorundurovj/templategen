@@ -1,10 +1,15 @@
-import './style.css'
-import heroImg from './assets/hero.png'
-import typescriptLogo from './assets/typescript.svg'
-import viteLogo from './assets/vite.svg'
-import { setupCounter } from './counter.ts'
+import './style.css';
+import heroImg from './assets/hero.png';
+import typescriptLogo from './assets/typescript.svg';
+import viteLogo from './assets/vite.svg';
+import { setupCounter } from './counter';
+import { setupNavigation } from './nav';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+const app = document.querySelector<HTMLDivElement>('#app')!;
+
+app.innerHTML = `
+<div id="nav-wrapper"></div>
+
 <section id="center">
   <div class="hero">
     <img src="${heroImg}" class="base" width="170" height="179">
@@ -12,8 +17,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <img src="${viteLogo}" class="vite" alt="Vite logo" />
   </div>
   <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/main.ts</code> and save to test <code>HMR</code></p>
+    <h1>Welcome to <%= projectName %></h1>
+    <p>Edit <code>src/main.ts</code> and save to test <code>HMR</code> with theming & responsive navigation</p>
   </div>
   <button id="counter" type="button" class="counter"></button>
 </section>
@@ -53,8 +58,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 </section>
 
-<div class="ticks"></div>
-<section id="spacer"></section>
-`
+<footer class="site-footer">
+  Built with TemplateGen &bull; Modern Full-Stack Scaffolding
+</footer>
+`;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+setupNavigation(document.querySelector<HTMLDivElement>('#nav-wrapper')!);
+setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);

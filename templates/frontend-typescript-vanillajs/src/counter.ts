@@ -1,9 +1,12 @@
-export function setupCounter(element: HTMLButtonElement) {
-  let counter = 0
+import { storage } from './storage';
+
+export function setupCounter(element: HTMLButtonElement): void {
+  let counter = storage.get<number>('app-count', 0);
   const setCounter = (count: number) => {
-    counter = count
-    element.innerHTML = `Count is ${counter}`
-  }
-  element.addEventListener('click', () => setCounter(counter + 1))
-  setCounter(0)
+    counter = count;
+    storage.set('app-count', counter);
+    element.innerHTML = `Count is ${counter}`;
+  };
+  element.addEventListener('click', () => setCounter(counter + 1));
+  setCounter(counter);
 }

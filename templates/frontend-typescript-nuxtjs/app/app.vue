@@ -1,19 +1,20 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import AppLayout from '../components/AppLayout.vue';
+import { useLocalStorage } from '../composables/useLocalStorage';
 
-const count = ref<number>(0)
+const count = useLocalStorage<number>('app-count', 0);
 const increment = (): void => {
-  count.value++
-}
+  count.value++;
+};
 </script>
 
 <template>
-  <div class="app-container">
+  <AppLayout>
     <div class="hero">
       <div class="badge">TemplateGen Starter</div>
       <h1 class="title">Welcome to <%= projectName %></h1>
       <p class="subtitle">
-        You've successfully scaffolded a modern Nuxt.js + TypeScript application.
+        You've successfully scaffolded a modern Nuxt.js + TypeScript application with theming and responsive navigation.
         Start editing <code class="code">app/app.vue</code> to see changes instantly.
       </p>
     </div>
@@ -27,7 +28,7 @@ const increment = (): void => {
         </div>
         <div>
           <h3 class="card-title">Interactive Counter</h3>
-          <p class="card-desc">Test out Nuxt fullstack reactivity.</p>
+          <p class="card-desc">Persisted in localStorage with Nuxt reactivity.</p>
         </div>
       </div>
 
@@ -37,21 +38,50 @@ const increment = (): void => {
         </button>
       </div>
     </div>
-  </div>
+  </AppLayout>
 </template>
 
-<style scoped>
-.app-container {
-  min-height: 100vh;
-  background-color: #f8fafc;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  font-family: system-ui, -apple-system, sans-serif;
-  color: #0f172a;
+<style>
+:root {
+  --bg-color: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --hover-bg: #f1f5f9;
+  color-scheme: light;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 }
+
+[data-theme="dark"],
+.dark {
+  --bg-color: #020617;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --card-bg: #0f172a;
+  --border-color: #1e293b;
+  --nav-bg: rgba(15, 23, 42, 0.85);
+  --hover-bg: #1e293b;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+}
+
 .hero {
   text-align: center;
   margin-bottom: 3rem;
@@ -67,29 +97,42 @@ const increment = (): void => {
   font-size: 0.875rem;
   text-transform: uppercase;
 }
+[data-theme="dark"] .badge,
+.dark .badge {
+  background-color: rgba(13, 148, 136, 0.25);
+  color: #5eead4;
+}
 .title {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
   color: #0f766e;
   margin: 0 0 1rem;
 }
+[data-theme="dark"] .title,
+.dark .title {
+  color: #2dd4bf;
+}
 .subtitle {
   font-size: 1.125rem;
-  color: #475569;
+  color: var(--text-secondary, #475569);
   max-width: 38rem;
   margin: 0 auto;
 }
 .code {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
+  background-color: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
   color: #0f766e;
   padding: 0.2rem 0.4rem;
   border-radius: 0.25rem;
   font-family: monospace;
 }
+[data-theme="dark"] .code,
+.dark .code {
+  color: #2dd4bf;
+}
 .card {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
+  background-color: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
   border-radius: 0.75rem;
   padding: 2rem;
   width: 100%;
@@ -103,7 +146,7 @@ const increment = (): void => {
   margin-bottom: 1.5rem;
 }
 .icon-wrap {
-  background-color: #f0fdfa;
+  background-color: rgba(13, 148, 136, 0.1);
   padding: 0.75rem;
   border-radius: 0.5rem;
 }
@@ -112,20 +155,24 @@ const increment = (): void => {
   height: 1.5rem;
   color: #0d9488;
 }
+[data-theme="dark"] .icon,
+.dark .icon {
+  color: #2dd4bf;
+}
 .card-title {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1e293b;
+  color: var(--text-primary, #1e293b);
 }
 .card-desc {
   margin: 0.25rem 0 0;
   font-size: 0.875rem;
-  color: #64748b;
+  color: var(--text-secondary, #64748b);
 }
 .button-wrap {
   padding-top: 1rem;
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid var(--border-color, #f1f5f9);
 }
 .btn {
   width: 100%;
