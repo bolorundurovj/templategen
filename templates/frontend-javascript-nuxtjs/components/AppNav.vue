@@ -31,7 +31,6 @@ const navLinks = [
         <a v-for="link in navLinks" :key="link.label" :href="link.href" class="nav-link">
           {{ link.label }}
         </a>
-        <ThemeToggle :theme="theme" @toggle="emit('toggleTheme')" />
       </nav>
 
       <div class="mobile-controls">

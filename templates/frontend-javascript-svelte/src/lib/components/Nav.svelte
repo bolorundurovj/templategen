@@ -20,7 +20,6 @@
       {#each navLinks as link}
         <a href={link.href} class="nav-link">{link.label}</a>
       {/each}
-      <ThemeToggle />
     </nav>
 
     <div class="mobile-controls">

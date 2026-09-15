@@ -44,9 +44,6 @@ export function setupNavigation(container) {
           <a href="#" class="nav-link">Home</a>
           <a href="#docs" class="nav-link">Docs</a>
           <a href="#about" class="nav-link">About</a>
-          <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
-            ${themeManager.theme === 'light' ? moonIcon : sunIcon}
-          </button>
         </nav>
 
         <div class="mobile-controls">
@@ -67,21 +64,14 @@ export function setupNavigation(container) {
     </header>
   `;
 
-  const themeBtn = container.querySelector('#theme-toggle');
   const mobileThemeBtn = container.querySelector('#mobile-theme-toggle');
   const menuBtn = container.querySelector('#menu-btn');
   const mobileMenu = container.querySelector('#mobile-menu');
 
   const updateIcons = (t) => {
     const icon = t === 'light' ? moonIcon : sunIcon;
-    if (themeBtn) themeBtn.innerHTML = icon;
     if (mobileThemeBtn) mobileThemeBtn.innerHTML = icon;
   };
-
-  themeBtn?.addEventListener('click', () => {
-    const next = themeManager.toggle();
-    updateIcons(next);
-  });
 
   mobileThemeBtn?.addEventListener('click', () => {
     const next = themeManager.toggle();
