@@ -95,7 +95,7 @@ describe('Scaffold and Run Generated Project Tests', () => {
       });
 
       expect(output).toContain('Passed!');
-      expect(output).toContain('Total:     2');
+      expect(output).toContain('Total:     4');
 
       // Cleanup
       safeRmSync(target);
@@ -163,7 +163,7 @@ describe('Scaffold and Run Generated Project Tests', () => {
       });
 
       expect(output).toContain('tests/counter.test.js');
-      expect(output).toContain('2 passed');
+      expect(output).toContain('16 passed');
 
       // Cleanup
       safeRmSync(target);
