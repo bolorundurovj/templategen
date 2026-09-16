@@ -147,7 +147,7 @@ describe('Templates Contract Tests', () => {
           for (const file of files) {
             const fullPath = path.join(dir, file);
             if (fs.statSync(fullPath).isDirectory()) {
-              if (file.toLowerCase() !== 'tests') {
+              if (file.toLowerCase() !== 'tests' && file.toLowerCase() !== 'e2e') {
                 displaced = displaced.concat(findDisplacedTests(fullPath));
               }
             } else if (

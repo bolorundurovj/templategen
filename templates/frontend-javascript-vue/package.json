@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "lint": "eslint . --max-warnings 0",
+    "test:e2e": "playwright test",
     "format": "prettier --write \"**/*.{js,vue,json,css}\""
   },
   "dependencies": {
@@ -22,6 +23,7 @@
     "happy-dom": "^13.6.2",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.22.0",
-    "prettier": "^3.2.5"
+    "prettier": "^3.2.5",
+    "@playwright/test": "^1.42.0"
   }
 }

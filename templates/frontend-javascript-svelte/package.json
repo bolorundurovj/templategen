@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "lint": "eslint . --max-warnings 0",
+    "test:e2e": "playwright test",
     "format": "prettier --write \"**/*.{js,svelte,json,css}\""
   },
   "dependencies": {
@@ -23,6 +24,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-svelte": "^2.35.1",
     "prettier": "^3.2.5",
-    "prettier-plugin-svelte": "^3.2.2"
+    "prettier-plugin-svelte": "^3.2.2",
+    "@playwright/test": "^1.42.0"
   }
 }

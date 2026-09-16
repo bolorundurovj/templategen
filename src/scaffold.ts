@@ -321,6 +321,7 @@ export const run = async (argv: any) => {
           dev: 'nx run-many -t dev',
           build: 'nx run-many -t build',
           test: 'nx run-many -t test',
+          'test:e2e': 'nx run client:test-e2e',
           lint: 'nx run-many -t lint',
           graph: 'nx graph',
         },
@@ -355,6 +356,13 @@ export const run = async (argv: any) => {
             executor: 'nx:run-commands',
             options: {
               command: 'npm run test',
+              cwd: 'apps/client',
+            },
+          },
+          'test-e2e': {
+            executor: 'nx:run-commands',
+            options: {
+              command: 'npm run test:e2e',
               cwd: 'apps/client',
             },
           },
