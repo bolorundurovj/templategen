@@ -1,22 +1,41 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import ThemeToggle from './ThemeToggle.vue';
-import { Theme } from '../composables/useTheme';
+import { useTheme, type Theme } from '../composables/useTheme';
+import { useView } from '../composables/useView';
 
-defineProps<{
-  theme: Theme;
+const props = defineProps<{
+  theme?: Theme;
 }>();
 
 const emit = defineEmits<{
   (e: 'toggleTheme'): void;
+  (e: 'toggle-theme'): void;
 }>();
+
+const { theme: activeTheme, toggleTheme } = useTheme();
+const { currentView, setView } = useView();
+
+const handleToggle = () => {
+  toggleTheme();
+  emit('toggleTheme');
+  emit('toggle-theme');
+};
 
 const mobileMenuOpen = ref(false);
 const navLinks = [
-  { label: 'Home', href: '#' },
+  { label: 'Home', href: '#', view: 'home' as const },
+  <% if (isFullstack) { %>{ label: 'Items', href: '#/items', view: 'items' as const },<% } %>
   { label: 'Docs', href: '#docs' },
   { label: 'About', href: '#about' },
 ];
+
+const onLinkClick = (link: { label: string; href: string; view?: 'home' | 'items' }, event: MouseEvent) => {
+  if (link.view) {
+    event.preventDefault();
+    setView(link.view);
+  }
+};
 </script>
 
 <template>
@@ -28,13 +47,21 @@ const navLinks = [
       </div>
 
       <nav class="desktop-nav">
-        <a v-for="link in navLinks" :key="link.label" :href="link.href" class="nav-link">
+        <a
+          v-for="link in navLinks"
+          :key="link.label"
+          :href="link.href"
+          class="nav-link"
+          :class="{ active: link.view && currentView === link.view }"
+          @click="onLinkClick(link, $event)"
+        >
           {{ link.label }}
         </a>
+        <ThemeToggle :theme="props.theme || activeTheme" @toggle="handleToggle" />
       </nav>
 
       <div class="mobile-controls">
-        <ThemeToggle :theme="theme" @toggle="emit('toggleTheme')" />
+        <ThemeToggle :theme="props.theme || activeTheme" @toggle="handleToggle" />
         <button
           type="button"
           class="menu-btn"
@@ -60,7 +87,8 @@ const navLinks = [
         :key="link.label"
         :href="link.href"
         class="mobile-link"
-        @click="mobileMenuOpen = false"
+        :class="{ active: link.view && currentView === link.view }"
+        @click="onLinkClick(link, $event); mobileMenuOpen = false"
       >
         {{ link.label }}
       </a>
@@ -113,14 +141,6 @@ const navLinks = [
   align-items: center;
   gap: 1.5rem;
 }
-@media (min-width: 768px) {
-  .desktop-nav {
-    display: flex;
-  }
-  .mobile-controls {
-    display: none;
-  }
-}
 .nav-link {
   font-size: 0.875rem;
   font-weight: 500;
@@ -128,13 +148,28 @@ const navLinks = [
   text-decoration: none;
   transition: color 0.15s;
 }
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
   color: #0d9488;
+}
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active,
+.dark .nav-link:hover,
+.dark .nav-link.active {
+  color: #2dd4bf;
 }
 .mobile-controls {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+  }
+  .mobile-controls {
+    display: none !important;
+  }
 }
 .menu-btn {
   padding: 0.5rem;
@@ -164,5 +199,12 @@ const navLinks = [
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
+}
+.mobile-link.active {
+  color: #0d9488;
+}
+[data-theme="dark"] .mobile-link.active,
+.dark .mobile-link.active {
+  color: #2dd4bf;
 }
 </style>

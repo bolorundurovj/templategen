@@ -1,6 +1,6 @@
 'use client';
 
-import { Theme } from '../lib/hooks/useTheme';
+import type { Theme } from '../lib/hooks/useTheme';
 
 interface ThemeToggleProps {
   theme: Theme;

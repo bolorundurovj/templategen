@@ -9,11 +9,17 @@ defineProps({
   },
 });
 
-const emit = defineEmits(['toggleTheme']);
+const emit = defineEmits(['toggleTheme', 'toggle-theme']);
+
+const handleToggle = () => {
+  emit('toggleTheme');
+  emit('toggle-theme');
+};
 
 const mobileMenuOpen = ref(false);
 const navLinks = [
   { label: 'Home', href: '#' },
+  <% if (isFullstack) { %>{ label: 'Items', href: '#/items' },<% } %>
   { label: 'Docs', href: '#docs' },
   { label: 'About', href: '#about' },
 ];
@@ -31,10 +37,11 @@ const navLinks = [
         <a v-for="link in navLinks" :key="link.label" :href="link.href" class="nav-link">
           {{ link.label }}
         </a>
+        <ThemeToggle :theme="theme" @toggle="handleToggle" />
       </nav>
 
       <div class="mobile-controls">
-        <ThemeToggle :theme="theme" @toggle="emit('toggleTheme')" />
+        <ThemeToggle :theme="theme" @toggle="handleToggle" />
         <button
           type="button"
           class="menu-btn"
@@ -113,12 +120,17 @@ const navLinks = [
   align-items: center;
   gap: 1.5rem;
 }
+.mobile-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 @media (min-width: 768px) {
   .desktop-nav {
     display: flex;
   }
   .mobile-controls {
-    display: none;
+    display: none !important;
   }
 }
 .nav-link {
@@ -130,11 +142,6 @@ const navLinks = [
 }
 .nav-link:hover {
   color: #0d9488;
-}
-.mobile-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 }
 .menu-btn {
   padding: 0.5rem;

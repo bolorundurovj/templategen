@@ -1,1 +1,1 @@
-export default function Home(): any;
+<%# %>_SKIP_FILE_

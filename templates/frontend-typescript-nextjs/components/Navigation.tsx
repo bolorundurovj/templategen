@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { ThemeToggle } from './ThemeToggle';
-import { Theme } from '../lib/hooks/useTheme';
+import type { Theme } from '../lib/hooks/useTheme';
 
 interface NavigationProps {
   theme: Theme;
@@ -13,7 +13,8 @@ export function Navigation({ theme, onToggleTheme }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Home', href: '#' },
+    { label: 'Home', href: '/' },
+    <% if (isFullstack) { %>{ label: 'Items', href: '/items' },<% } %>
     { label: 'Docs', href: '#docs' },
     { label: 'About', href: '#about' },
   ];

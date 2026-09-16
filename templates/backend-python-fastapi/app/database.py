@@ -9,14 +9,14 @@ async def connect_db():
     uri = os.getenv("MONGO_URI", "mongodb://localhost:27017/<%= projectName %>")
     mongo_client = AsyncIOMotorClient(uri)
     db = mongo_client["<%= projectName %>"]
-    print("📦 Connected to MongoDB")
+    print("Connected to MongoDB")
 <% } else if (database === 'postgresql') { %>import psycopg2
 
 def connect_db():
     try:
         conn = psycopg2.connect(os.getenv("DATABASE_URL", "dbname=<%= projectName %> user=postgres password=postgres host=localhost"))
         conn.close()
-        print("📦 Connected to PostgreSQL")
+        print("Connected to PostgreSQL")
     except Exception as e:
         print(f"PostgreSQL connection warning: {e}")
 <% } else if (database === 'mysql') { %>import pymysql
@@ -30,7 +30,7 @@ def connect_db():
             database=os.getenv("DB_NAME", "<%= projectName %>")
         )
         conn.close()
-        print("📦 Connected to MySQL")
+        print("Connected to MySQL")
     except Exception as e:
         print(f"MySQL connection warning: {e}")
 <% } else if (database === 'sqlite') { %>import sqlite3
@@ -38,7 +38,7 @@ def connect_db():
 def connect_db():
     conn = sqlite3.connect("database.sqlite")
     conn.close()
-    print("📦 Connected to SQLite")
+    print("Connected to SQLite")
 <% } else { %>def connect_db():
     print("No database configuration required.")
 <% } %>

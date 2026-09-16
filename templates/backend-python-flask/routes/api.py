@@ -1,14 +1,15 @@
 from flask import Blueprint, jsonify
-from datetime import datetime
+from datetime import datetime, timezone
 
 api_bp = Blueprint('api', __name__, url_prefix='/api')
 
 
-@api_bp.route('/health')
+@api_bp.route('/health', methods=['GET'], strict_slashes=False)
 def health():
+    """Health check endpoint."""
     return jsonify({
         "status": "ok",
-        "timestamp": datetime.utcnow().isoformat()
+        "timestamp": datetime.now(timezone.utc).isoformat()
     })
 
 

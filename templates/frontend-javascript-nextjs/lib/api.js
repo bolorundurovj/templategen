@@ -3,10 +3,18 @@ const API_BASE =
   (typeof process !== 'undefined' && process.env && process.env.NEXT_PUBLIC_API_URL) ||
   'http://localhost:<%= backendPort || 3000 %>';
 
+function normalizeItem(item) {
+  return {
+    ...item,
+    id: String(item?.id || item?._id || ''),
+  };
+}
+
 export async function fetchItems() {
   const res = await fetch(`${API_BASE}/api/items`);
   if (!res.ok) throw new Error(`Failed to fetch items: ${res.statusText}`);
-  return res.json();
+  const data = await res.json();
+  return (Array.isArray(data) ? data : []).map(normalizeItem);
 }
 
 export async function createItem(title, description = '') {
@@ -16,7 +24,8 @@ export async function createItem(title, description = '') {
     body: JSON.stringify({ title, description }),
   });
   if (!res.ok) throw new Error(`Failed to create item: ${res.statusText}`);
-  return res.json();
+  const data = await res.json();
+  return normalizeItem(data);
 }
 
 export async function updateItem(id, updates) {
@@ -26,7 +35,8 @@ export async function updateItem(id, updates) {
     body: JSON.stringify(updates),
   });
   if (!res.ok) throw new Error(`Failed to update item: ${res.statusText}`);
-  return res.json();
+  const data = await res.json();
+  return normalizeItem(data);
 }
 
 export async function deleteItem(id) {

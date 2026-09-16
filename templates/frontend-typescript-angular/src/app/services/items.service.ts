@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 export interface Item {
   id: string;
+  _id?: string;
   title: string;
   description?: string;
   completed: boolean;
@@ -19,7 +20,11 @@ export class ItemsService {
   async getItems(): Promise<Item[]> {
     const res = await fetch(`${this.apiBase}/api/items`);
     if (!res.ok) throw new Error(`Failed to fetch items: ${res.statusText}`);
-    return res.json();
+    const data = await res.json();
+    return (Array.isArray(data) ? data : []).map((item: any) => ({
+      ...item,
+      id: String(item.id || item._id || ''),
+    }));
   }
 
   async createItem(title: string, description = ''): Promise<Item> {
@@ -29,7 +34,11 @@ export class ItemsService {
       body: JSON.stringify({ title, description }),
     });
     if (!res.ok) throw new Error(`Failed to create item: ${res.statusText}`);
-    return res.json();
+    const data = await res.json();
+    return {
+      ...data,
+      id: String(data.id || data._id || ''),
+    };
   }
 
   async updateItem(id: string, updates: Partial<Item>): Promise<Item> {
@@ -39,7 +48,11 @@ export class ItemsService {
       body: JSON.stringify(updates),
     });
     if (!res.ok) throw new Error(`Failed to update item: ${res.statusText}`);
-    return res.json();
+    const data = await res.json();
+    return {
+      ...data,
+      id: String(data.id || data._id || id),
+    };
   }
 
   async deleteItem(id: string): Promise<void> {

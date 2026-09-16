@@ -6,7 +6,7 @@ import prettierPlugin from 'eslint-plugin-prettier';
 export default [
   {
     files: ['src/**/*.{ts,tsx}'], // Target TypeScript files
-    ignores: ['node_modules/', 'dist/', 'build/'], // Ignore these directories
+    ignores: ['node_modules/', 'dist/', 'build/', 'templates/'], // Ignore these directories
     languageOptions: {
       parser: tsParser,
       ecmaVersion: 2020,

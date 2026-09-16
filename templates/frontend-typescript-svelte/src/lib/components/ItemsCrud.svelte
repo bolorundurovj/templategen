@@ -37,18 +37,21 @@
   }
 
   async function handleToggle(item: Item) {
+    const id = item.id || (item as any)._id;
+    if (!id) return;
     try {
-      const updated = await updateItem(item.id, { completed: !item.completed });
-      items = items.map((i) => (i.id === item.id ? { ...i, completed: updated.completed ?? !item.completed } : i));
+      const updated = await updateItem(id, { completed: !item.completed });
+      items = items.map((i) => ((i.id || (i as any)._id) === id ? { ...i, completed: updated.completed ?? !item.completed } : i));
     } catch (err: any) {
       error = err.message;
     }
   }
 
-  async function handleDelete(id: string) {
+  async function handleDelete(id?: string) {
+    if (!id) return;
     try {
       await deleteItem(id);
-      items = items.filter((i) => i.id !== id);
+      items = items.filter((i) => (i.id || (i as any)._id) !== id);
     } catch (err: any) {
       error = err.message;
     }
@@ -88,7 +91,7 @@
     {:else if items.length === 0}
       <p class="empty-text">No items yet. Add one above!</p>
     {:else}
-      {#each items as item (item.id)}
+      {#each items as item (item.id || item._id)}
         <div class="item-row">
           <label class="item-label">
             <input
@@ -103,7 +106,7 @@
           </label>
           <button
             type="button"
-            on:click={() => handleDelete(item.id)}
+            on:click={() => handleDelete(item.id || item._id)}
             class="btn-delete"
             title="Delete item"
           >
@@ -122,7 +125,6 @@
     border-radius: 0.75rem;
     padding: 2rem;
     width: 100%;
-    max-width: 28rem;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
@@ -174,6 +176,12 @@
     color: #e11d48;
     border: 1px solid #fecdd3;
   }
+  :global([data-theme="dark"]) .error-banner,
+  :global(.dark) .error-banner {
+    background-color: rgba(225, 29, 72, 0.15);
+    border-color: rgba(225, 29, 72, 0.3);
+    color: #fb7185;
+  }
   .form-row {
     display: flex;
     gap: 0.5rem;
@@ -182,7 +190,7 @@
     flex: 1;
     padding: 0.5rem 0.75rem;
     font-size: 0.875rem;
-    background-color: var(--bg-secondary, #f8fafc);
+    background-color: var(--bg-color, #f8fafc);
     border: 1px solid var(--border-color, #cbd5e1);
     border-radius: 0.5rem;
     color: var(--text-primary, #0f172a);
@@ -209,8 +217,9 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    max-height: 14rem;
+    max-height: 20rem;
     overflow-y: auto;
+    width: 100%;
   }
   .empty-text {
     font-size: 0.75rem;
@@ -222,23 +231,26 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.625rem;
+    padding: 0.75rem;
     border-radius: 0.5rem;
-    background-color: var(--bg-secondary, #f8fafc);
+    background-color: var(--bg-color, #f8fafc);
     border: 1px solid var(--border-color, #f1f5f9);
+    transition: background-color 0.15s;
   }
   .item-label {
     display: flex;
     align-items: center;
-    gap: 0.625rem;
+    gap: 0.75rem;
     cursor: pointer;
     flex: 1;
     min-width: 0;
   }
   .checkbox {
-    width: 1rem;
-    height: 1rem;
+    width: 1.125rem;
+    height: 1.125rem;
     accent-color: #0d9488;
+    cursor: pointer;
+    flex-shrink: 0;
   }
   .item-text {
     font-size: 0.875rem;
@@ -260,8 +272,15 @@
     border: none;
     color: #f43f5e;
     cursor: pointer;
-    padding: 0.25rem;
-    font-size: 0.75rem;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+    line-height: 1;
+    transition: background-color 0.15s;
+    flex-shrink: 0;
+  }
+  .btn-delete:hover {
+    background-color: rgba(244, 63, 94, 0.1);
   }
 </style>
 <% } %>

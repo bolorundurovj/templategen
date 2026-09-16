@@ -1,5 +1,5 @@
 from sanic import Sanic, json
-from datetime import datetime
+from datetime import datetime, timezone
 from middleware import setup_middleware
 from errors import setup_error_handlers
 from routes.items import items_bp
@@ -24,7 +24,7 @@ async def root(request):
 async def health(request):
     return json({
         "status": "ok",
-        "timestamp": datetime.utcnow().isoformat()
+        "timestamp": datetime.now(timezone.utc).isoformat()
     })
 
 

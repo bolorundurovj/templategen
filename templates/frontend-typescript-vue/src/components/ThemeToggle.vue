@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Theme } from '../composables/useTheme';
+import type { Theme } from '../composables/useTheme';
 
 defineProps<{
   theme: Theme;

@@ -1,4 +1,4 @@
-import { watch, onMounted, Ref } from 'vue';
+import { watch, onMounted, type Ref } from 'vue';
 import { useLocalStorage } from './useLocalStorage';
 
 export type Theme = 'light' | 'dark';

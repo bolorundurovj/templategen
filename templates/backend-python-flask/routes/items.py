@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from datetime import datetime
+from datetime import datetime, timezone
 
 items_bp = Blueprint('items', __name__, url_prefix='/api/items')
 
@@ -7,12 +7,14 @@ items_db = []
 next_id = 1
 
 
-@items_bp.route('/', methods=['GET'])
+@items_bp.route('', methods=['GET'], strict_slashes=False)
+@items_bp.route('/', methods=['GET'], strict_slashes=False)
 def list_items():
     return jsonify(items_db)
 
 
-@items_bp.route('/<item_id>', methods=['GET'])
+@items_bp.route('/<item_id>', methods=['GET'], strict_slashes=False)
+@items_bp.route('/<item_id>/', methods=['GET'], strict_slashes=False)
 def get_item(item_id):
     item = next((i for i in items_db if i['id'] == item_id), None)
     if not item:
@@ -20,13 +22,14 @@ def get_item(item_id):
     return jsonify(item)
 
 
-@items_bp.route('/', methods=['POST'])
+@items_bp.route('', methods=['POST'], strict_slashes=False)
+@items_bp.route('/', methods=['POST'], strict_slashes=False)
 def create_item():
     global next_id
     data = request.get_json()
     if not data or not data.get('title'):
         return jsonify({"error": "Title is required"}), 400
-    now = datetime.utcnow().isoformat()
+    now = datetime.now(timezone.utc).isoformat()
     item = {
         "id": str(next_id),
         "title": data['title'],
@@ -40,7 +43,8 @@ def create_item():
     return jsonify(item), 201
 
 
-@items_bp.route('/<item_id>', methods=['PUT'])
+@items_bp.route('/<item_id>', methods=['PUT'], strict_slashes=False)
+@items_bp.route('/<item_id>/', methods=['PUT'], strict_slashes=False)
 def update_item(item_id):
     item = next((i for i in items_db if i['id'] == item_id), None)
     if not item:
@@ -52,11 +56,12 @@ def update_item(item_id):
         item['description'] = data['description']
     if data.get('completed') is not None:
         item['completed'] = data['completed']
-    item['updated_at'] = datetime.utcnow().isoformat()
+    item['updated_at'] = datetime.now(timezone.utc).isoformat()
     return jsonify(item)
 
 
-@items_bp.route('/<item_id>', methods=['DELETE'])
+@items_bp.route('/<item_id>', methods=['DELETE'], strict_slashes=False)
+@items_bp.route('/<item_id>/', methods=['DELETE'], strict_slashes=False)
 def delete_item(item_id):
     global items_db
     original_len = len(items_db)

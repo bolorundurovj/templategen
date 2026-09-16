@@ -1,36 +1,21 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
 import AppLayout from './components/AppLayout.vue';
 import { useLocalStorage } from './composables/useLocalStorage';
+import { useView } from './composables/useView';
 <% if (isFullstack) { %>import ItemsCrud from './components/ItemsCrud.vue';<% } %>
 
+const { currentView, setView } = useView();
 const count = useLocalStorage<number>('app-count', 0);
-const increment = () => {
+const increment = (): void => {
   count.value++;
 };
-
-const currentView = ref<'home' | 'items'>(
-  typeof window !== 'undefined' && window.location.hash.includes('items') ? 'items' : 'home'
-);
-
-const onHashChange = () => {
-  currentView.value = window.location.hash.includes('items') ? 'items' : 'home';
-};
-
-onMounted(() => {
-  window.addEventListener('hashchange', onHashChange);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('hashchange', onHashChange);
-});
 </script>
 
 <template>
   <AppLayout>
     <div v-if="currentView === 'items'" class="items-page">
       <div class="page-top-bar">
-        <a href="#" class="back-link">&larr; Back to Home</a>
+        <a href="#" class="back-link" @click.prevent="setView('home')">&larr; Back to Home</a>
         <div class="badge">Fullstack CRUD</div>
       </div>
       <% if (isFullstack) { %>
@@ -42,8 +27,8 @@ onUnmounted(() => {
         <div class="badge">TemplateGen Starter</div>
         <h1 class="title">Welcome to <%= projectName %></h1>
         <p class="subtitle">
-          You've successfully scaffolded a modern Vue + TypeScript application with theming and responsive navigation.
-          Start editing <code class="code">src/App.vue</code> to see changes instantly.
+          You've successfully scaffolded a modern Nuxt.js + TypeScript application with theming and responsive navigation.
+          Start editing <code class="code">app.vue</code> to see changes instantly.
         </p>
       </div>
 
@@ -57,7 +42,7 @@ onUnmounted(() => {
             </div>
             <div>
               <h3 class="card-title">Interactive Counter</h3>
-              <p class="card-desc">Persisted in localStorage with Vue reactivity.</p>
+              <p class="card-desc">Persisted in localStorage with Nuxt reactivity.</p>
             </div>
           </div>
 
@@ -72,7 +57,7 @@ onUnmounted(() => {
   </AppLayout>
 </template>
 
-<style scoped>
+<style>
 .cards-container {
   display: flex;
   flex-direction: column;
@@ -80,6 +65,7 @@ onUnmounted(() => {
   gap: 1.5rem;
   width: 100%;
   max-width: 56rem;
+  margin: 0 auto;
 }
 @media (min-width: 1024px) {
   .cards-container {
@@ -88,6 +74,48 @@ onUnmounted(() => {
     justify-content: center;
   }
 }
+:root {
+  --bg-color: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --hover-bg: #f1f5f9;
+  color-scheme: light;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+[data-theme="dark"],
+.dark {
+  --bg-color: #020617;
+  --bg-secondary: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --card-bg: #0f172a;
+  --border-color: #1e293b;
+  --nav-bg: rgba(15, 23, 42, 0.85);
+  --hover-bg: #1e293b;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+}
+
 .hero {
   text-align: center;
   margin-bottom: 3rem;

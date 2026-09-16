@@ -1,4 +1,5 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
 import AppLayout from './components/AppLayout.vue';
 import { useLocalStorage } from './composables/useLocalStorage';
 <% if (isFullstack) { %>import ItemsCrud from './components/ItemsCrud.vue';<% } %>
@@ -7,44 +8,67 @@ const count = useLocalStorage('app-count', 0);
 const increment = () => {
   count.value++;
 };
+
+const currentView = ref(
+  typeof window !== 'undefined' && window.location.hash.includes('items') ? 'items' : 'home'
+);
+
+const onHashChange = () => {
+  currentView.value = window.location.hash.includes('items') ? 'items' : 'home';
+};
+
+onMounted(() => {
+  window.addEventListener('hashchange', onHashChange);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('hashchange', onHashChange);
+});
 </script>
 
 <template>
   <AppLayout>
-    <div class="hero">
-      <div class="badge">TemplateGen Starter</div>
-      <h1 class="title">Welcome to <%= projectName %></h1>
-      <p class="subtitle">
-        You've successfully scaffolded a modern Vue application with theming and responsive navigation.
-        Start editing <code class="code">src/App.vue</code> to see changes instantly.
-      </p>
-    </div>
-
-    <div class="cards-container">
-      <div class="card">
-        <div class="card-header">
-          <div class="icon-wrap">
-            <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="card-title">Interactive Counter</h3>
-            <p class="card-desc">Persisted in localStorage with Vue reactivity.</p>
-          </div>
-        </div>
-
-        <div class="button-wrap">
-          <button class="btn" @click="increment">
-            Count is {{ count }}
-          </button>
-        </div>
+    <div v-if="currentView === 'items'" class="items-page">
+      <div class="page-top-bar">
+        <a href="#" class="back-link">&larr; Back to Home</a>
+        <div class="badge">Fullstack CRUD</div>
       </div>
-
       <% if (isFullstack) { %>
       <ItemsCrud />
       <% } %>
     </div>
+    <template v-else>
+      <div class="hero">
+        <div class="badge">TemplateGen Starter</div>
+        <h1 class="title">Welcome to <%= projectName %></h1>
+        <p class="subtitle">
+          You've successfully scaffolded a modern Vue application with theming and responsive navigation.
+          Start editing <code class="code">src/App.vue</code> to see changes instantly.
+        </p>
+      </div>
+
+      <div class="cards-container">
+        <div class="card">
+          <div class="card-header">
+            <div class="icon-wrap">
+              <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="card-title">Interactive Counter</h3>
+              <p class="card-desc">Persisted in localStorage with Vue reactivity.</p>
+            </div>
+          </div>
+
+          <div class="button-wrap">
+            <button class="btn" @click="increment">
+              Count is {{ count }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
   </AppLayout>
 </template>
 
@@ -170,5 +194,38 @@ const increment = () => {
 }
 .btn:hover {
   background-color: #0f766e;
+}
+
+.items-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.page-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.back-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #0d9488;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+[data-theme="dark"] .back-link,
+.dark .back-link {
+  color: #2dd4bf;
 }
 </style>

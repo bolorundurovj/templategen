@@ -10,7 +10,11 @@ class TimingMiddleware(BaseHTTPMiddleware):
 
     async def dispatch(self, request: Request, call_next) -> Response:
         start = time.time()
-        response = await call_next(request)
+        try:
+            response = await call_next(request)
+        except Exception as exc:
+            logger.error(f"Error during request processing: {exc}")
+            raise
         duration = time.time() - start
         response.headers["X-Process-Time"] = f"{duration:.4f}"
         logger.info(

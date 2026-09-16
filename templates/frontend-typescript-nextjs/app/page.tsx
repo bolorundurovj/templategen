@@ -3,7 +3,6 @@
 import { Layout } from '../components/Layout';
 import { useLocalStorage } from '../lib/hooks/useLocalStorage';
 <% if (shadcn) { %>import { Button } from "@/components/ui/button";<% } %>
-<% if (isFullstack) { %>import { ItemsCrud } from '../components/ItemsCrud';<% } %>
 
 export default function Home() {
   const [count, setCount] = useLocalStorage<number>('app-count', 0);
@@ -24,9 +23,9 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-6 items-center lg:items-start justify-center w-full max-w-4xl">
+      <div className="flex justify-center w-full max-w-md">
         {/* Interactive Card */}
-        <div className="relative p-6 sm:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm flex flex-col items-center space-y-6 w-full max-w-md">
+        <div className="relative p-6 sm:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm flex flex-col items-center space-y-6 w-full">
           <div className="flex items-center space-x-4 w-full justify-center">
             <div className="p-3 bg-teal-50 dark:bg-teal-950/60 rounded-lg">
               <svg className="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -54,10 +53,6 @@ export default function Home() {
             <% } %>
           </div>
         </div>
-
-        <% if (isFullstack) { %>
-        <ItemsCrud />
-        <% } %>
       </div>
     </Layout>
   );

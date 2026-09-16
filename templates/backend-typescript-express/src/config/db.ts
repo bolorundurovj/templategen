@@ -3,10 +3,9 @@
 export const connect = async (): Promise<void> => {
   try {
     await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/<%= projectName %>');
-    console.log('📦 Connected to MongoDB');
+    console.log('Connected to MongoDB');
   } catch (error) {
-    console.error('MongoDB connection error:', error);
-    process.exit(1);
+    console.warn('MongoDB connection warning:', error);
   }
 };
 <% } else if (database === 'postgresql') { %>import { Pool } from 'pg';
@@ -18,10 +17,9 @@ export const pool = new Pool({
 export const connect = async (): Promise<void> => {
   try {
     await pool.query('SELECT NOW()');
-    console.log('📦 Connected to PostgreSQL');
+    console.log('Connected to PostgreSQL');
   } catch (error) {
-    console.error('PostgreSQL connection error:', error);
-    process.exit(1);
+    console.warn('PostgreSQL connection warning:', error);
   }
 };
 <% } else if (database === 'mysql') { %>import mysql from 'mysql2/promise';
@@ -31,10 +29,9 @@ export let connection: mysql.Connection;
 export const connect = async (): Promise<void> => {
   try {
     connection = await mysql.createConnection(process.env.DATABASE_URL || 'mysql://root:password@localhost/<%= projectName %>');
-    console.log('📦 Connected to MySQL');
+    console.log('Connected to MySQL');
   } catch (error) {
-    console.error('MySQL connection error:', error);
-    process.exit(1);
+    console.warn('MySQL connection warning:', error);
   }
 };
 <% } else if (database === 'sqlite') { %>import sqlite3 from 'sqlite3';
@@ -46,10 +43,10 @@ export const connect = (): void => {
   const dbPath = path.resolve(__dirname, '../../database.sqlite');
   db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
-      console.error('SQLite connection error:', err);
-      process.exit(1);
+      console.warn('SQLite connection warning:', err);
+    } else {
+      console.log('Connected to SQLite');
     }
-    console.log('📦 Connected to SQLite');
   });
 };
 <% } else { %>// No database selected

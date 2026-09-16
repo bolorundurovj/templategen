@@ -15,11 +15,19 @@ export class App {
 
   readonly title = signal('<%= projectName %>');
   readonly count = signal<number>(this.storage.getItem('app-count', 0));
+  readonly currentView = signal<'home' | 'items'>(
+    typeof window !== 'undefined' && window.location.hash.includes('items') ? 'items' : 'home'
+  );
 
   constructor() {
     effect(() => {
       this.storage.setItem('app-count', this.count());
     });
+    if (typeof window !== 'undefined') {
+      window.addEventListener('hashchange', () => {
+        this.currentView.set(window.location.hash.includes('items') ? 'items' : 'home');
+      });
+    }
   }
 
   increment(): void {

@@ -10,8 +10,8 @@ const ItemSchema = new mongoose.Schema(
 );
 
 const Item = mongoose.model('Item', ItemSchema);
-module.exports = { Item };
-<% } else { %>let items = [];
+<% } %>
+let items = [];
 let nextId = 1;
 
 const getAll = () => items;
@@ -55,5 +55,12 @@ const reset = () => {
   nextId = 1;
 };
 
-module.exports = { getAll, getById, create, update, remove, reset };
-<% } %>
+module.exports = {
+  <% if (database === 'mongodb') { %>Item,<% } %>
+  getAll,
+  getById,
+  create,
+  update,
+  remove,
+  reset,
+};

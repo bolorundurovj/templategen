@@ -7,7 +7,8 @@ export function Navigation({ theme, onToggleTheme }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Home', href: '#' },
+    { label: 'Home', href: '/' },
+    <% if (isFullstack) { %>{ label: 'Items', href: '/items' },<% } %>
     { label: 'Docs', href: '#docs' },
     { label: 'About', href: '#about' },
   ];

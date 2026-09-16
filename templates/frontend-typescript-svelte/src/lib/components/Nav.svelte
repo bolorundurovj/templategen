@@ -4,6 +4,7 @@
   let mobileMenuOpen = false;
   const navLinks = [
     { label: 'Home', href: '#' },
+    <% if (isFullstack) { %>{ label: 'Items', href: '#/items' },<% } %>
     { label: 'Docs', href: '#docs' },
     { label: 'About', href: '#about' },
   ];
@@ -20,6 +21,7 @@
       {#each navLinks as link}
         <a href={link.href} class="nav-link">{link.label}</a>
       {/each}
+      <ThemeToggle />
     </nav>
 
     <div class="mobile-controls">
@@ -106,12 +108,17 @@
     align-items: center;
     gap: 1.5rem;
   }
+  .mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
   @media (min-width: 768px) {
     .desktop-nav {
       display: flex;
     }
     .mobile-controls {
-      display: none;
+      display: none !important;
     }
   }
   .nav-link {
@@ -123,11 +130,6 @@
   }
   .nav-link:hover {
     color: #0d9488;
-  }
-  .mobile-controls {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
   }
   .menu-btn {
     padding: 0.5rem;

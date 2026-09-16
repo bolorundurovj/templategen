@@ -1,44 +1,64 @@
 <script>
+  import { onMount } from 'svelte';
   import Layout from './lib/components/Layout.svelte';
   import { counter } from './lib/stores/counter';
   <% if (isFullstack) { %>import ItemsCrud from './lib/components/ItemsCrud.svelte';<% } %>
+
+  let currentView =
+    typeof window !== 'undefined' && window.location.hash.includes('items') ? 'items' : 'home';
+
+  onMount(() => {
+    const handleHashChange = () => {
+      currentView = window.location.hash.includes('items') ? 'items' : 'home';
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  });
 </script>
 
 <Layout>
-  <div class="hero">
-    <div class="badge">TemplateGen Starter</div>
-    <h1 class="title">Welcome to <%= projectName %></h1>
-    <p class="subtitle">
-      You've successfully scaffolded a modern Svelte application with theming and responsive navigation.
-      Start editing <code class="code">src/App.svelte</code> to see changes instantly.
-    </p>
-  </div>
-
-  <div class="cards-container">
-    <div class="card">
-      <div class="card-header">
-        <div class="icon-wrap">
-          <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-        </div>
-        <div>
-          <h3 class="card-title">Interactive Counter</h3>
-          <p class="card-desc">Persisted in localStorage with Svelte stores.</p>
-        </div>
+  {#if currentView === 'items'}
+    <div class="items-page">
+      <div class="page-top-bar">
+        <a href="#" class="back-link">&larr; Back to Home</a>
+        <div class="badge">Fullstack CRUD</div>
       </div>
-
-      <div class="button-wrap">
-        <button class="btn" on:click={() => counter.increment()}>
-          Count is {$counter}
-        </button>
-      </div>
+      <% if (isFullstack) { %>
+      <ItemsCrud />
+      <% } %>
+    </div>
+  {:else}
+    <div class="hero">
+      <div class="badge">TemplateGen Starter</div>
+      <h1 class="title">Welcome to <%= projectName %></h1>
+      <p class="subtitle">
+        You've successfully scaffolded a modern Svelte application with theming and responsive navigation.
+        Start editing <code class="code">src/App.svelte</code> to see changes instantly.
+      </p>
     </div>
 
-    <% if (isFullstack) { %>
-    <ItemsCrud />
-    <% } %>
-  </div>
+    <div class="cards-container">
+      <div class="card">
+        <div class="card-header">
+          <div class="icon-wrap">
+            <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="card-title">Interactive Counter</h3>
+            <p class="card-desc">Persisted in localStorage with Svelte stores.</p>
+          </div>
+        </div>
+
+        <div class="button-wrap">
+          <button class="btn" on:click={() => counter.increment()}>
+            Count is {$counter}
+          </button>
+        </div>
+      </div>
+    </div>
+  {/if}
 </Layout>
 
 <style>
@@ -163,5 +183,38 @@
   }
   .btn:hover {
     background-color: #0f766e;
+  }
+
+  .items-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+
+  .page-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .back-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #0d9488;
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  :global([data-theme="dark"]) .back-link,
+  :global(.dark) .back-link {
+    color: #2dd4bf;
   }
 </style>

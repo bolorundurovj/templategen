@@ -40,20 +40,23 @@ export function ItemsCrud() {
   }
 
   const handleToggle = async (item: Item) => {
+    const id = item.id || (item as any)._id
+    if (!id) return
     try {
-      const updated = await updateItem(item.id, { completed: !item.completed })
+      const updated = await updateItem(id, { completed: !item.completed })
       setItems((prev) =>
-        prev.map((i) => (i.id === item.id ? { ...i, completed: updated.completed ?? !item.completed } : i))
+        prev.map((i) => ((i.id || (i as any)._id) === id ? { ...i, completed: updated.completed ?? !item.completed } : i))
       )
     } catch (err: any) {
       setError(err.message)
     }
   }
 
-  const handleDelete = async (id: string) => {
+  const handleDelete = async (id?: string) => {
+    if (!id) return
     try {
       await deleteItem(id)
-      setItems((prev) => prev.filter((i) => i.id !== id))
+      setItems((prev) => prev.filter((i) => (i.id || (i as any)._id) !== id))
     } catch (err: any) {
       setError(err.message)
     }
@@ -100,7 +103,7 @@ export function ItemsCrud() {
         ) : (
           items.map((item) => (
             <div
-              key={item.id}
+              key={item.id || (item as any)._id}
               className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 group"
             >
               <label className="flex items-center space-x-2.5 cursor-pointer flex-1 min-w-0">
@@ -116,7 +119,7 @@ export function ItemsCrud() {
               </label>
               <button
                 type="button"
-                onClick={() => handleDelete(item.id)}
+                onClick={() => handleDelete(item.id || (item as any)._id)}
                 className="opacity-60 hover:opacity-100 text-rose-500 p-1 text-xs transition-opacity"
                 title="Delete item"
               >

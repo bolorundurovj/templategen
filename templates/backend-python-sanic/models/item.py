@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional, Dict, Any
 
 
@@ -16,7 +16,7 @@ class Item:
         self.title = title
         self.description = description
         self.completed = completed
-        now = datetime.utcnow().isoformat()
+        now = datetime.now(timezone.utc).isoformat()
         self.created_at = created_at or now
         self.updated_at = updated_at or now
 

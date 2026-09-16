@@ -18,7 +18,8 @@ const ItemSchema = new Schema<IItem>(
 );
 
 export const Item = mongoose.model<IItem>('Item', ItemSchema);
-<% } else { %>export interface Item {
+<% } %>
+export interface Item {
   id: string;
   title: string;
   description: string;
@@ -74,4 +75,3 @@ export const reset = (): void => {
   items = [];
   nextId = 1;
 };
-<% } %>

@@ -7,7 +7,7 @@ const { theme, toggleTheme } = useTheme();
 
 <template>
   <div class="layout-wrapper">
-    <AppNav :theme="theme" @toggle-theme="toggleTheme" />
+    <AppNav :theme="theme" @toggle-theme="toggleTheme" @toggleTheme="toggleTheme" />
     <main class="layout-main">
       <slot />
     </main>

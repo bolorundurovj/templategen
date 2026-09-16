@@ -1,6 +1,6 @@
 import tornado.ioloop
 import tornado.web
-from datetime import datetime
+from datetime import datetime, timezone
 from handlers import BaseHandler
 from routes.items import ItemsHandler, ItemDetailHandler
 from logger import logger
@@ -13,7 +13,7 @@ class MainHandler(BaseHandler):
 
 class HealthHandler(BaseHandler):
     def get(self):
-        self.write({"status": "ok", "timestamp": datetime.utcnow().isoformat()})
+        self.write({"status": "ok", "timestamp": datetime.now(timezone.utc).isoformat()})
 
 
 class InfoHandler(BaseHandler):

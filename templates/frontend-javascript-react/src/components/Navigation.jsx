@@ -6,6 +6,7 @@ export function Navigation({ theme, onToggleTheme }) {
 
   const navLinks = [
     { label: 'Home', href: '#' },
+    <% if (isFullstack) { %>{ label: 'Items', href: '#/items' },<% } %>
     { label: 'Docs', href: '#docs' },
     { label: 'About', href: '#about' },
   ];

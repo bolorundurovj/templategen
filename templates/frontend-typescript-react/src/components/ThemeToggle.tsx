@@ -1,4 +1,4 @@
-import { Theme } from '../hooks/useTheme';
+import type { Theme } from '../hooks/useTheme';
 
 interface ThemeToggleProps {
   theme: Theme;

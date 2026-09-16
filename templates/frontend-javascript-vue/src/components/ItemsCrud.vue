@@ -37,8 +37,10 @@ const handleAdd = async () => {
 };
 
 const handleToggle = async (item) => {
+  const id = item.id || item._id;
+  if (!id) return;
   try {
-    const updated = await updateItem(item.id, { completed: !item.completed });
+    const updated = await updateItem(id, { completed: !item.completed });
     item.completed = updated.completed ?? !item.completed;
   } catch (err) {
     error.value = err.message;
@@ -46,9 +48,10 @@ const handleToggle = async (item) => {
 };
 
 const handleDelete = async (id) => {
+  if (!id) return;
   try {
     await deleteItem(id);
-    items.value = items.value.filter((i) => i.id !== id);
+    items.value = items.value.filter((i) => (i.id || i._id) !== id);
   } catch (err) {
     error.value = err.message;
   }
@@ -87,7 +90,7 @@ const handleDelete = async (id) => {
       <div
         v-else
         v-for="item in items"
-        :key="item.id"
+        :key="item.id || item._id"
         class="item-row"
       >
         <label class="item-label">
@@ -103,7 +106,7 @@ const handleDelete = async (id) => {
         </label>
         <button
           type="button"
-          @click="handleDelete(item.id)"
+          @click="handleDelete(item.id || item._id)"
           class="btn-delete"
           title="Delete item"
         >
@@ -116,6 +119,12 @@ const handleDelete = async (id) => {
 
 <style scoped>
 .crud-card {
+  background-color: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  width: 100%;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -160,6 +169,12 @@ const handleDelete = async (id) => {
   color: #e11d48;
   border: 1px solid #fecdd3;
 }
+[data-theme="dark"] .error-banner,
+.dark .error-banner {
+  background-color: rgba(225, 29, 72, 0.15);
+  border-color: rgba(225, 29, 72, 0.3);
+  color: #fb7185;
+}
 .form-row {
   display: flex;
   gap: 0.5rem;
@@ -168,7 +183,7 @@ const handleDelete = async (id) => {
   flex: 1;
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
-  background-color: var(--bg-secondary, #f8fafc);
+  background-color: var(--bg-color, #f8fafc);
   border: 1px solid var(--border-color, #cbd5e1);
   border-radius: 0.5rem;
   color: var(--text-primary, #0f172a);
@@ -195,8 +210,9 @@ const handleDelete = async (id) => {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  max-height: 14rem;
+  max-height: 20rem;
   overflow-y: auto;
+  width: 100%;
 }
 .empty-text {
   font-size: 0.75rem;
@@ -208,23 +224,26 @@ const handleDelete = async (id) => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.625rem;
+  padding: 0.75rem;
   border-radius: 0.5rem;
-  background-color: var(--bg-secondary, #f8fafc);
+  background-color: var(--bg-color, #f8fafc);
   border: 1px solid var(--border-color, #f1f5f9);
+  transition: background-color 0.15s;
 }
 .item-label {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
+  gap: 0.75rem;
   cursor: pointer;
   flex: 1;
   min-width: 0;
 }
 .checkbox {
-  width: 1rem;
-  height: 1rem;
+  width: 1.125rem;
+  height: 1.125rem;
   accent-color: #0d9488;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 .item-text {
   font-size: 0.875rem;
@@ -246,8 +265,15 @@ const handleDelete = async (id) => {
   border: none;
   color: #f43f5e;
   cursor: pointer;
-  padding: 0.25rem;
-  font-size: 0.75rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.375rem;
+  line-height: 1;
+  transition: background-color 0.15s;
+  flex-shrink: 0;
+}
+.btn-delete:hover {
+  background-color: rgba(244, 63, 94, 0.1);
 }
 </style>
 <% } %>

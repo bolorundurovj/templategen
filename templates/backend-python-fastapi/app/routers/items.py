@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List
 from app.models import ItemCreate, ItemUpdate, ItemResponse
 
@@ -9,12 +9,14 @@ items_db: List[dict] = []
 next_id = 1
 
 
-@router.get("/", response_model=List[ItemResponse])
+@router.get("", response_model=List[ItemResponse])
+@router.get("/", response_model=List[ItemResponse], include_in_schema=False)
 def list_items():
     return items_db
 
 
 @router.get("/{item_id}", response_model=ItemResponse)
+@router.get("/{item_id}/", response_model=ItemResponse, include_in_schema=False)
 def get_item(item_id: str):
     item = next((i for i in items_db if i["id"] == item_id), None)
     if not item:
@@ -22,10 +24,11 @@ def get_item(item_id: str):
     return item
 
 
-@router.post("/", response_model=ItemResponse, status_code=201)
+@router.post("", response_model=ItemResponse, status_code=201)
+@router.post("/", response_model=ItemResponse, status_code=201, include_in_schema=False)
 def create_item(data: ItemCreate):
     global next_id
-    now = datetime.utcnow().isoformat()
+    now = datetime.now(timezone.utc).isoformat()
     item = {
         "id": str(next_id),
         "title": data.title,
@@ -40,6 +43,7 @@ def create_item(data: ItemCreate):
 
 
 @router.put("/{item_id}", response_model=ItemResponse)
+@router.put("/{item_id}/", response_model=ItemResponse, include_in_schema=False)
 def update_item(item_id: str, data: ItemUpdate):
     item = next((i for i in items_db if i["id"] == item_id), None)
     if not item:
@@ -50,11 +54,12 @@ def update_item(item_id: str, data: ItemUpdate):
         item["description"] = data.description
     if data.completed is not None:
         item["completed"] = data.completed
-    item["updated_at"] = datetime.utcnow().isoformat()
+    item["updated_at"] = datetime.now(timezone.utc).isoformat()
     return item
 
 
 @router.delete("/{item_id}", status_code=204)
+@router.delete("/{item_id}/", status_code=204, include_in_schema=False)
 def delete_item(item_id: str):
     global items_db
     original_len = len(items_db)

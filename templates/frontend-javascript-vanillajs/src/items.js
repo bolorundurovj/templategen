@@ -30,37 +30,37 @@ export function setupItemsCrud(element) {
           <span style="font-size: 0.75rem; font-family: monospace; color: var(--text-secondary); max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${API_BASE}</span>
         </div>
 
-        ${error ? `<div style="padding: 0.5rem; font-size: 0.75rem; background: #fff1f2; color: #e11d48; border-radius: 0.375rem; border: 1px solid #fecdd3;">${error}</div>` : ''}
+        ${error ? `<div style="padding: 0.5rem; font-size: 0.75rem; background: rgba(225, 29, 72, 0.1); color: #f43f5e; border-radius: 0.375rem; border: 1px solid rgba(225, 29, 72, 0.3);">${error}</div>` : ''}
 
         <form id="crud-form" style="display: flex; gap: 0.5rem;">
           <input
             id="item-input"
             type="text"
             placeholder="New item title..."
-            style="flex: 1; padding: 0.4rem 0.6rem; font-size: 0.875rem; border: 1px solid var(--border-color, #cbd5e1); border-radius: 0.375rem; background: var(--bg-secondary, #f8fafc); color: var(--text-primary);"
+            style="flex: 1; padding: 0.5rem 0.75rem; font-size: 0.875rem; border: 1px solid var(--border-color, #cbd5e1); border-radius: 0.5rem; background: var(--bg-color, #f8fafc); color: var(--text-primary);"
           />
           <button
             type="submit"
-            style="padding: 0.4rem 0.8rem; font-size: 0.875rem; font-weight: 600; background: #0d9488; color: white; border: none; border-radius: 0.375rem; cursor: pointer;"
+            style="padding: 0.5rem 1rem; font-size: 0.875rem; font-weight: 600; background: #0d9488; color: white; border: none; border-radius: 0.5rem; cursor: pointer;"
           >
             Add
           </button>
         </form>
 
-        <div id="items-list" style="display: flex; flex-direction: column; gap: 0.5rem; max-height: 12rem; overflow-y: auto;">
+        <div id="items-list" style="display: flex; flex-direction: column; gap: 0.5rem; max-height: 20rem; overflow-y: auto;">
           ${loading
             ? `<p style="font-size: 0.75rem; text-align: center; color: var(--text-secondary); padding: 0.75rem 0;">Loading items...</p>`
             : items.length === 0
             ? `<p style="font-size: 0.75rem; text-align: center; color: var(--text-secondary); padding: 0.75rem 0;">No items yet. Add one above!</p>`
             : items.map((item) => `
-              <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.4rem 0.5rem; border-radius: 0.375rem; background: var(--bg-secondary, #f8fafc); border: 1px solid var(--border-color, #f1f5f9);">
-                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; flex: 1; min-width: 0;">
-                  <input type="checkbox" data-id="${item.id}" ${item.completed ? 'checked' : ''} class="item-checkbox" style="accent-color: #0d9488;" />
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; border-radius: 0.5rem; background: var(--bg-color, #f8fafc); border: 1px solid var(--border-color, #f1f5f9);">
+                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer; flex: 1; min-width: 0;">
+                  <input type="checkbox" data-id="${item.id || item._id}" ${item.completed ? 'checked' : ''} class="item-checkbox" style="width: 1.125rem; height: 1.125rem; accent-color: #0d9488; cursor: pointer; flex-shrink: 0;" />
                   <span style="font-size: 0.875rem; ${item.completed ? 'text-decoration: line-through; color: var(--text-secondary);' : 'color: var(--text-primary);'} overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                     ${item.title}
                   </span>
                 </label>
-                <button type="button" data-id="${item.id}" class="btn-delete-item" style="background: none; border: none; color: #f43f5e; cursor: pointer; padding: 0.2rem 0.4rem; font-size: 0.75rem;">✕</button>
+                <button type="button" data-id="${item.id || item._id}" class="btn-delete-item" style="background: none; border: none; color: #f43f5e; cursor: pointer; padding: 0.35rem 0.5rem; font-size: 0.875rem; line-height: 1; flex-shrink: 0;">✕</button>
               </div>
             `).join('')
           }
@@ -94,7 +94,7 @@ export function setupItemsCrud(element) {
       checkbox.addEventListener('change', async () => {
         const id = checkbox.dataset.id;
         if (!id) return;
-        const item = items.find((i) => i.id === id);
+        const item = items.find((i) => (i.id || i._id) === id);
         if (!item) return;
         try {
           const updated = await updateItem(id, { completed: !item.completed });
@@ -113,7 +113,7 @@ export function setupItemsCrud(element) {
         if (!id) return;
         try {
           await deleteItem(id);
-          items = items.filter((i) => i.id !== id);
+          items = items.filter((i) => (i.id || i._id) !== id);
           render();
         } catch (err) {
           error = err.message;

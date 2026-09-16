@@ -20,8 +20,8 @@
     "publish": "npm publish --access public"
   },
   "lint-staged": {
-    "*.{js,ts,json}": [
-      "yarn  lint",
+    "src/**/*.{js,ts,json}": [
+      "yarn lint",
       "yarn format"
     ]
   },

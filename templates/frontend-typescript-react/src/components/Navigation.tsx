@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ThemeToggle } from './ThemeToggle';
-import { Theme } from '../hooks/useTheme';
+import type { Theme } from '../hooks/useTheme';
 
 interface NavigationProps {
   theme: Theme;
@@ -12,6 +12,7 @@ export function Navigation({ theme, onToggleTheme }: NavigationProps) {
 
   const navLinks = [
     { label: 'Home', href: '#' },
+    <% if (isFullstack) { %>{ label: 'Items', href: '#/items' },<% } %>
     { label: 'Docs', href: '#docs' },
     { label: 'About', href: '#about' },
   ];

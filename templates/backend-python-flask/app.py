@@ -3,7 +3,7 @@ from config.settings import get_config
 from config.logging_config import setup_logging
 <% if (database) { %>from config.db import init_db<% } %>
 from routes.api import api_bp
-<% if (database) { %>from routes.items import items_bp<% } %>
+from routes.items import items_bp
 from errors import register_error_handlers
 
 
@@ -17,7 +17,10 @@ def create_app(config=None):
 
     <% if (database) { %>
     if not app.config.get('TESTING'):
-        init_db()
+        try:
+            init_db()
+        except Exception as e:
+            app.logger.warning(f"Database connection warning: {e}")
     <% } %>
 
     # Request logging hook
@@ -28,8 +31,7 @@ def create_app(config=None):
 
     # Register blueprints
     app.register_blueprint(api_bp)
-    <% if (database) { %>app.register_blueprint(items_bp)
-    <% } %>
+    app.register_blueprint(items_bp)
 
     # Register error handlers
     register_error_handlers(app)

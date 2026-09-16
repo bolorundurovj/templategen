@@ -4,10 +4,9 @@ const mongoose = require('mongoose');
 exports.connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/<%= projectName %>');
-    console.log('📦 Connected to MongoDB');
+    console.log('Connected to MongoDB');
   } catch (error) {
-    console.error('MongoDB connection error:', error);
-    process.exit(1);
+    console.warn('MongoDB connection warning:', error);
   }
 };
 <% } else if (database === 'postgresql') { %>
@@ -20,10 +19,9 @@ const pool = new Pool({
 exports.connect = async () => {
   try {
     await pool.query('SELECT NOW()');
-    console.log('📦 Connected to PostgreSQL');
+    console.log('Connected to PostgreSQL');
   } catch (error) {
-    console.error('PostgreSQL connection error:', error);
-    process.exit(1);
+    console.warn('PostgreSQL connection warning:', error);
   }
 };
 exports.pool = pool;
@@ -33,11 +31,10 @@ const mysql = require('mysql2/promise');
 exports.connect = async () => {
   try {
     const connection = await mysql.createConnection(process.env.DATABASE_URL || 'mysql://root:password@localhost/<%= projectName %>');
-    console.log('📦 Connected to MySQL');
+    console.log('Connected to MySQL');
     exports.connection = connection;
   } catch (error) {
-    console.error('MySQL connection error:', error);
-    process.exit(1);
+    console.warn('MySQL connection warning:', error);
   }
 };
 <% } else if (database === 'sqlite') { %>
@@ -48,10 +45,10 @@ exports.connect = () => {
   const dbPath = path.resolve(__dirname, '../../database.sqlite');
   const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
-      console.error('SQLite connection error:', err);
-      process.exit(1);
+      console.warn('SQLite connection warning:', err);
+    } else {
+      console.log('Connected to SQLite');
     }
-    console.log('📦 Connected to SQLite');
   });
   exports.db = db;
 };

@@ -1,17 +1,19 @@
 from sanic import Blueprint, json
 from models.item import Item
 
-items_bp = Blueprint("items", url_prefix="/api/items")
+items_bp = Blueprint("items", url_prefix="/api/items", strict_slashes=False)
 
 items_store = {}
 current_id = 1
 
 
+@items_bp.get("")
 @items_bp.get("/")
 async def list_items(request):
     return json({"data": [item.to_dict() for item in items_store.values()]})
 
 
+@items_bp.post("")
 @items_bp.post("/")
 async def create_item(request):
     global current_id
