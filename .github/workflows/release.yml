@@ -29,12 +29,12 @@ jobs:
       - uses: actions/setup-node@v4
         if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
         with:
-          node-version: 20
+          node-version: 22
           registry-url: 'https://registry.npmjs.org'
 
       - name: Upgrade npm for OIDC Trusted Publishing
         if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
-        run: npm install -g npm@latest
+        run: npm install -g npm@11
 
       - name: Sync and verify version from version.ini
         if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
