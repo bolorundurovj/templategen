@@ -1,13 +1,17 @@
 name: PR Approval & Validation
 
+# Workflow disabled
+# on:
+#   pull_request:
+#     types: [opened, submitted, edited, review_requested, review_request_removed, reopened, assigned, unassigned, ready_for_review]
+#   pull_request_review:
+#     types: [ opened, submitted, edited, review_requested, review_request_removed, reopened, assigned, unassigned, ready_for_review ]
 on:
-  pull_request:
-    types: [opened, submitted, edited, review_requested, review_request_removed, reopened, assigned, unassigned, ready_for_review]
-  pull_request_review:
-    types: [ opened, submitted, edited, review_requested, review_request_removed, reopened, assigned, unassigned, ready_for_review ]
+  workflow_dispatch:
 
 jobs:
   assign-reviewers:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - name: Assign Code Owners Automatically
@@ -17,6 +21,7 @@ jobs:
           config: .github/reviewers.yml
 
   validate-pr:
+    if: false
     runs-on: ubuntu-latest
     permissions:
       pull-requests: read

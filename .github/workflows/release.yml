@@ -24,27 +24,53 @@ jobs:
           manifest-file: .release-please-manifest.json
 
       - uses: actions/checkout@v4
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
 
       - uses: actions/setup-node@v4
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
         with:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Upgrade npm for OIDC Trusted Publishing
+        if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
+        run: npm install -g npm@latest
+
       - name: Sync and verify version from version.ini
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
         run: |
           node scripts/sync-version.js
           node scripts/sync-version.js --check
 
+      - name: Check if publish is needed
+        id: check_publish
+        if: ${{ steps.release.outputs.release_created || github.event_name == 'workflow_dispatch' }}
+        run: |
+          TARGET_VERSION=$(node -e "import('./scripts/sync-version.js').then(m => console.log(m.readVersionFromIni()))")
+          PUBLISHED_VERSION=$(npm view @bolorundurovb/mvcli@$TARGET_VERSION version 2>/dev/null || echo "")
+          if [ "$PUBLISHED_VERSION" = "$TARGET_VERSION" ]; then
+            echo "should_publish=false" >> $GITHUB_OUTPUT
+            echo "Version $TARGET_VERSION is already published on npm."
+          else
+            echo "should_publish=true" >> $GITHUB_OUTPUT
+            echo "Version $TARGET_VERSION is not published yet. Proceeding with publish."
+          fi
+
       - run: yarn ci
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.check_publish.outputs.should_publish == 'true' }}
 
       - run: yarn build
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.check_publish.outputs.should_publish == 'true' }}
 
-      - run: npm publish --access public
-        if: ${{ steps.release.outputs.release_created }}
+      - name: Configure auth for OIDC or Token
+        if: ${{ steps.check_publish.outputs.should_publish == 'true' }}
+        run: |
+          if [ -z "${{ secrets.NPM_TOKEN }}" ]; then
+            echo "No NPM_TOKEN set, relying on OIDC Trusted Publishing"
+            sed -i '/_authToken/d' ~/.npmrc 2>/dev/null || true
+          fi
+
+      - run: npm publish --access public --provenance
+        if: ${{ steps.check_publish.outputs.should_publish == 'true' }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
