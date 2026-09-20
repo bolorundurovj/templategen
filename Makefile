@@ -1,4 +1,4 @@
-.PHONY: help install install-cli install-local uninstall-cli uninstall-local build bundle start test test-contract test-integration test-unit lint format clean
+.PHONY: help install install-cli install-local uninstall-cli uninstall-local build bundle start test test-contract test-integration test-unit lint format clean sync-version check-version
 
 # Default target
 all: build test
@@ -12,6 +12,8 @@ help: ## Show this help message
 	@echo "  uninstall-cli     Uninstall CLI locally/globally"
 	@echo "  build             Compile TypeScript to dist/"
 	@echo "  bundle            Compile and bundle CLI with Rollup"
+	@echo "  sync-version      Synchronize package.json from version.ini"
+	@echo "  check-version     Verify version.ini and package.json are in sync"
 	@echo "  start             Run CLI directly with ts-node"
 	@echo "  test              Run all test suites (Contract, Integration, Unit, Snapshot)"
 	@echo "  test-coverage     Run all test suites with coverage report"
@@ -25,6 +27,12 @@ help: ## Show this help message
 
 install: ## Install dependencies
 	yarn install --frozen-lockfile || npm install
+
+sync-version: ## Synchronize package.json from version.ini
+	npm run version:sync
+
+check-version: ## Verify version.ini and package.json are in sync
+	npm run version:check
 
 build: ## Compile TypeScript
 	npm run build

@@ -11,12 +11,15 @@
   "scripts": {
     "ci": "yarn install --frozen-lockfile --ignore-engines",
     "start": "node --loader ts-node/esm src/index.ts",
-    "build": "tsc",
+    "build": "node scripts/sync-version.js && tsc",
     "bundle": "tsc && rollup dist/index.js --format esm --file dist/bundle.js",
     "test": "jest",
     "prepare": "husky",
     "lint": "eslint src --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "version:sync": "node scripts/sync-version.js",
+    "version:check": "node scripts/sync-version.js --check",
+    "prepublishOnly": "node scripts/sync-version.js --check",
     "publish": "npm publish --access public"
   },
   "lint-staged": {
