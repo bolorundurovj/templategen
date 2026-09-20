@@ -30,7 +30,7 @@
     "publish": "npm publish --access public"
   },
   "lint-staged": {
-    "src/**/*.{js,ts,json}": [
+    "src/**/*.{js,ts,tsx,json}": [
       "yarn lint",
       "yarn format"
     ]
@@ -55,6 +55,7 @@
     "@types/inquirer": "^9.0.7",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.6",
+    "@types/react": "^19.3.0",
     "@types/shelljs": "^0.8.8",
     "@types/supertest": "^7.2.1",
     "@types/yargs": "^17.0.33",
@@ -85,6 +86,8 @@
     "@inquirer/prompts": "^7.3.1",
     "chalk": "^5.4.1",
     "ejs": "^6.0.1",
+    "ink": "^7.1.1",
+    "react": "^19.3.0",
     "shelljs": "^0.8.5",
     "yargs": "^16.2.0"
   },

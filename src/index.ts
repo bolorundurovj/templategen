@@ -3,6 +3,7 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { run } from './scaffold.js';
+import { runTui } from './tui/index.js';
 
 /**
  * Sets up the CLI to scaffold a new project.
@@ -14,6 +15,8 @@ import { run } from './scaffold.js';
  * - architecturePattern: The architecture pattern to use (monolithic, microservices, cqrs, mvc, event-driven)
  * - database: The database to use (mongodb, postgresql, mysql, sqlite)
  * - projectName: The name of the project
+ * - classic: Use classic terminal prompts instead of TUI
+ * - tui: Use interactive Terminal User Interface (TUI)
  *
  * The run function from scaffold.js is called with the parsed arguments.
  */
@@ -51,9 +54,45 @@ export async function main() {
           })
           .option('projectName', {
             describe: 'Name of the project',
+          })
+          .option('classic', {
+            describe: 'Use classic terminal prompts instead of TUI',
+            type: 'boolean',
+            default: false,
+          })
+          .option('tui', {
+            describe: 'Use interactive Terminal User Interface (TUI)',
+            type: 'boolean',
+            default: true,
           });
       },
-      (argv) => run(argv),
+      async (argv: any) => {
+        const isInteractive = Boolean(
+          process.stdin &&
+            process.stdin.isTTY &&
+            process.stdout &&
+            process.stdout.isTTY,
+        );
+        const useClassic = Boolean(
+          argv.classic || argv.tui === false || !isInteractive,
+        );
+        const hasFullFlags = Boolean(
+          argv.projectName &&
+            argv.projectType &&
+            argv.language &&
+            argv.framework,
+        );
+
+        if (useClassic || hasFullFlags) {
+          await run(argv);
+          return;
+        }
+
+        const answers = await runTui(argv);
+        if (answers) {
+          await run({ ...argv, ...answers });
+        }
+      },
     )
     .help().argv;
 }

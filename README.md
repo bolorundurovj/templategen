@@ -66,10 +66,25 @@ seamless experience from setup to deployment.
       --architecturePattern "microservices" \
       --database "postgresql"
 
-### Interactive Mode
+### Interactive TUI Mode (Default)
 
-    mvcli --projectName "my-app"
-    # Answer subsequent prompts
+Running without full arguments launches the interactive Terminal User Interface (TUI) powered by Ink:
+
+    mvcli
+
+Inside the TUI:
+- Use **↑ / ↓ arrows** to highlight choices.
+- Press **Enter** to confirm a selection.
+- Press **Esc** to step back to previous questions and edit choices.
+- View real-time architecture summaries in the right-hand panel.
+
+### Classic Prompt Fallback Mode
+
+If you prefer classic sequential terminal prompts (or in non-TTY / CI environments):
+
+    mvcli --classic
+
+### Full CLI Arguments
 
 <div class="command-reference">
   <h2>Command Options Reference</h2>
@@ -139,6 +154,18 @@ seamless experience from setup to deployment.
           <code>sqlite</code>
         </td>
         <td>Database system integration</td>
+      </tr>
+      <tr>
+        <td><code>--classic</code></td>
+        <td>❌ No</td>
+        <td><code>boolean</code></td>
+        <td>Use classic line-by-line terminal prompts instead of the interactive TUI</td>
+      </tr>
+      <tr>
+        <td><code>--tui</code></td>
+        <td>❌ No</td>
+        <td><code>boolean</code> (default: <code>true</code>)</td>
+        <td>Enable or disable the interactive Terminal User Interface</td>
       </tr>
     </tbody>
   </table>
