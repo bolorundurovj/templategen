@@ -92,7 +92,7 @@
   "resolutions": {
     "@babel/helpers": "7.27.0",
     "@babel/runtime": "7.27.0",
-    "brace-expansion": "^1.1.18",
+    "brace-expansion": "^1.1.21",
     "minimatch": "^3.1.4",
     "diff": "^4.0.4",
     "js-yaml": "^3.15.1",
