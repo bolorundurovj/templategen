@@ -16,6 +16,23 @@
 
 * Refactor Logic ([9ef36b3](https://github.com-bolorundurovj/bolorundurovj/templategen/commit/9ef36b35774d2926dfc9eb80c786246b74f3442e))
 
+## [2.1.0](https://github.com/bolorundurovj/templategen/compare/mvcli-v2.0.1...mvcli-v2.1.0) (2026-10-21)
+
+
+### Features
+
+* **architecture:** add DDD, CQRS, event-driven, MVC and monolith starters for backends ([b096d90](https://github.com/bolorundurovj/templategen/commit/b096d907fe7c38eb0bc18496cf84a4346ba3156a))
+* implement interactive full-screen TUI with Ink and classic fallback ([ff45eea](https://github.com/bolorundurovj/templategen/commit/ff45eea89b8fdac26c81fd63a12ff56581383fe4))
+* **layout:** add --layout option (topnav/sidenav) to CLI and TUI ([5f854bd](https://github.com/bolorundurovj/templategen/commit/5f854bd6c291c91a4b41a1f80af37190f999348e))
+* **templates:** add sidenav layout to all frontend templates ([870864e](https://github.com/bolorundurovj/templategen/commit/870864e94985e81494f9a4b9bc64deb4b03893db))
+
+
+### Bug Fixes
+
+* **deps:** bump brace-expansion resolution to ^1.1.21 ([5cb3859](https://github.com/bolorundurovj/templategen/commit/5cb38590b0582a82ba58dff9b0e3027267fe158e))
+* **templates:** fix backend template issues found by live testing ([fad786a](https://github.com/bolorundurovj/templategen/commit/fad786abfba972dba04a61d314f4db3a8448f7cb))
+* **templates:** fix frontend template issues found by live testing ([402cebf](https://github.com/bolorundurovj/templategen/commit/402cebf1dfb6c682c90335665bb5c157e05c144f))
+
 ## [2.0.1](https://github.com/bolorundurovj/templategen/compare/mvcli-v2.0.0...mvcli-v2.0.1) (2026-09-20)
 
 
