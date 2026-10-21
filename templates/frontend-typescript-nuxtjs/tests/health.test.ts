@@ -1,5 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import healthHandler from '../server/api/health.get';
+
+vi.hoisted(() => {
+  (globalThis as any).defineEventHandler = (handler: unknown) => handler;
+});
 
 describe('Nuxt Health API', () => {
   it('returns ok status and timestamp', async () => {

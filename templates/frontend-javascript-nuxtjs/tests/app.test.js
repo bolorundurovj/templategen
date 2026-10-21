@@ -11,7 +11,7 @@ describe('Nuxt App Component', () => {
 
   it('renders initial count and increments reactively upon click', async () => {
     const wrapper = mount(App)
-    const button = wrapper.find('button')
+    const button = wrapper.find('.btn')
     expect(button.text()).toBe('Count is 0')
 
     await button.trigger('click')

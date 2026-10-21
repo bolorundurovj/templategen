@@ -6,7 +6,7 @@ test.describe('Application E2E Tests', () => {
   });
 
   test('should render application title and navigation elements', async ({ page }) => {
-    await expect(page.locator('header, nav, body')).toContainText('<%= projectName %>');
+    await expect(page.locator('body')).toContainText('<%= projectName %>');
     await expect(page.getByRole('link', { name: /home/i }).first()).toBeVisible();
   });
 

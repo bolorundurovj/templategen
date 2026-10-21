@@ -6,7 +6,7 @@ test.describe('Application E2E Tests', () => {
   });
 
   test('should render application title and navigation elements', async ({ page }) => {
-    await expect(page.locator('header, nav, body')).toContainText('<%= projectName %>');
+    await expect(page.locator('body')).toContainText('<%= projectName %>');
     await expect(page.getByRole('link', { name: /home/i }).first()).toBeVisible();
   });
 
@@ -18,9 +18,10 @@ test.describe('Application E2E Tests', () => {
     const initialClass = (await htmlElement.getAttribute('data-theme')) || (await htmlElement.getAttribute('class')) || '';
 
     await themeBtn.click();
-    const updatedClass = (await htmlElement.getAttribute('data-theme')) || (await htmlElement.getAttribute('class')) || '';
 
-    expect(updatedClass).not.toBe(initialClass);
+    await expect
+      .poll(async () => (await htmlElement.getAttribute('data-theme')) || (await htmlElement.getAttribute('class')) || '')
+      .not.toBe(initialClass);
   });
 
   test('should interact with the interactive counter', async ({ page }) => {
