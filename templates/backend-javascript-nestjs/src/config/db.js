@@ -3,7 +3,7 @@
 exports.connectDatabase = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/<%= projectName %>');
-    console.log('📦 NestJS connected to MongoDB');
+    console.log('NestJS connected to MongoDB');
   } catch (error) {
     console.error('MongoDB connection error:', error);
   }
@@ -17,7 +17,7 @@ const pool = new Pool({
 exports.connectDatabase = async () => {
   try {
     await pool.query('SELECT NOW()');
-    console.log('📦 NestJS connected to PostgreSQL');
+    console.log('NestJS connected to PostgreSQL');
   } catch (error) {
     console.error('PostgreSQL connection error:', error);
   }
@@ -28,7 +28,7 @@ exports.pool = pool;
 exports.connectDatabase = async () => {
   try {
     const connection = await mysql.createConnection(process.env.DATABASE_URL || 'mysql://root:password@localhost/<%= projectName %>');
-    console.log('📦 NestJS connected to MySQL');
+    console.log('NestJS connected to MySQL');
     exports.connection = connection;
   } catch (error) {
     console.error('MySQL connection error:', error);
@@ -43,7 +43,7 @@ exports.connectDatabase = () => {
     if (err) {
       console.error('SQLite connection error:', err);
     } else {
-      console.log('📦 NestJS connected to SQLite');
+      console.log('NestJS connected to SQLite');
     }
   });
   exports.db = db;

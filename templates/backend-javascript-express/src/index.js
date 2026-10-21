@@ -2,8 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const routes = require('./routes');
-<% if (database) { %>const itemsRouter = require('./routes/items');
-const db = require('./config/db');<% } %>
+const itemsRouter = require('./routes/items');
+<% if (database) { %>const db = require('./config/db');<% } %>
 const { requestLogger } = require('./middleware/requestLogger');
 const { errorHandler } = require('./middleware/errorHandler');
 const { notFound } = require('./middleware/notFound');
@@ -26,8 +26,7 @@ if (process.env.NODE_ENV !== 'test') {
 
 // Routes
 app.use('/api', routes);
-<% if (database) { %>app.use('/api/items', itemsRouter);
-<% } %>
+app.use('/api/items', itemsRouter);
 
 // Base route
 app.get('/', (req, res) => {
@@ -40,7 +39,7 @@ app.use(errorHandler);
 
 if (process.env.NODE_ENV !== 'test') {
   app.listen(port, () => {
-    console.log(`🚀 Server running on http://localhost:${port}`);
+    console.log(`Server running on http://localhost:${port}`);
   });
 }
 

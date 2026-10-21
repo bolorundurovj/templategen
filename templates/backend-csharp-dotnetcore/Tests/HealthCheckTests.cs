@@ -45,13 +45,13 @@ public class HealthCheckTests
         var items = new List<Item>();
         var nextId = 1;
 
-        app.MapGet("/api/items", () => Results.Ok(new { data = items }));
+        app.MapGet("/api/items", () => Results.Ok(items));
 
         app.MapGet("/api/items/{id:int}", (int id) =>
         {
             var item = items.FirstOrDefault(i => i.Id == id);
             return item is not null
-                ? Results.Ok(new { data = item })
+                ? Results.Ok(item)
                 : Results.NotFound(new { error = "Item not found", statusCode = 404 });
         });
 
@@ -71,7 +71,7 @@ public class HealthCheckTests
                 DateTime.UtcNow
             );
             items.Add(item);
-            return Results.Created($"/api/items/{item.Id}", new { data = item });
+            return Results.Created($"/api/items/{item.Id}", item);
         });
 
         app.MapPut("/api/items/{id:int}", (int id, UpdateItemDto dto) =>
@@ -91,7 +91,7 @@ public class HealthCheckTests
                 UpdatedAt = DateTime.UtcNow
             };
             items[index] = updated;
-            return Results.Ok(new { data = updated });
+            return Results.Ok(updated);
         });
 
         app.MapDelete("/api/items/{id:int}", (int id) =>

@@ -8,13 +8,11 @@ current_id = 1
 
 
 @items_bp.get("")
-@items_bp.get("/")
 async def list_items(request):
     return json({"data": [item.to_dict() for item in items_store.values()]})
 
 
 @items_bp.post("")
-@items_bp.post("/")
 async def create_item(request):
     global current_id
     data = request.json

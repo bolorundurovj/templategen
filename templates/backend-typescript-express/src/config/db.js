@@ -6,7 +6,7 @@ if (database === 'mongodb') {
     export const connect = async () => {
         try {
             await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/<%= projectName %>');
-            console.log('📦 Connected to MongoDB');
+            console.log('Connected to MongoDB');
         }
         catch (error) {
             console.error('MongoDB connection error:', error);
@@ -24,7 +24,7 @@ else if (database === 'postgresql') {
     export const connect = async () => {
         try {
             await pool.query('SELECT NOW()');
-            console.log('📦 Connected to PostgreSQL');
+            console.log('Connected to PostgreSQL');
         }
         catch (error) {
             console.error('PostgreSQL connection error:', error);
@@ -40,7 +40,7 @@ else if (database === 'mysql') {
     export const connect = async () => {
         try {
             connection = await mysql.createConnection(process.env.DATABASE_URL || 'mysql://root:password@localhost/<%= projectName %>');
-            console.log('📦 Connected to MySQL');
+            console.log('Connected to MySQL');
         }
         catch (error) {
             console.error('MySQL connection error:', error);
@@ -61,7 +61,7 @@ else if (database === 'sqlite') {
                 console.error('SQLite connection error:', err);
                 process.exit(1);
             }
-            console.log('📦 Connected to SQLite');
+            console.log('Connected to SQLite');
         });
     };
      % ;
