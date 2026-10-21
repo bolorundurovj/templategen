@@ -5,6 +5,7 @@ import {
   BACKEND_FRAMEWORKS,
   ARCHITECTURE_PATTERNS,
   DATABASES,
+  NAVIGATION_LAYOUTS,
 } from '../../src/choices';
 
 describe('Choices Unit Tests', () => {
@@ -116,6 +117,7 @@ describe('Choices Unit Tests', () => {
       const patternValues = ARCHITECTURE_PATTERNS.map((p) => p.value);
       expect(patternValues).toEqual(
         expect.arrayContaining([
+          'ddd',
           'monolithic',
           'microservices',
           'cqrs',
@@ -129,6 +131,15 @@ describe('Choices Unit Tests', () => {
       const dbValues = DATABASES.map((d) => d.value);
       expect(dbValues).toEqual(
         expect.arrayContaining(['mongodb', 'postgresql', 'mysql', 'sqlite']),
+      );
+    });
+  });
+
+  describe('NAVIGATION_LAYOUTS', () => {
+    it('defines frontend navigation layout choices', () => {
+      const layoutValues = NAVIGATION_LAYOUTS.map((l) => l.value);
+      expect(layoutValues).toEqual(
+        expect.arrayContaining(['topnav', 'sidenav']),
       );
     });
   });

@@ -54,6 +54,9 @@ jest.mock('../../src/utils', () => ({
   findJsDir: jest.fn(),
   findCsProj: jest.fn(),
   findPyDir: jest.fn(),
+  getDefaultBackendPort: (
+    jest.requireActual('../../src/utils') as typeof import('../../src/utils')
+  ).getDefaultBackendPort,
 }));
 
 describe('Scaffold Unit Tests', () => {
@@ -363,7 +366,8 @@ describe('Scaffold Unit Tests', () => {
         (select as jest.Mock)
           .mockResolvedValueOnce('frontend' as never)
           .mockResolvedValueOnce('javascript' as never)
-          .mockResolvedValueOnce('react' as never);
+          .mockResolvedValueOnce('react' as never)
+          .mockResolvedValueOnce('sidenav' as never);
         (confirm as jest.Mock).mockResolvedValueOnce(true as never);
         (input as jest.Mock).mockResolvedValueOnce(
           'interactive-react' as never,
@@ -375,10 +379,14 @@ describe('Scaffold Unit Tests', () => {
 
         await scaffold.run({});
 
-        expect(select).toHaveBeenCalledTimes(3);
+        expect(select).toHaveBeenCalledTimes(4);
         expect(confirm).toHaveBeenCalled();
         expect(input).toHaveBeenCalled();
-        expect(templating.renderTemplate).toHaveBeenCalled();
+        expect(templating.renderTemplate).toHaveBeenCalledWith(
+          expect.any(String),
+          expect.any(String),
+          expect.objectContaining({ layout: 'sidenav' }),
+        );
         expect(postProcessSpy).toHaveBeenCalled();
         postProcessSpy.mockRestore();
       });
@@ -422,7 +430,8 @@ describe('Scaffold Unit Tests', () => {
           .mockResolvedValueOnce('react' as never)
           .mockResolvedValueOnce('express' as never)
           .mockResolvedValueOnce('monolithic' as never)
-          .mockResolvedValueOnce('postgresql' as never);
+          .mockResolvedValueOnce('postgresql' as never)
+          .mockResolvedValueOnce('topnav' as never);
         (confirm as jest.Mock).mockResolvedValueOnce(false as never);
         (input as jest.Mock).mockResolvedValueOnce('interactive-fs' as never);
 
@@ -432,7 +441,7 @@ describe('Scaffold Unit Tests', () => {
 
         await scaffold.run({});
 
-        expect(select).toHaveBeenCalledTimes(6);
+        expect(select).toHaveBeenCalledTimes(7);
         expect(templating.renderTemplate).toHaveBeenCalledTimes(2);
         postProcessSpy.mockRestore();
       });

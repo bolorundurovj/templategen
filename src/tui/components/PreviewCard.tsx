@@ -34,7 +34,7 @@ export const PreviewCard: React.FC<PreviewCardProps> = ({ config }) => {
         paddingX={1}
       >
         <Text bold color="magenta">
-          📋 Project Summary
+          Project Summary
         </Text>
       </Box>
 
@@ -66,6 +66,15 @@ export const PreviewCard: React.FC<PreviewCardProps> = ({ config }) => {
             {frameworkDisplay}
           </Text>
         </Box>
+
+        {config.layout && (
+          <Box justifyContent="space-between">
+            <Text color="gray">Layout:</Text>
+            <Text color="cyan">
+              {config.layout === 'sidenav' ? 'Side Nav' : 'Top Nav'}
+            </Text>
+          </Box>
+        )}
 
         {config.architecturePattern && (
           <Box justifyContent="space-between">

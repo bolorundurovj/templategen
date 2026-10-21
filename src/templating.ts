@@ -97,6 +97,7 @@ export async function renderTemplate(
             isFullstack: false,
             shadcn: false,
             database: '',
+            layout: 'topnav',
             ...(options as Record<string, any>),
           };
           const rendered = ejs.render(content, renderData);

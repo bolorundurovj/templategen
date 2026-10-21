@@ -1,6 +1,7 @@
 export type WizardStep =
   | 'PROJECT_NAME'
   | 'PROJECT_TYPE'
+  | 'LAYOUT'
   | 'LANGUAGE'
   | 'FRAMEWORK'
   | 'FRONTEND_FRAMEWORK'
@@ -14,6 +15,7 @@ export interface WizardConfig {
   projectName: string;
   projectType: string;
   language: string;
+  layout?: string;
   framework: string;
   feFramework?: string;
   beFramework?: string;

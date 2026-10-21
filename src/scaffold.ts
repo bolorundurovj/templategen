@@ -4,6 +4,7 @@ import {
   BACKEND_FRAMEWORKS,
   DATABASES,
   FRONTEND_FRAMEWORKS,
+  NAVIGATION_LAYOUTS,
   PROGRAMMING_LANGUAGES,
 } from './choices.js';
 import { requiresArchitecturePattern, requiresDatabase } from './validators.js';
@@ -11,11 +12,13 @@ import path, { dirname, join } from 'path';
 import fs from 'fs';
 import shell from 'shelljs';
 import { logger } from './logger.js';
+import { scaffoldArchitecture } from './architecture.js';
 import {
   CliOptions,
   findCsProj,
   findJsDir,
   findPyDir,
+  getDefaultBackendPort,
   isCSharp,
   isJavaScript,
   isPython,
@@ -185,10 +188,25 @@ export const run = async (argv: any) => {
     }
   }
 
+  let layout: string = argv.layout || '';
+  if ((projectType === 'frontend' || projectType === 'fullstack') && !layout) {
+    layout = await select({
+      message: 'Select the navigation layout for the frontend:',
+      choices: NAVIGATION_LAYOUTS,
+      default: 'topnav',
+    });
+  }
+  if (!layout) {
+    layout = 'topnav';
+  }
+
   logger.info(`${'= '.repeat(20)} Selected Options ${'= '.repeat(20)}`);
   logger.info(`Project Type: ${projectType}`);
   logger.info(`Language: ${language}`);
   logger.info(`Framework: ${framework}`);
+  if (projectType === 'frontend' || projectType === 'fullstack') {
+    logger.info(`Layout: ${layout}`);
+  }
   if (requiresArchitecturePattern(projectType)) {
     logger.info(`Architecture Pattern: ${architecturePattern}`);
   }
@@ -235,15 +253,7 @@ export const run = async (argv: any) => {
     const clientTargetPath = path.join(targetPath, 'apps', 'client');
     const serverTargetPath = path.join(targetPath, 'apps', 'server');
 
-    const defaultBackendPort = ['fastapi', 'django', 'sanic'].includes(
-      beFramework,
-    )
-      ? 8000
-      : beFramework === 'tornado'
-        ? 8888
-        : ['flask', 'dotnetcore'].includes(beFramework)
-          ? 5000
-          : 3000;
+    const defaultBackendPort = getDefaultBackendPort(beFramework);
 
     const feRenderOptions = {
       projectName: `${projectName}-client`,
@@ -253,6 +263,7 @@ export const run = async (argv: any) => {
       isFullstack: true,
       language: feLang,
       shadcn: Boolean(shadcn),
+      layout,
       backendPort: defaultBackendPort,
       backendFramework: beFramework,
       apiUrl: `http://localhost:${defaultBackendPort}`,
@@ -288,6 +299,10 @@ export const run = async (argv: any) => {
         serverTargetPath,
         beRenderOptions as any,
       );
+
+      if (architecturePattern) {
+        scaffoldArchitecture(serverTargetPath, beRenderOptions as any);
+      }
 
       const nxJson = {
         $schema: './node_modules/nx/schemas/nx-schema.json',
@@ -568,6 +583,7 @@ This fullstack application was scaffolded with **TemplateGen** using **Nx**.
     targetPath,
     isFullstack: false,
     language,
+    layout,
   };
 
   const renderOptions = {
@@ -575,10 +591,15 @@ This fullstack application was scaffolded with **TemplateGen** using **Nx**.
     architecturePattern,
     database,
     shadcn: Boolean(shadcn),
+    layout,
   };
 
   try {
     await renderTemplate(sourceTemplatePath, targetPath, renderOptions as any);
+
+    if (projectType === 'backend' && architecturePattern) {
+      scaffoldArchitecture(targetPath, renderOptions as any);
+    }
 
     const postProcessResult = self.postProcess(options);
     if (postProcessResult) {

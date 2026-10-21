@@ -7,6 +7,10 @@ jest.mock('../../src/scaffold', () => ({
     run: jest.fn(),
 }));
 
+jest.mock('../../src/tui/index', () => ({
+    runTui: jest.fn(),
+}));
+
 describe('CLI Integration Tests', () => {
     const originalArgv = process.argv;
     beforeEach(() => {

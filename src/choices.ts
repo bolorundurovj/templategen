@@ -184,28 +184,58 @@ export const BACKEND_FRAMEWORKS: MVChoiceMap = {
 };
 
 /**
+ * Choices for frontend navigation layout.
+ */
+export const NAVIGATION_LAYOUTS: MVChoice[] = [
+  {
+    name: 'Top Navigation (Header)',
+    value: 'topnav',
+    description: 'Horizontal top header navbar layout',
+  },
+  {
+    name: 'Side Navigation (Sidebar)',
+    value: 'sidenav',
+    description:
+      'Vertical sidebar layout with collapsible navigation and icon links',
+  },
+];
+
+/**
  * A map of architecture patterns and their corresponding choices.
  */
 export const ARCHITECTURE_PATTERNS: MVChoice[] = [
   {
-    name: 'Monolithic',
-    value: 'monolithic',
-  },
-  {
-    name: 'Microservices',
-    value: 'microservices',
+    name: 'Domain-Driven Design (DDD)',
+    value: 'ddd',
+    description:
+      'Layered architecture: Domain, Application, Infrastructure, Presentation',
   },
   {
     name: 'CQRS',
     value: 'cqrs',
+    description:
+      'Command Query Responsibility Segregation with separate read and write models',
+  },
+  {
+    name: 'Monolithic',
+    value: 'monolithic',
+    description: 'Standard cohesive single-service architecture',
+  },
+  {
+    name: 'Microservices',
+    value: 'microservices',
+    description: 'Decoupled service modules with container configuration',
   },
   {
     name: 'MVC',
     value: 'mvc',
+    description: 'Model-View-Controller separation of concerns',
   },
   {
     name: 'Event Driven',
     value: 'event-driven',
+    description:
+      'Asynchronous event producers, consumers, and message handlers',
   },
 ];
 

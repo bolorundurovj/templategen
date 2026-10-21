@@ -41,9 +41,10 @@ export async function main() {
           .option('architecturePattern', {
             describe: 'Architecture pattern',
             choices: [
+              'ddd',
+              'cqrs',
               'monolithic',
               'microservices',
-              'cqrs',
               'mvc',
               'event-driven',
             ],
@@ -51,6 +52,10 @@ export async function main() {
           .option('database', {
             describe: 'Database to use',
             choices: ['mongodb', 'postgresql', 'mysql', 'sqlite'],
+          })
+          .option('layout', {
+            describe: 'Navigation layout for frontend',
+            choices: ['sidenav', 'topnav'],
           })
           .option('projectName', {
             describe: 'Name of the project',

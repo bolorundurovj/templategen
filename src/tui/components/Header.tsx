@@ -9,12 +9,13 @@ interface HeaderProps {
 const STEP_LABELS: { step: WizardStep; label: string }[] = [
   { step: 'PROJECT_NAME', label: '1. Name' },
   { step: 'PROJECT_TYPE', label: '2. Type' },
-  { step: 'LANGUAGE', label: '3. Language' },
-  { step: 'FRAMEWORK', label: '4. Framework' },
-  { step: 'ARCHITECTURE', label: '5. Architecture' },
-  { step: 'DATABASE', label: '6. Database' },
-  { step: 'SHADCN', label: '7. UI Config' },
-  { step: 'REVIEW', label: '8. Review' },
+  { step: 'LAYOUT', label: '3. Layout' },
+  { step: 'LANGUAGE', label: '4. Language' },
+  { step: 'FRAMEWORK', label: '5. Framework' },
+  { step: 'ARCHITECTURE', label: '6. Arch' },
+  { step: 'DATABASE', label: '7. DB' },
+  { step: 'SHADCN', label: '8. UI' },
+  { step: 'REVIEW', label: '9. Review' },
 ];
 
 export const Header: React.FC<HeaderProps> = ({ currentStep }) => {
@@ -27,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({ currentStep }) => {
         justifyContent="space-between"
       >
         <Text bold color="cyan">
-          🚀 TemplateGen TUI
+          TemplateGen TUI
         </Text>
         <Text color="gray">
           v2.0 • Press [Esc] to go back, [Ctrl+C] to exit

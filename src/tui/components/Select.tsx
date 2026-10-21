@@ -93,7 +93,7 @@ export const Select: React.FC<SelectProps> = ({
       {selectedItem?.description && (
         <Box marginBottom={1} paddingLeft={2}>
           <Text italic color="gray">
-            ℹ {selectedItem.description}
+            {selectedItem.description}
           </Text>
         </Box>
       )}

@@ -12,6 +12,7 @@ import {
   BACKEND_FRAMEWORKS,
   DATABASES,
   FRONTEND_FRAMEWORKS,
+  NAVIGATION_LAYOUTS,
   PROGRAMMING_LANGUAGES,
 } from '../choices.js';
 import {
@@ -19,6 +20,7 @@ import {
   requiresDatabase,
 } from '../validators.js';
 import { ChoiceItem, WizardConfig, WizardStep } from './types.js';
+import { getInitialStep, getStepAfterProjectType } from './steps.js';
 
 interface AppProps {
   initialConfig?: Partial<WizardConfig>;
@@ -65,6 +67,7 @@ export const App: React.FC<AppProps> = ({
   const [config, setConfig] = useState<Partial<WizardConfig>>({
     projectName: initialConfig.projectName || '',
     projectType: initialConfig.projectType || '',
+    layout: initialConfig.layout || '',
     language: initialConfig.language || '',
     framework: initialConfig.framework || '',
     feFramework: initialConfig.feFramework || '',
@@ -74,11 +77,9 @@ export const App: React.FC<AppProps> = ({
     shadcn: initialConfig.shadcn,
   });
 
-  const [step, setStep] = useState<WizardStep>(() => {
-    if (!initialConfig.projectName) return 'PROJECT_NAME';
-    if (!initialConfig.projectType) return 'PROJECT_TYPE';
-    return 'LANGUAGE';
-  });
+  const [step, setStep] = useState<WizardStep>(() =>
+    getInitialStep(initialConfig),
+  );
 
   const [history, setHistory] = useState<WizardStep[]>([]);
 
@@ -134,6 +135,7 @@ export const App: React.FC<AppProps> = ({
     setConfig((prev) => ({
       ...prev,
       projectType: typeVal,
+      layout: '',
       language: '',
       framework: '',
       feFramework: '',
@@ -141,6 +143,12 @@ export const App: React.FC<AppProps> = ({
       architecturePattern: '',
       database: '',
     }));
+    goToStep(getStepAfterProjectType(typeVal));
+  };
+
+  // Step 2b: Layout (frontend / fullstack)
+  const handleLayoutSelect = (layoutVal: string) => {
+    setConfig((prev) => ({ ...prev, layout: layoutVal }));
     goToStep('LANGUAGE');
   };
 
@@ -288,6 +296,28 @@ export const App: React.FC<AppProps> = ({
             />
           </Box>
         );
+
+      case 'LAYOUT': {
+        const items: ChoiceItem[] = NAVIGATION_LAYOUTS.map((l) => ({
+          label: l.name,
+          value: l.value,
+          description: l.description,
+          disabled: l.disabled,
+        }));
+
+        return (
+          <Box flexDirection="column" gap={1}>
+            <Text bold color="white">
+              Select navigation layout for the frontend:
+            </Text>
+            <Select
+              items={items}
+              onSelect={handleLayoutSelect}
+              onBack={handleBack}
+            />
+          </Box>
+        );
+      }
 
       case 'LANGUAGE': {
         const langChoices =
@@ -457,7 +487,7 @@ export const App: React.FC<AppProps> = ({
             <Select
               items={[
                 {
-                  label: '🚀 Generate Project',
+                  label: 'Generate Project',
                   value: 'submit',
                   description: 'Generate templates and install dependencies',
                 },
