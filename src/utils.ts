@@ -15,6 +15,9 @@ export interface CliOptions {
   backendPort?: number;
   backendFramework?: string;
   apiUrl?: string;
+  architecturePattern?: string;
+  database?: string;
+  layout?: string;
 }
 
 /**
@@ -190,4 +193,23 @@ export const findPyDir = (options: CliOptions): MVPythonDir | null => {
   };
 
   return searchDir(options.targetPath);
+};
+
+/**
+ * Returns the default HTTP port a backend framework template listens on.
+ *
+ * @param {string} framework - The backend framework key (e.g. express, fastapi).
+ * @returns {number} - The default port.
+ */
+export const getDefaultBackendPort = (framework: string): number => {
+  if (['fastapi', 'django', 'sanic'].includes(framework)) {
+    return 8000;
+  }
+  if (framework === 'tornado') {
+    return 8888;
+  }
+  if (['flask', 'dotnetcore'].includes(framework)) {
+    return 5000;
+  }
+  return 3000;
 };
