@@ -1,3 +1,4 @@
+<% if (layout === 'sidenav') { %>_SKIP_FILE_<% } else { %>
 'use client';
 
 import { useState } from 'react';
@@ -83,3 +84,4 @@ export function Navigation({ theme, onToggleTheme }: NavigationProps) {
     </header>
   );
 }
+<% } %>

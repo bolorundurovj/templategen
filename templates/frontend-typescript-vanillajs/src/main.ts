@@ -3,7 +3,11 @@ import heroImg from './assets/hero.png';
 import typescriptLogo from './assets/typescript.svg';
 import viteLogo from './assets/vite.svg';
 import { setupCounter } from './counter';
+<% if (layout === 'sidenav') { -%>
+import { setupSidebar } from './sidebar';
+<% } else { -%>
 import { setupNavigation } from './nav';
+<% } -%>
 <% if (isFullstack) { %>import { setupItemsCrud } from './items';<% } %>
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
@@ -14,6 +18,7 @@ function renderView(): void {
   if (isItems) {
     app.innerHTML = `
       <div id="nav-wrapper"></div>
+      <% if (layout === 'sidenav') { %><div class="main-content"><% } %>
       <section id="center" style="max-width: 600px; margin: 2rem auto; padding: 0 1rem; width: 100%;">
         <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 1.5rem;">
           <a href="#" style="color: #0d9488; text-decoration: none; font-weight: 500; font-size: 0.875rem;">&larr; Back to Home</a>
@@ -26,8 +31,9 @@ function renderView(): void {
       <footer class="site-footer">
         Built with TemplateGen &bull; Modern Full-Stack Scaffolding
       </footer>
+      <% if (layout === 'sidenav') { %></div><% } %>
     `;
-    setupNavigation(document.querySelector<HTMLDivElement>('#nav-wrapper')!);
+    <%= layout === 'sidenav' ? 'setupSidebar' : 'setupNavigation' %>(document.querySelector<HTMLDivElement>('#nav-wrapper')!);
     <% if (isFullstack) { %>
     const crudEl = document.querySelector<HTMLDivElement>('#crud-wrapper');
     if (crudEl) setupItemsCrud(crudEl);
@@ -35,6 +41,7 @@ function renderView(): void {
   } else {
     app.innerHTML = `
       <div id="nav-wrapper"></div>
+      <% if (layout === 'sidenav') { %><div class="main-content"><% } %>
 
       <section id="center">
         <div class="hero">
@@ -87,8 +94,9 @@ function renderView(): void {
       <footer class="site-footer">
         Built with TemplateGen &bull; Modern Full-Stack Scaffolding
       </footer>
+      <% if (layout === 'sidenav') { %></div><% } %>
     `;
-    setupNavigation(document.querySelector<HTMLDivElement>('#nav-wrapper')!);
+    <%= layout === 'sidenav' ? 'setupSidebar' : 'setupNavigation' %>(document.querySelector<HTMLDivElement>('#nav-wrapper')!);
     setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
   }
 }

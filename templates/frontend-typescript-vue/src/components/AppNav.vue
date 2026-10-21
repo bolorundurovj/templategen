@@ -8,12 +8,10 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: 'toggleTheme'): void;
   (e: 'toggle-theme'): void;
 }>();
 
 const handleToggle = () => {
-  emit('toggleTheme');
   emit('toggle-theme');
 };
 

@@ -1,3 +1,4 @@
+<% if (layout === 'sidenav') { %>_SKIP_FILE_<% } else { %>
 import { useState } from 'react';
 import { ThemeToggle } from './ThemeToggle';
 import type { Theme } from '../hooks/useTheme';
@@ -81,3 +82,4 @@ export function Navigation({ theme, onToggleTheme }: NavigationProps) {
     </header>
   );
 }
+<% } %>

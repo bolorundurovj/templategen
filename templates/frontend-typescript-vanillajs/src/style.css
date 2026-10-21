@@ -236,3 +236,123 @@ body {
   color: var(--text-secondary);
   margin-top: auto;
 }
+
+<% if (layout === 'sidenav') { %>
+#app {
+  max-width: none;
+}
+
+#nav-wrapper {
+  display: contents;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar {
+  display: none;
+}
+
+.mobile-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--card-bg);
+}
+
+.mobile-topbar + .mobile-menu {
+  border-top: none;
+  border-bottom: 1px solid var(--border-color);
+}
+
+@media (min-width: 768px) {
+  #app {
+    flex-direction: row;
+  }
+  .mobile-topbar,
+  .mobile-menu {
+    display: none !important;
+  }
+  .sidebar {
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+    width: 16rem;
+    height: 100vh;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--border-color);
+    background: var(--nav-bg);
+    backdrop-filter: blur(8px);
+  }
+}
+
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar-badge {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.sidebar-title {
+  display: block;
+}
+
+.sidebar-subtitle {
+  font-size: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--text-secondary);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar-link {
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.sidebar-link:hover {
+  background: var(--hover-bg);
+  color: #0d9488;
+}
+
+.sidebar-footer {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-footer-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+<% } %>

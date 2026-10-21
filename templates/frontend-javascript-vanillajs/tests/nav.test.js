@@ -1,3 +1,4 @@
+<% if (layout === 'sidenav') { %>_SKIP_FILE_<% } else { %>
 import { describe, it, expect, beforeEach } from 'vitest';
 import { setupNavigation } from '../src/nav.js';
 
@@ -14,7 +15,7 @@ describe('Navigation Module', () => {
     setupNavigation(container);
     expect(container.querySelector('.nav-header')).not.toBeNull();
     expect(container.querySelector('.desktop-nav')).not.toBeNull();
-    expect(container.querySelectorAll('.nav-link').length).toBe(3);
+    expect(container.querySelectorAll('.nav-link').length).toBe(<%= isFullstack ? 4 : 3 %>);
   });
 
   it('toggles mobile menu on menu button click', () => {
@@ -29,3 +30,4 @@ describe('Navigation Module', () => {
     expect(mobileMenu.style.display).toBe('none');
   });
 });
+<% } %>

@@ -1,7 +1,24 @@
 <script lang="ts">
+<% if (layout === 'sidenav') { %>
+  import Sidebar from './Sidebar.svelte';
+<% } else { %>
   import Nav from './Nav.svelte';
+<% } %>
 </script>
 
+<% if (layout === 'sidenav') { %>
+<div class="layout-wrapper layout-sidenav">
+  <Sidebar />
+  <div class="layout-content">
+    <main class="layout-main">
+      <slot />
+    </main>
+    <footer class="layout-footer">
+      Built with TemplateGen &bull; Modern Full-Stack Scaffolding
+    </footer>
+  </div>
+</div>
+<% } else { %>
 <div class="layout-wrapper">
   <Nav />
   <main class="layout-main">
@@ -11,6 +28,7 @@
     Built with TemplateGen &bull; Modern Full-Stack Scaffolding
   </footer>
 </div>
+<% } %>
 
 <style>
   .layout-wrapper {
@@ -21,6 +39,19 @@
     color: var(--text-primary, #0f172a);
     transition: background-color 0.2s, color 0.2s;
   }
+<% if (layout === 'sidenav') { %>
+  .layout-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  @media (min-width: 768px) {
+    .layout-sidenav {
+      flex-direction: row;
+    }
+  }
+<% } %>
   .layout-main {
     flex: 1;
     display: flex;

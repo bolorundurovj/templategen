@@ -8,18 +8,11 @@ const props = defineProps<{
   theme?: Theme;
 }>();
 
-const emit = defineEmits<{
-  (e: 'toggleTheme'): void;
-  (e: 'toggle-theme'): void;
-}>();
-
 const { theme: activeTheme, toggleTheme } = useTheme();
 const { currentView, setView } = useView();
 
 const handleToggle = () => {
   toggleTheme();
-  emit('toggleTheme');
-  emit('toggle-theme');
 };
 
 const mobileMenuOpen = ref(false);

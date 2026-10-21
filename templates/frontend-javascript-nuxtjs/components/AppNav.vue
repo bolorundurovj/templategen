@@ -11,15 +11,11 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(['toggleTheme', 'toggle-theme']);
-
 const { theme: activeTheme, toggleTheme } = useTheme();
 const { currentView, setView } = useView();
 
 const handleToggle = () => {
   toggleTheme();
-  emit('toggleTheme');
-  emit('toggle-theme');
 };
 
 const mobileMenuOpen = ref(false);
