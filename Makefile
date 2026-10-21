@@ -1,4 +1,4 @@
-.PHONY: help install install-cli install-local uninstall-cli uninstall-local build bundle start test test-contract test-integration test-unit lint format clean sync-version check-version
+.PHONY: help install install-cli install-local uninstall-cli uninstall-local build bundle start test test-contract test-integration test-unit test-live lint format clean sync-version check-version
 
 # Default target
 all: build test
@@ -20,6 +20,7 @@ help: ## Show this help message
 	@echo "  test-contract     Run contract tests verifying template definitions & hygiene"
 	@echo "  test-integration  Run integration tests verifying scaffolding & live execution"
 	@echo "  test-unit         Run unit tests"
+	@echo "  test-live         Run the slow live matrix (scaffold, install, test, boot every template)"
 	@echo "  lint              Run ESLint with auto-fix"
 	@echo "  format            Format codebase using Prettier"
 	@echo "  clean             Remove build output and temporary test directories"
@@ -67,6 +68,9 @@ test-integration: ## Run integration tests
 
 test-unit: ## Run unit tests
 	npx jest tests/unit
+
+test-live: ## Run the live matrix (slow). Filter with LIVE_MATRIX_ONLY / LIVE_MATRIX_LAYOUTS
+	npm run test:live
 
 lint: ## Lint codebase
 	npm run lint

@@ -185,6 +185,7 @@ describe('Scaffold and Run Generated Project Tests', () => {
         architecturePattern: 'monolithic',
         database: 'postgresql',
         shadcn: false,
+        layout: 'topnav',
       });
 
       postProcessSpy.mockRestore();

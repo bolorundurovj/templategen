@@ -21,6 +21,7 @@
     "build": "node scripts/sync-version.js && tsc",
     "bundle": "tsc && rollup dist/index.js --format esm --file dist/bundle.js",
     "test": "jest",
+    "test:live": "cross-env RUN_LIVE_MATRIX=true jest --runInBand --testTimeout=180000 tests/integration/live-matrix.integration.test.ts",
     "prepare": "husky",
     "lint": "eslint src --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
@@ -50,6 +51,7 @@
   "license": "MIT",
   "devDependencies": {
     "@jest/globals": "^29.7.0",
+    "@playwright/test": "^1.42.0",
     "@types/ejs": "^3.1.5",
     "@types/express": "^5.0.6",
     "@types/inquirer": "^9.0.7",
@@ -63,6 +65,7 @@
     "@typescript-eslint/parser": "^8.23.0",
     "conventional-changelog-conventionalcommits": "^8.0.0",
     "cors": "^2.8.6",
+    "cross-env": "^10.1.0",
     "dotenv": "^17.4.2",
     "eslint": "^9.20.0",
     "eslint-config-prettier": "^10.0.1",

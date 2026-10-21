@@ -198,6 +198,7 @@ describe('Scaffolding Integration Tests', () => {
         architecturePattern: 'monolithic',
         database: 'postgresql',
         shadcn: false,
+        layout: 'topnav',
       });
 
       expect(postProcessSpy).toHaveBeenCalled();
@@ -245,6 +246,7 @@ describe('Scaffolding Integration Tests', () => {
         architecturePattern: 'monolithic',
         database: 'mongodb',
         shadcn: false,
+        layout: 'topnav',
       });
 
       postProcessSpy.mockRestore();
@@ -358,6 +360,126 @@ describe('Scaffolding Integration Tests', () => {
             assertNoUnrenderedEjs(targetDir);
           });
         });
+      });
+    });
+
+    describe('Frontend Layout Variations', () => {
+      it('scaffolds frontend react template with sidenav layout', async () => {
+        const targetPath = path.join(TEMP_TEST_DIR, 'test-react-sidenav');
+        const postProcessSpy = jest
+          .spyOn(scaffold, 'postProcess')
+          .mockReturnValue(true);
+
+        await scaffold.run({
+          projectName: path.relative(process.cwd(), targetPath),
+          projectType: 'frontend',
+          language: 'typescript',
+          framework: 'react',
+          layout: 'sidenav',
+          shadcn: false,
+        });
+
+        const layoutFile = path.join(targetPath, 'src', 'components', 'Layout.tsx');
+        expect(fs.existsSync(layoutFile)).toBe(true);
+        const layoutContent = fs.readFileSync(layoutFile, 'utf8');
+        expect(layoutContent).toContain('Sidebar');
+        expect(
+          fs.existsSync(path.join(targetPath, 'src', 'components', 'Sidebar.tsx')),
+        ).toBe(true);
+
+        postProcessSpy.mockRestore();
+      });
+
+      it('scaffolds frontend react template with topnav layout', async () => {
+        const targetPath = path.join(TEMP_TEST_DIR, 'test-react-topnav');
+        const postProcessSpy = jest
+          .spyOn(scaffold, 'postProcess')
+          .mockReturnValue(true);
+
+        await scaffold.run({
+          projectName: path.relative(process.cwd(), targetPath),
+          projectType: 'frontend',
+          language: 'typescript',
+          framework: 'react',
+          layout: 'topnav',
+          shadcn: false,
+        });
+
+        const layoutFile = path.join(targetPath, 'src', 'components', 'Layout.tsx');
+        expect(fs.existsSync(layoutFile)).toBe(true);
+        const layoutContent = fs.readFileSync(layoutFile, 'utf8');
+        expect(layoutContent).toContain('Navigation');
+        expect(
+          fs.existsSync(path.join(targetPath, 'src', 'components', 'Sidebar.tsx')),
+        ).toBe(false);
+
+        postProcessSpy.mockRestore();
+      });
+    });
+
+    describe('Backend DDD Architecture Integration', () => {
+      it('scaffolds backend express template with ddd architecture pattern', async () => {
+        const targetPath = path.join(TEMP_TEST_DIR, 'test-express-ddd');
+        const postProcessSpy = jest
+          .spyOn(scaffold, 'postProcess')
+          .mockReturnValue(true);
+
+        await scaffold.run({
+          projectName: path.relative(process.cwd(), targetPath),
+          projectType: 'backend',
+          language: 'typescript',
+          framework: 'express',
+          architecturePattern: 'ddd',
+          database: 'sqlite',
+        });
+
+        const archFile = path.join(targetPath, 'ARCHITECTURE.md');
+        expect(fs.existsSync(archFile)).toBe(true);
+        expect(fs.readFileSync(archFile, 'utf8')).toContain(
+          'Domain-Driven Design (DDD)',
+        );
+        expect(
+          fs.existsSync(
+            path.join(targetPath, 'src', 'domain', 'item.entity.ts'),
+          ),
+        ).toBe(true);
+        expect(
+          fs.existsSync(
+            path.join(
+              targetPath,
+              'src',
+              'application',
+              'create-item.use-case.ts',
+            ),
+          ),
+        ).toBe(true);
+
+        postProcessSpy.mockRestore();
+      });
+
+      it('scaffolds CommonJS ddd boilerplate for javascript express', async () => {
+        const targetPath = path.join(TEMP_TEST_DIR, 'test-express-js-ddd');
+        const postProcessSpy = jest
+          .spyOn(scaffold, 'postProcess')
+          .mockReturnValue(true);
+
+        await scaffold.run({
+          projectName: path.relative(process.cwd(), targetPath),
+          projectType: 'backend',
+          language: 'javascript',
+          framework: 'express',
+          architecturePattern: 'ddd',
+          database: 'sqlite',
+        });
+
+        const entity = fs.readFileSync(
+          path.join(targetPath, 'src', 'domain', 'item.entity.js'),
+          'utf8',
+        );
+        expect(entity).toContain('module.exports');
+        expect(entity).not.toMatch(/^\s*(import|export) /m);
+
+        postProcessSpy.mockRestore();
       });
     });
   });

@@ -8,7 +8,7 @@ export default {
   testMatch: ['**/tests/**/*.test.ts'],
   modulePathIgnorePatterns: ['<rootDir>/templates/', '<rootDir>/scratch/'],
   testPathIgnorePatterns: ['<rootDir>/templates/', '<rootDir>/scratch/'],
-  moduleFileExtensions: ['ts', 'js', 'json'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   transformIgnorePatterns: [
     // Allow Jest to transform specific dependencies (e.g., chalk)
     'node_modules/(?!(chalk|ansi-styles)/)',
